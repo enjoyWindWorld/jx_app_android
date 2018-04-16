@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ll_footer"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       >
+       <ProgressBar
+           android:id="@+id/pb_item_footer_loading"
+           android:layout_width="@dimen/dp_20"
+           android:layout_height="@dimen/dp_20"
+           android:layout_centerInParent="true"
+           android:visibility="gone"
+           />
+
+       <TextView
+           android:id="@+id/tv_item_footer_load_more"
+           android:layout_toRightOf="@id/pb_item_footer_loading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="@dimen/dp_10"
+           android:padding="@dimen/dp_10"
+           android:textColor="@color/color_111111"
+           android:visibility="gone"
+           />
+   </RelativeLayout>
+</LinearLayout>

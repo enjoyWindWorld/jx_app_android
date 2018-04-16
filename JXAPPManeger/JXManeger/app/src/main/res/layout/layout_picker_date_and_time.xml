@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="#F8F8F8">
+
+        <RelativeLayout
+            android:id="@+id/layout_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|left"
+            >
+            <TextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dip"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip"
+                android:paddingTop="10dip"
+                android:text="取消"
+                android:textColor="#8A7ED8"
+                android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_ensure"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|right"
+            >
+        <TextView
+            android:id="@+id/tv_ensure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dip"
+            android:paddingLeft="15dip"
+            android:paddingRight="15dip"
+            android:paddingTop="10dip"
+            android:text="确定"
+            android:textColor="#8A7ED8"
+            android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip">
+
+            <FrameLayout
+                android:id="@+id/year"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.jx.maneger.view.loopview.LoopView
+                    android:id="@+id/loop_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="年"
+                    android:textColor="#B3B3B3" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/month"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.jx.maneger.view.loopview.LoopView
+                    android:id="@+id/loop_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="月"
+                    android:textColor="#B3B3B3" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/day"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.jx.maneger.view.loopview.LoopView
+                    android:id="@+id/loop_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="日"
+                    android:textColor="#B3B3B3" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/hour"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jx.maneger.view.loopview.LoopView
+                android:id="@+id/loop_hour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:text="时"
+                android:textColor="#B3B3B3" />
+        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/second"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.jx.maneger.view.loopview.LoopView
+                    android:id="@+id/loop_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="分"
+                    android:textColor="#B3B3B3" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="15dip"
+            android:background="#A5A5A5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dip"
+            android:background="#A5A5A5" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E2E2E2" />
+
+</LinearLayout>

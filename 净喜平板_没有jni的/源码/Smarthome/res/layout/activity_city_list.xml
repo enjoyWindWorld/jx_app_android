@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/content_bg">
+    
+    <LinearLayout
+        android:id="@+id/base_title_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/navigation_bar_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        <ImageView
+        	android:id="@+id/title_back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/title_back_onclick" />
+	</LinearLayout>
+
+    <include layout="@layout/view_search"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f0f1f5"
+        />
+
+    <RelativeLayout
+        android:id="@+id/layout_get_area"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+        <TextView
+            android:id="@+id/txt_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:layout_marginRight="15dp"
+            android:singleLine="true"
+            android:text="当前:"
+            android:layout_toLeftOf="@+id/layout_area"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_area"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="切换区县"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <ImageView
+                android:id="@+id/img_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/down_arrow_2x"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f0f1f5"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ListView
+            android:id="@+id/listview_all_city"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:listSelector="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"/>
+
+        <TextView
+            android:id="@+id/tv_letter_overlay"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@drawable/overlay_bg"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:visibility="gone"/>
+
+        <com.kxw.smarthome.view.SideLetterBar
+            android:id="@+id/side_letter_bar"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            tools:ignore="RtlHardcoded" />
+
+        <ListView
+            android:id="@+id/listview_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:cacheColorHint="@android:color/transparent"
+            android:listSelector="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:visibility="gone"/>
+
+        <include layout="@layout/view_no_search_result" />
+    </RelativeLayout>
+</LinearLayout>

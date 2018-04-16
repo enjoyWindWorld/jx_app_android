@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="header_bg_common">#323a45</color>
+    <color name="title_txt_color">#f1f1f3</color>
+    <color name="circle_color">#323a45</color>
+    <color name="ring_color">#14b9d6</color>
+    
+     <color name="rippelColor">#0099CC</color>
+    
+    <!-- adv MainActivity -->
+    <color name="menu_text_color">#919191</color>
+    <color name="menu_bg_color">#404040</color>
+    
+    <color name="text_color_white">#ffffff</color>
+    <color name="navigation_bar_color">#1bb6ef</color>
+    <color name="temperature_text">#fd6212</color>
+    <color name="now_temperature_text">#333333</color>
+    
+    <color name="line_color">#dedede</color>
+    <color name="tds_text_color">#777777</color>
+    <color name="seekbar_progress_color">#1bb6ef</color>
+    <color name="seekbar_sprogress_color">#d1f0fc</color>
+    
+    <color name="activity_bg_color">#f2f1f6</color>
+    <color name="text_color">#333333</color>
+    
+    <color name="store_list_text">#999999</color>
+    
+    <color name="content_bg">#F3F3F3</color>
+    <color name="color_f0f1f5">#f0f1f5</color>
+    <color name="alpha_gray">#CC646464</color>
+    <color name="color_1bb6ef">#1bb6ef</color>
+    <color name="gray">#8c8c8c</color>
+    <color name="color_f2f3f2">#f2f3f2</color>
+    <color name="color_777777">#777777</color>
+    <color name="color_8e95a1">#8e95a1</color>
+    <color name="gray_deep">#5c5c5c</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_d4d4d8">#d4d4d8</color>
+    <color name="color_balck">#000000</color>
+    <color name="divider">#E5E5E5</color>
+   	<drawable name="drawable_white">#ffffff</drawable>
+   	<color name="red">#FF0000</color>
+    
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BannerView">
+        <attr name="isLoopSrcoll" format="boolean"></attr>
+        <attr name="delay_time" format="string"></attr>
+        <attr name="isCycle" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="NumberAddSubView">
+
+        <attr name="value" format="integer|reference"/>
+        <attr name="minValue" format="integer|reference"/>
+        <attr name="maxValue" format="integer|reference"/>
+        <attr name="number_background" format="reference"/>
+        <attr name="sub_background" format="reference"/>
+        <attr name="add_background" format="reference"/>
+    </declare-styleable>
+    <item type="id" name="tag_first"/>
+    <item type="id" name="tag_second"/>
+</resources>

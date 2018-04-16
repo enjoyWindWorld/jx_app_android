@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+
+    >
+
+    <!--最下面的购物车LinearLayout-->
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/my_banner">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_45">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--   商品图片的RelativeLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_265"
+                    android:gravity="center">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/detail_center_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/big_empty_img" />
+
+                </LinearLayout>
+
+                <!-- 价格那一条背景是红色的-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="#F22E70"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_20"
+                        android:gravity="bottom"
+                        android:text="¥"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_15" />
+
+                    <TextView
+                        android:id="@+id/detail_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_25" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/details_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_0f0f0f"
+                    android:textSize="@dimen/sp_16" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_6"
+                    android:background="#e7e7e2" />
+
+                <!--   颜色，类型，参数，服务4个text的最外层LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--选择颜色-->
+                    <RelativeLayout
+                        android:id="@+id/color_seleted"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_52"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_20"
+                            android:gravity="center_vertical"
+                            android:text="选择 颜色和交易 类型"
+                            android:textColor="@color/color_0f0f0f" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_20"
+                            android:layout_marginTop="@dimen/dp_6"
+                            android:src="@mipmap/detaildot2" />
+
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/home_line" />
+                    <!--交易类型-->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/home_line" />
+                    <!--产品参数-->
+                    <RelativeLayout
+                        android:id="@+id/Product_Parameter"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_52"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_20"
+                            android:gravity="center_vertical"
+                            android:text="产品参数"
+                            android:textColor="@color/color_0f0f0f" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_20"
+                            android:layout_marginTop="@dimen/dp_6"
+                            android:src="@mipmap/detaildot2" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/home_line"
+                        android:gravity="center_vertical" />
+                    <!--净水器介绍及服务-->
+                    <RelativeLayout
+                        android:id="@+id/details_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_52"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_20"
+                            android:gravity="center_vertical"
+                            android:text="净水器服务及介绍"
+                            android:textColor="@color/color_0f0f0f" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_20"
+                            android:src="@mipmap/gointo" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_6"
+                        android:background="#e7e7e2" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_8">
+
+
+            <ImageView
+                android:id="@+id/shopping_cart_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@mipmap/shoppingcart2" />
+
+            <FrameLayout
+                android:id="@+id/layout_dot"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_gravity="end"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/red_dot" />
+
+                <TextView
+                    android:id="@+id/txt_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_8" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/details_add_cart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="#F49F2B"
+            android:text="加入购物车"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/goto_buy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#F23030"
+            android:text="立即购买"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_15" />
+
+    </LinearLayout>
+</RelativeLayout>

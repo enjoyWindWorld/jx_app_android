@@ -1,0 +1,212 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_bg_color"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/layout_regulating"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:visibility="gone"
+	     >
+    
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginTop="10dp"
+		    android:layout_marginBottom="10dp"
+		    android:text="@string/regulating_Temperature_title"
+		    android:textColor="@color/tds_text_color"
+		    android:textSize="@dimen/setting_item_text_size" 
+		    android:layout_marginRight="20dp"
+		    />
+		
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@color/white"
+		    android:paddingTop="10dp"
+		    android:paddingBottom="10dp"
+		    android:layout_gravity="center_vertical"
+		    >
+		    <TextView 
+		        android:id="@+id/txt_regulating_Temperature_add"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textSize="40sp"
+		    	android:text="+"
+		    	android:layout_marginLeft="20dp"
+		    	android:paddingLeft="20dp"
+		    	android:paddingRight="20dp"
+		    	android:layout_centerVertical="true"
+		        />
+		    
+		    <EditText 
+		        android:id="@+id/edit_regulating_Temperature"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_toRightOf="@+id/txt_regulating_Temperature_add"
+		    	android:hint="0"
+		    	android:textSize="30sp"
+		    	android:layout_centerVertical="true"
+		    	android:enabled="false"
+		        />
+		    
+		   	<TextView 
+		        android:id="@+id/txt_regulating_Temperature_reduce"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_toRightOf="@+id/edit_regulating_Temperature"
+		    	android:textSize="40sp"
+		    	android:text="-"
+		    	android:paddingLeft="20dp"
+		    	android:paddingRight="20dp"
+		    	android:layout_centerVertical="true"
+		        />
+		   	
+		   	<Button
+	            android:id="@+id/regulating_Temperature_bt"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="@dimen/margin_20dp"
+	            android:layout_marginRight="@dimen/margin_20dp"
+	            android:background="@drawable/button_background_shape"
+	            android:text="@string/confirm"
+	            android:textColor="@drawable/button_text_select"
+	            android:textSize="@dimen/text_size_18sp" 
+	            android:layout_alignParentRight="true"
+	            android:padding="10dp"
+	           	android:layout_centerVertical="true"
+	            />
+		   	
+		</RelativeLayout>
+		
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginTop="10dp"
+		    android:layout_marginBottom="10dp"
+		    android:text="@string/flow_adjustment"
+		    android:textColor="@color/tds_text_color"
+		    android:textSize="@dimen/setting_item_text_size" 
+		    android:layout_marginRight="20dp"
+		    />
+		
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@color/white"
+		    android:paddingTop="10dp"
+		    android:paddingBottom="10dp"
+		    android:layout_gravity="center_vertical"
+		    >
+		    <TextView 
+		        android:id="@+id/txt_flow_adjustment_add"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:textSize="40sp"
+		    	android:text="+"
+		    	android:layout_marginLeft="20dp"
+		    	android:paddingLeft="20dp"
+		    	android:paddingRight="20dp"
+		    	android:layout_centerVertical="true"
+		        />
+		    
+		    <EditText 
+		        android:id="@+id/edit_flow_adjustment"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_toRightOf="@+id/txt_flow_adjustment_add"
+		    	android:hint="0"
+		    	android:enabled="false"
+		    	android:textSize="30sp"
+		    	android:layout_centerVertical="true"
+		        />
+		    
+		   	<TextView 
+		        android:id="@+id/txt_flow_adjustment_reduce"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_toRightOf="@+id/edit_flow_adjustment"
+		    	android:textSize="40sp"
+		    	android:text="-"
+		    	android:paddingLeft="20dp"
+		    	android:paddingRight="20dp"
+		    	android:layout_centerVertical="true"
+		        />
+		   	
+		   	<Button
+	            android:id="@+id/flow_adjustment_bt"
+	             android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="@dimen/margin_20dp"
+	            android:layout_marginRight="@dimen/margin_20dp"
+	            android:background="@drawable/button_background_shape"
+	            android:text="@string/confirm"
+	            android:textColor="@drawable/button_text_select"
+	            android:textSize="@dimen/text_size_18sp" 
+	            android:layout_alignParentRight="true"
+	            android:padding="10dp"
+	           	android:layout_centerVertical="true"
+	            />
+		   	
+		</RelativeLayout>
+	
+	</LinearLayout>
+	
+    <LinearLayout
+        android:id="@+id/layout_login"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical" >
+		
+        
+       	<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginTop="10dp"
+		    android:layout_marginBottom="10dp"
+		    android:text="@string/regulating_Temperature_remind"
+		    android:textColor="@color/red"
+		    android:textSize="@dimen/setting_item_text_size" 
+		    android:layout_marginRight="20dp"/>
+       	
+      	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/pwd_et"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_marginRight="@dimen/margin_20dp"
+                android:hint="@string/regulating_Temperature_pwd_hint"
+                android:singleLine="true"
+                 />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_bt"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_background_shape"
+            android:text="@string/confirm"
+            android:textColor="@drawable/button_text_select"
+            android:textSize="@dimen/text_size_24sp" />
+       	
+       	
+    </LinearLayout>
+
+</LinearLayout>

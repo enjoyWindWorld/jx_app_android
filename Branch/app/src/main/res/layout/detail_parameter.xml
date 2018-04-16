@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#66ADADAD"/>
+    <LinearLayout
+
+        android:id="@+id/pop_container"
+        android:orientation="vertical"
+        android:background="#FCFCFC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+
+            <TextView
+                android:textColor="@color/color_333333"
+              android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:text="产品参数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@mipmap/home_line" />
+
+        <!--包裹下面参数的最外层LinearLayout-->
+        <ScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_model_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 电压/频率 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_voltage_frequency_tilte"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_voltage_frequency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 功率 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_power_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 压力 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_pressure_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 温度 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_temperature_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 流量 -->
+
+            <!-- 过滤方式 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_mode_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 适用水范围 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_flow_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/txt_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_range_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 水质 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_quality_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 毛重 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_gross_weight_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_gross_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 净重 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_weight_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 产品尺寸 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_size_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+
+                    android:id="@+id/txt_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <!-- 包装尺寸 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pro_detail_packing_size_title"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:text="320*480*1235mm"
+                    android:id="@+id/txt_packing_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_858585"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/parmeter_btn"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:textColor="@color/white"
+                android:background="#73D1C4"
+                android:textSize="20sp"
+                android:text="确定"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40" />
+    </LinearLayout>
+
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="9dp"
+        android:textColor="@color/color_8e95a1"
+        android:textSize="12sp" />
+
+
+    <ScrollView
+
+        android:id="@+id/firt_book_n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        android:scrollbars="none">
+
+        <com.kxw.smarthome.view.MyGridView
+            android:id="@+id/service_fl_gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingBottom="15dp"
+            android:horizontalSpacing="10dp"
+            android:listSelector="@null"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" />
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/color_balck">
+
+    </LinearLayout>
+</LinearLayout>

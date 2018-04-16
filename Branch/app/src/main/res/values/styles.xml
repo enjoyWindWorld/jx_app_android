@@ -1,0 +1,138 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--自定义弹出窗口样式 -->
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+    <!--改变返回键按钮颜色-->
+    <style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/white</item>
+    </style>
+
+    <style name="NormalDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/normalDialogAnim</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="normalDialogAnim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/normal_dialog_enter
+        </item>
+        <item name="@android:windowExitAnimation">@anim/normal_dialog_exit
+        </item>
+    </style>
+
+    <!-- 底部导航RadioGroup的按钮样式-->
+    <style name="BottomRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/main_bottom_text</item>
+        <item name="android:text">首页</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 商品详情选择颜色的按钮样式-->
+    <style name="SelectProductColorRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AnimationFade">
+        <!-- PopupWindow左右弹出的效果 -->
+        <item name="android:windowEnterAnimation">@anim/inputodown</item>
+        <item name="android:windowExitAnimation">@anim/outdowntoup</item>
+    </style>
+
+
+    <style name="AnimationBottomTo">
+        <!-- PopupWindow底部弹出的效果 -->
+        <item name="android:windowEnterAnimation">@anim/in_bottomtotop</item>
+        <item name="android:windowExitAnimation">@anim/out_toptobottom</item>
+    </style>
+
+    <!--自定义弹出窗口样式 -->
+    <style name="CustomDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="Theme.Light.NoTitle.NoShadow.Dialog" parent="CustomDialogStyle">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="Animation.Bottom.Rising" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/in_bottomtotop</item>
+        <item name="android:windowExitAnimation">@anim/out_toptobottom</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="LetterIndexTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">@dimen/side_letter_bar_width</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <!-- 圆形图标准备 -->
+    <declare-styleable name="XRoundAngleImageView">
+        <attr name="roundWidth" format="dimension" />
+        <attr name="roundHeight" format="dimension" />
+    </declare-styleable>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <!--  详情页面popuwindow样式-->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+
+    </style>
+
+    <!--  这个是加入的代码 -->
+    <style name="mypopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
+        <!-- 指定显示的动画xml -->
+
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
+</resources>

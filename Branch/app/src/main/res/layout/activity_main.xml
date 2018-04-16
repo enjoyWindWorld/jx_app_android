@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/color_cccccc"
+        android:layout_above="@+id/main_rg"
+        />
+
+    <FrameLayout
+        android:layout_above="@id/v_line"
+        android:id="@+id/main_container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/main_rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_59"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/dp_3"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+
+      <!--  main_rb_newhome -->
+        <RadioButton
+            android:id="@+id/main_rb_newhome"
+            style="@style/BottomRadioButton"
+            android:drawableTop="@drawable/selector_main_bottom_newhome"
+            android:textColor="@color/main_bottom_text"
+            android:text="首页"
+            android:checked="true"
+            android:textSize="@dimen/sp_10"
+            android:layout_weight="1"
+            />
+
+        <RadioButton
+            android:id="@+id/main_rb_service"
+            style="@style/BottomRadioButton"
+            android:drawableTop="@drawable/selector_main_bottom_service"
+            android:textColor="@color/main_bottom_text"
+            android:text="社区服务"
+            android:textSize="@dimen/sp_10"
+            android:layout_weight="1"
+            />
+
+        <RadioButton
+            android:id="@+id/main_rb_video"
+            style="@style/BottomRadioButton"
+            android:drawableTop="@drawable/selector_main_bottom_video"
+            android:textColor="@color/main_bottom_text"
+            android:text="视频娱乐"
+            android:textSize="@dimen/sp_10"
+            android:layout_weight="1"
+            />
+
+
+        <RadioButton
+            android:id="@+id/mian_rb_mine"
+            style="@style/BottomRadioButton"
+            android:drawableTop="@drawable/selector_main_bottom_mine"
+            android:textColor="@color/main_bottom_text"
+            android:text="我的"
+            android:textSize="@dimen/sp_10"
+            android:gravity="center"
+            android:layout_weight="1"
+            />
+
+    </RadioGroup>
+</RelativeLayout>

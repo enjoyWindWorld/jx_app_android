@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+    <TextView
+        android:id="@+id/txt_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_35"
+        android:textColor="@color/color_333333"
+        android:gravity="center"
+        android:textSize="@dimen/sp_24"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_detail_title"
+        android:padding="@dimen/dp_20"
+        android:textColor="@color/color_1bb6ef"
+        android:layout_gravity="center"
+        android:textSize="@dimen/sp_15"
+        />
+
+    <FrameLayout
+        android:id="@+id/my_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="@dimen/dp_20"
+        >
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/dp_277"
+            android:layout_height="@dimen/dp_216"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            />
+
+        <ImageView
+            android:id="@+id/loading_anim_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/loading"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/color_f2f2f2"
+        />
+</LinearLayout>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_weight="1.3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="@string/equipment_state"
+            android:textColor="#777777"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/equipment_surplus"
+            android:textColor="#777777"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_ppf"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+        
+        <SeekBar
+            android:id="@+id/equipment_ppf_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+            />
+
+        <TextView
+            android:id="@+id/equipment_ppf_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_cto"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+
+        <SeekBar
+            android:id="@+id/equipment_cto_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+              />
+
+        <TextView
+            android:id="@+id/equipment_cto_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_t33"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+
+        <SeekBar
+            android:id="@+id/equipment_t33_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+              />
+
+        <TextView
+            android:id="@+id/equipment_t33_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_ro"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+
+        <SeekBar
+            android:id="@+id/equipment_ro_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+              />
+
+        <TextView
+            android:id="@+id/equipment_ro_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+
+  <!--   <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_postposition"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+
+        <SeekBar
+            android:id="@+id/equipment_postposition_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+              />
+
+        <TextView
+            android:id="@+id/equipment_postposition_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+ -->
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/equipment_wfr"
+            android:textColor="#333333"
+            android:textSize="@dimen/equipment_text" />
+
+        <SeekBar
+            android:id="@+id/equipment_wfr_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_thumb_style"
+            android:thumbOffset="0dip"
+              />
+
+        <TextView
+            android:id="@+id/equipment_wfr_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/equipment_surplus_nuit"
+            android:textColor="@color/temperature_text"
+            android:textSize="@dimen/equipment_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

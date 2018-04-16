@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_efeff4"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/edt_fault_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_35"
+        android:background="@color/white"
+        android:gravity="top"
+        android:hint="请描述你遇到的问题"
+        android:minHeight="@dimen/dp_150"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15"
+        android:paddingTop="@dimen/dp_20"
+        android:textColorHint="@color/color_b2b8c2"
+        android:textSize="@dimen/sp_12" />
+
+</LinearLayout>

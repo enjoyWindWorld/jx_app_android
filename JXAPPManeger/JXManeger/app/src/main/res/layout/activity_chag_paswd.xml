@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/grxx_xgmm_jmm_srk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:background="@drawable/grxx_xgmm_srcbg"
+        android:hint="请输入旧密码"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_b2b8c2"
+        android:textSize="@dimen/sp_14" />
+
+    <EditText
+        android:id="@+id/grxx_xgmm_xmm_srk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/grxx_xgmm_srcbg"
+        android:hint="请输入新密码"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_b2b8c2"
+        android:singleLine="true"
+        android:textSize="@dimen/sp_14" />
+
+    <EditText
+        android:id="@+id/grxx_xgmm_rxmm_srk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/grxx_xgmm_srcbg"
+        android:hint="请再次输入新密码"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_b2b8c2"
+        android:singleLine="true"
+        android:textSize="@dimen/sp_14" />
+
+
+    <Button
+        android:id="@+id/grxx_xgmm_xgmm_an"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/grxx_xgmm_anbg"
+        android:text="修改密码"
+        android:textColor="@drawable/button_press_txt_blue"
+        android:textSize="@dimen/sp_18" />
+
+</LinearLayout>

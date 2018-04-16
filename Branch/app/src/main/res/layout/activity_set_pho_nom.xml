@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_40"
+        android:src="@mipmap/gr_bdsj_sj" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_30">
+
+        <TextView
+            android:id="@+id/grxx_bdsj_sjhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/grxx_bdsj_bdan"
+        android:layout_width="@dimen/dp_330"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_40"
+        android:background="@drawable/grxx_xgmm_anbg"
+        android:text="更换手机号"
+        android:textColor="@drawable/button_press_txt_blue"
+        android:textSize="@dimen/sp_18" />
+
+
+</LinearLayout>

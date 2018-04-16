@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonItemView">
+        <attr name="left_iv" format="reference"></attr>
+        <attr name="left_tv" format="reference"></attr>
+        <attr name="right_iv" format="reference"></attr>
+        <attr name="right_tv" format="reference"></attr>
+        <attr name="left_tv_size" format="reference"></attr>
+        <attr name="left_tv_color" format="reference"></attr>
+        <attr name="right_tv_size" format="reference"></attr>
+        <attr name="right_tv_color" format="reference"></attr>
+        <attr name="bg_color" format="reference"></attr>
+    </declare-styleable>
+</resources>

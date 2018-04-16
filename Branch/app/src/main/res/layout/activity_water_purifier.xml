@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+
+        <RelativeLayout
+            android:id="@+id/layout_my"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:id="@+id/txt_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="我的净水机"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/color_1bb6ef"
+                    android:layout_centerInParent="true"
+                    />
+
+                <View
+                    android:id="@+id/view_my"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_2"
+                    android:background="@color/color_1bb6ef"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/txt_my"
+                    android:layout_alignEnd="@+id/txt_my"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_other"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:id="@+id/txt_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="收到的净水机"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:textColor="@color/color_000000"
+                    android:layout_centerInParent="true"
+                    />
+                <View
+                    android:id="@+id/view_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/txt_other"
+                    android:layout_alignEnd="@+id/txt_other"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f2f3f2"
+        />
+    <FrameLayout
+        android:layout_above="@id/v_line"
+        android:id="@+id/main_container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,147 @@
+# view AndroidManifest.xml #generated:245
+-keep class com.baidu.location.f { <init>(...); }
+
+# view AndroidManifest.xml #generated:38
+-keep class com.kxw.smarthome.AdvMainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:51
+-keep class com.kxw.smarthome.BaseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:91
+-keep class com.kxw.smarthome.BindDeviceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:81
+-keep class com.kxw.smarthome.BrightnessControlActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:121
+-keep class com.kxw.smarthome.CityPickerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:61
+-keep class com.kxw.smarthome.CommunityServicesActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:96
+-keep class com.kxw.smarthome.FilterChangeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:101
+-keep class com.kxw.smarthome.FilterChangeListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.kxw.smarthome.FragmentMainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:132
+-keep class com.kxw.smarthome.HintDialogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:116
+-keep class com.kxw.smarthome.MachineSynchronizationActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.kxw.smarthome.MyApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:143
+-keep class com.kxw.smarthome.RegulatingTemperatureActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:111
+-keep class com.kxw.smarthome.SearchOrderInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:71
+-keep class com.kxw.smarthome.SettingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:106
+-keep class com.kxw.smarthome.StoreInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:66
+-keep class com.kxw.smarthome.StoreListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:126
+-keep class com.kxw.smarthome.UpdateDialogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:86
+-keep class com.kxw.smarthome.VolumeControlActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:138
+-keep class com.kxw.smarthome.WebViewActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:76
+-keep class com.kxw.smarthome.WifiManageActivity { <init>(...); }
+
+# view res/layout/view_banner_content.xml #generated:6
+-keep class com.kxw.smarthome.imagecycleview.CycleViewPager { <init>(...); }
+
+# view res/layout/adv_activity.xml #generated:18
+-keep class com.kxw.smarthome.imagecycleview.ImageCycleView { <init>(...); }
+
+# view res/layout/appliance_repair_activity.xml #generated:67
+-keep class com.kxw.smarthome.pulltorefresh.PullToRefreshListView { <init>(...); }
+
+# view AndroidManifest.xml #generated:213
+-keep class com.kxw.smarthome.receiver.ExpirationHintsReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:149
+-keep class com.kxw.smarthome.receiver.GetRenewReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:157
+-keep class com.kxw.smarthome.receiver.OnTouchReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:205
+-keep class com.kxw.smarthome.receiver.ResetDeviceReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:221
+-keep class com.kxw.smarthome.receiver.SyncFilterLifeReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:165
+-keep class com.kxw.smarthome.receiver.UpdateAdReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:173
+-keep class com.kxw.smarthome.receiver.UpdateFilterInfoReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:229
+-keep class com.kxw.smarthome.receiver.UpdateOptionDescriptionReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:181
+-keep class com.kxw.smarthome.receiver.UpdateTimeReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:189
+-keep class com.kxw.smarthome.receiver.UpdateWeatherReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:197
+-keep class com.kxw.smarthome.receiver.UpgradeReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:237
+-keep class com.kxw.smarthome.receiver.VerificationDataReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:260
+-keep class com.kxw.smarthome.service.UpdateService { <init>(...); }
+
+# view res/layout/layout_custom_banner.xml #generated:6
+-keep class com.kxw.smarthome.view.AutoScrollLoopViewPager { <init>(...); }
+
+# view res/layout/store_info_activity.xml #generated:62
+-keep class com.kxw.smarthome.view.BannerView { <init>(...); }
+
+# view res/layout/personal_center_activity.xml #generated:23
+-keep class com.kxw.smarthome.view.CircleImageView { <init>(...); }
+
+# view res/layout/set_temperature_fragment.xml #generated:16
+-keep class com.kxw.smarthome.view.CircleSeekBar { <init>(...); }
+
+# view res/layout/layout_service_type.xml #generated:28
+-keep class com.kxw.smarthome.view.MyGridView { <init>(...); }
+
+# view res/layout/main_activity.xml #generated:13
+-keep class com.kxw.smarthome.view.MyViewPager { <init>(...); }
+
+# view res/layout/test.xml #generated:1
+-keep class com.kxw.smarthome.view.RippleBackground { <init>(...); }
+
+# view res/layout/activity_city_list.xml #generated:111
+-keep class com.kxw.smarthome.view.SideLetterBar { <init>(...); }
+
+# view res/layout/use_water_fragment.xml #generated:79
+-keep class com.kxw.smarthome.view.WaveView { <init>(...); }
+
+# view res/layout/view_hot_city.xml #generated:20
+-keep class com.kxw.smarthome.view.WrapHeightGridView { <init>(...); }
+
+# view res/layout/activity_ad_cycle.xml #generated:6
+-keep class com.minking.imagecycleview.ImageCycleView { <init>(...); }
+

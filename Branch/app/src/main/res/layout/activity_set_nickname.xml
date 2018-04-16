@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_efeff4"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/color_d4d4d8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:id="@+id/grxx_xgnc_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="@dimen/dp_15"
+                android:src="@mipmap/grxx_xgnc_clean" />
+
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/grxx_xgnc_srk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_toLeftOf="@id/grxx_xgnc_clean"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:hint="请输入昵称"
+            android:singleLine="true"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_b2b8c2"
+            android:textSize="@dimen/sp_14" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_d4d4d8" />
+
+</LinearLayout>

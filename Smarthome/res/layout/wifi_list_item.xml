@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/brightness_control_ll"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/linearlayout_item_select"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/wifi_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="47dp"
+            android:layout_weight="1"
+            android:text="@string/wifi_manage"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_24sp" />
+
+        <ImageView
+            android:id="@+id/wifi_lock_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/wifi_have_pwd" />
+
+        <ImageView
+            android:id="@+id/wifi_level_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/wifi_level_3" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+</LinearLayout>

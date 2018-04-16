@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/activity_bg_color"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/volume_control_tv"
+            android:textColor="@color/tds_text_color"
+            android:textSize="@dimen/setting_item_text_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:src="@drawable/volume_control_min" />
+
+        <SeekBar
+            android:id="@+id/volume_control_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_weight="1"
+            android:minHeight="15dp"
+            android:maxHeight="15dp"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/seekbar_handle"
+            android:thumbOffset="1dp"/>
+
+        <ImageView
+            android:id="@+id/wifi_level_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:src="@drawable/volume_control_max" />
+    </LinearLayout>
+
+<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linearlayout_item_select"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:id="@+id/wifi_manage_ll"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_weight="1"
+                android:text="@string/volume_control_auto"
+                android:textColor="#333333"
+                android:textSize="@dimen/text_size_24sp" />
+
+            <ToggleButton
+                android:id="@+id/volume_control_tb"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/margin_20dp"
+                android:background="@android:color/transparent"
+                android:button="@drawable/toggle_button_oncheck"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

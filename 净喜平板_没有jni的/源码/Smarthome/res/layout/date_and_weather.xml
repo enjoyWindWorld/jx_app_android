@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:background="@color/navigation_bar_color" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.3"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/title_back_ll"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/title_back_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:src="@drawable/title_back_onclick" />
+        </LinearLayout>
+
+        <!--
+             <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/now_date"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+        -->
+
+        <TextView
+            android:id="@+id/current_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/now_weather"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+
+        <TextView
+            android:id="@+id/weather_state_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+
+        <TextView
+            android:id="@+id/weather_temperature_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:gravity="center" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/title_type_img" />
+
+        <TextView
+            android:id="@+id/use_mode_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+
+        <TextView
+            android:id="@+id/value_surplus_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/navigation_bar_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/wifi_state_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/wifi_connect_img" />
+    </LinearLayout>
+
+</LinearLayout>

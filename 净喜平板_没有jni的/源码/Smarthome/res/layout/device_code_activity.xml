@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg_color"
+ 	 >
+
+    <LinearLayout
+        android:id="@+id/bind_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/activity_bg_color"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/device_code_text_hint"
+                android:textColor="@color/tds_text_color"
+                android:textSize="@dimen/setting_item_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/phone_num_et"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_marginRight="@dimen/margin_20dp"
+                android:hint="@string/device_code_edittext_hint"
+                android:singleLine="true"
+                 />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/activity_bg_color"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/device_alias_text_hint"
+                android:textColor="@color/tds_text_color"
+                android:textSize="@dimen/setting_item_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/device_alias_et"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_marginRight="@dimen/margin_20dp"
+                android:hint="@string/device_alias_edittext_hint"
+                android:singleLine="true"
+                 />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/get_device_code_bt"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_background_shape"
+            android:text="@string/device_code_button_hint"
+            android:textColor="@drawable/button_text_select"
+            android:textSize="@dimen/text_size_24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hit_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/margin_40dp"
+        android:layout_marginLeft="@dimen/margin_40dp"
+        android:layout_marginRight="@dimen/margin_40dp"
+        android:layout_marginTop="@dimen/margin_40dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/phone_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_no"
+            android:textColor="#111111"
+            android:textSize="@dimen/text_size_26sp" />
+        
+        <TextView
+            android:id="@+id/device_alias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/device_alias"
+            android:textColor="#111111"
+            android:textSize="@dimen/text_size_26sp" 
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/device_bind_hint"
+            android:textColor="#111111"
+            android:textSize="@dimen/text_size_24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#111111"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/device_bind_text"
+            android:textSize="@dimen/text_size_24sp" />
+        
+        <Button
+            android:id="@+id/unbind_device_code_bt"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/button_background_shape"
+            android:text="@string/device_code_button_unbind"
+            android:textColor="@drawable/button_text_select"
+            android:textSize="@dimen/text_size_24sp" 
+            android:visibility="visible"
+            />
+        
+        <Button
+            android:id="@+id/renew_device_code_bt"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/button_background_shape"
+            android:text="@string/device_code_button_renew"
+            android:textColor="@drawable/button_text_select"
+            android:textSize="@dimen/text_size_24sp" 
+            android:visibility="gone"
+            />
+    </LinearLayout>
+    
+    <View
+        android:id="@+id/reset_top_left"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+    
+   	<View
+        android:id="@+id/reset_top_right"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        />
+   	
+    <View
+        android:id="@+id/reset_bottom_left"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        />
+            
+    <View
+        android:id="@+id/reset_bottom_right"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>

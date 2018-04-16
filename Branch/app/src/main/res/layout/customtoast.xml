@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlToast"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/shape_toast_bg"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_6"
+    >
+
+    <ImageView
+        android:id="@+id/warningToast_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:contentDescription="@null"
+        android:src="@mipmap/icon_right_normal" />
+
+    <TextView
+        android:id="@+id/textToast_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:gravity="center_vertical"
+        android:textColor="#d0d0d0"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>

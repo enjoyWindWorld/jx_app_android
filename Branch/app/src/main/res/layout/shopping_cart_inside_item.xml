@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:atguigu="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <CheckBox
+            android:button="@null"
+            android:id="@+id/cart_inside_checkbox"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_centerVertical="true"
+            android:background="@drawable/checkbox_shdz_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:id="@+id/sc_title_img"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/small_empty_img"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_toRightOf="@+id/sc_title_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_333333"
+                android:id="@+id/sc_title_name"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30" />
+            <TextView
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_999999"
+                android:id="@+id/sc_title_year_or_flow"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"  />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:textSize="@dimen/sp_14"
+                android:textColor="#F49F2B"
+                android:id="@+id/sc_title_price"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"  />
+                <TextView
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textSize="14sp"
+                    android:textColor="@color/color_999999"
+                    android:id="@+id/sc_title_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:orientation="horizontal">
+                    <com.jx.intelligent.view.NumberAddSubView
+
+                        android:id="@+id/shop_addsubview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/dp_3"
+                        atguigu:minValue="0"
+                        atguigu:maxValue="1000"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:background="#c2c2c0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"/>
+
+
+</LinearLayout>

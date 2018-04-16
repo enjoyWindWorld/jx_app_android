@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@mipmap/video_banner_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_156" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+
+            <RadioGroup
+                android:id="@+id/main_rg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_59"
+                android:layout_alignParentBottom="true"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/dp_3"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/main_rb_home"
+                    style="@style/BottomRadioButton"
+                    android:drawableTop="@mipmap/hot"
+                    android:enabled="true"
+                    android:textColor="@color/main_bottom_text"
+                    android:textSize="@dimen/sp_10"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="最热"/>
+                <!--  main_rb_newhome -->
+                <RadioButton
+                    android:id="@+id/main_rb_newhome"
+                    style="@style/BottomRadioButton"
+                    android:drawableTop="@mipmap/newbast"
+                    android:textColor="@color/main_bottom_text"
+                    android:text="最新"
+                    android:textSize="@dimen/sp_10"
+                    android:layout_weight="1"
+                    />
+                <RadioButton
+                    android:id="@+id/main_rb_video"
+                    style="@style/BottomRadioButton"
+                    android:drawableTop="@mipmap/streaming"
+                    android:textColor="@color/main_bottom_text"
+                    android:text="直播"
+                    android:textSize="@dimen/sp_10"
+                    android:layout_weight="1"
+                    />
+
+                <RadioButton
+                    android:id="@+id/main_rb_service"
+                    style="@style/BottomRadioButton"
+                    android:drawableTop="@mipmap/classify"
+                    android:textColor="@color/main_bottom_text"
+                    android:text="分类"
+                    android:textSize="@dimen/sp_10"
+                    android:layout_weight="1"
+                    />
+
+
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#d7d7d5"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+
+            <TextView
+                android:textColor="#6c6767"
+                android:textSize="18sp"
+                android:text="精选"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

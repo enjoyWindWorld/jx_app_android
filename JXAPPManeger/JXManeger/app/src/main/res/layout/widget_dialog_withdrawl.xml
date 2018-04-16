@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_common_diaog"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/shape_common_diaog"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:id="@+id/dialog_normal_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="温馨提示"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/dialog_normal_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温馨提示"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/edit_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginTop="@dimen/dp_10"
+            android:hint="请输入理由"
+            android:background="@null"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_weight="0"
+            android:background="@color/color_888888"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_weight="0"
+        android:background="@color/color_888888"/>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_weight="0"
+        android:textColor="@color/color_111111"
+        android:background="@drawable/selector_widget_dialog_midbtn"
+        android:gravity="center"
+        android:text="通过"
+        android:textSize="14sp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_weight="0"
+        android:background="@color/color_888888"/>
+
+    <Button
+        android:id="@+id/btn_no"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_weight="0"
+        android:textColor="@color/color_111111"
+        android:background="@drawable/selector_widget_dialog_midbtn"
+        android:gravity="center"
+        android:text="拒绝"
+        android:textSize="14sp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_weight="0"
+        android:background="@color/color_888888"/>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_weight="0"
+        android:textColor="@color/color_111111"
+        android:background="@drawable/selector_widget_dialog_midbtn"
+        android:gravity="center"
+        android:text="取消"
+        android:textSize="14sp"
+        />
+
+</LinearLayout>

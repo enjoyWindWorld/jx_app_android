@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <group android:checkableBehavior="single">
+           <item
+               android:id="@+id/item_home"
+               android:checked="true"
+               android:icon="@mipmap/edit_delete"
+               android:title="主页"/>
+
+           <item
+               android:id="@+id/item_download"
+               android:icon="@mipmap/edit_delete"
+               android:title="下载"/>
+
+           <item
+               android:id="@+id/item_favourite"
+               android:icon="@mipmap/edit_delete"
+               android:title="收藏"/>
+
+           <item
+               android:id="@+id/item_history"
+               android:icon="@mipmap/edit_delete"
+               android:title="历史记录"/>
+   </group>
+
+</menu>

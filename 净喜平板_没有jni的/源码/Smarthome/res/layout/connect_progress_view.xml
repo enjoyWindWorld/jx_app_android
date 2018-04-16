@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@drawable/dialog_bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/progress_ll"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/progresStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/hit_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/wifi_connect_progress"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size_24sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
+    defaultConfig {
+        applicationId "com.jx.maneger"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 3
+        versionName "1.0.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "5CgL3tmnQp98B5rbZvc5m4",
+                GETUI_APP_KEY   : "trlZq64MDI6fYa84cxNu6",
+                GETUI_APP_SECRET: "6athfukfrxAAhlkZvSec84"
+        ]
+    }
+
+    buildTypes {
+        release {
+            //开启代码混淆
+            minifyEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    dependencies { compile 'com.android.support:multidex:1.0.1' }
+    compile files('libs/json_simple-1.1.jar')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.alibaba:fastjson:1.2.17'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+    compile 'com.yanzhenjie:recyclerview-swipe:1.0.2'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.dubsmash.volley:library:2.0.1'
+    compile 'io.github.cubedtear:jcubit-eventBus:8.0.0'
+    compile 'com.bartoszlipinski.recyclerviewheader:library:1.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.getui:sdk:2.10.2.0'
+    testCompile 'junit:junit:4.12'
+}

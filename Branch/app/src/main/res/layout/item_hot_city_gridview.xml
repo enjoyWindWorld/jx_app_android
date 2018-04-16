@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f2f3f2">
+
+    <TextView
+        android:id="@+id/tv_hot_city_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_35"
+        android:background="@drawable/corner_gray_bg_white"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="@dimen/city_text_size"
+        android:textColor="@color/gray_deep"/>
+</RelativeLayout>

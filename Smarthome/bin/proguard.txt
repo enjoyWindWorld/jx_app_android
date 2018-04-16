@@ -1,0 +1,112 @@
+# view AndroidManifest.xml #generated:199
+-keep class com.baidu.location.f { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class com.kxw.smarthome.AdvMainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:49
+-keep class com.kxw.smarthome.BaseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:89
+-keep class com.kxw.smarthome.BindDeviceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:79
+-keep class com.kxw.smarthome.BrightnessControlActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class com.kxw.smarthome.CommunityServicesActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:94
+-keep class com.kxw.smarthome.FilterChangeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:99
+-keep class com.kxw.smarthome.FilterChangeListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:54
+-keep class com.kxw.smarthome.FragmentMainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:120
+-keep class com.kxw.smarthome.HintDialogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:30
+-keep class com.kxw.smarthome.MyApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:109
+-keep class com.kxw.smarthome.RegulatingTemperatureActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:69
+-keep class com.kxw.smarthome.SettingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:104
+-keep class com.kxw.smarthome.StoreInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:64
+-keep class com.kxw.smarthome.StoreListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:114
+-keep class com.kxw.smarthome.UpdateDialogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class com.kxw.smarthome.VolumeControlActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.kxw.smarthome.WifiManageActivity { <init>(...); }
+
+# view res/layout/view_banner_content.xml #generated:6
+-keep class com.kxw.smarthome.imagecycleview.CycleViewPager { <init>(...); }
+
+# view res/layout/adv_activity.xml #generated:18
+-keep class com.kxw.smarthome.imagecycleview.ImageCycleView { <init>(...); }
+
+# view res/layout/appliance_repair_activity.xml #generated:67
+-keep class com.kxw.smarthome.pulltorefresh.PullToRefreshListView { <init>(...); }
+
+# view AndroidManifest.xml #generated:191
+-keep class com.kxw.smarthome.receiver.ExpirationHintsReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:127
+-keep class com.kxw.smarthome.receiver.GetRenewReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
+-keep class com.kxw.smarthome.receiver.OnTouchReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:183
+-keep class com.kxw.smarthome.receiver.ResetDeviceReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:143
+-keep class com.kxw.smarthome.receiver.UpdateAdReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:151
+-keep class com.kxw.smarthome.receiver.UpdateFilterInfoReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:159
+-keep class com.kxw.smarthome.receiver.UpdateTimeReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:167
+-keep class com.kxw.smarthome.receiver.UpdateWeatherReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:175
+-keep class com.kxw.smarthome.receiver.UpgradeReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:208
+-keep class com.kxw.smarthome.service.UpdateService { <init>(...); }
+
+# view res/layout/personal_center_activity.xml #generated:23
+-keep class com.kxw.smarthome.view.CircleImageView { <init>(...); }
+
+# view res/layout/set_temperature_fragment.xml #generated:15
+-keep class com.kxw.smarthome.view.CircleSeekBar { <init>(...); }
+
+# view res/layout/main_activity.xml #generated:13
+-keep class com.kxw.smarthome.view.MyViewPager { <init>(...); }
+
+# view res/layout/test.xml #generated:1
+-keep class com.kxw.smarthome.view.RippleBackground { <init>(...); }
+
+# view res/layout/activitymain.xml #generated:12
+# view res/layout/use_water_fragment.xml #generated:79
+-keep class com.kxw.smarthome.view.WaveView { <init>(...); }
+
+# view res/layout/activity_ad_cycle.xml #generated:6
+-keep class com.minking.imagecycleview.ImageCycleView { <init>(...); }
+

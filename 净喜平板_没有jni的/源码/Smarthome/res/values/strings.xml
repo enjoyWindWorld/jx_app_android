@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"净喜智能"</string>
+    <string name="home_page">主页</string>
+    <string name="app_main">净喜智能</string>
+    <string name="community_services">社区服务</string>
+    <string name="personal_center">设置</string>
+    <string name="now_date">当前时间</string>
+    <string name="now_weather">天气</string>
+    <string name="weather_state">天气</string>
+    <string name="weather_temperature">温度</string>
+
+    <!-- UpdateService -->
+    <string name="downloading">正在下载...</string>
+    <string name="downloading_wait">正在下载，请稍后...</string>
+    <string name="start_download">开始下载！</string>
+    <string name="top_title">净喜智能</string>
+    <string name="upgrade">版本更新</string>
+    <string name="upgrade_msg">发现新版本，是否更新?</string>
+    <string name="reset_params">是否恢复出厂设置?</string>
+    <string name="do_unbind">是否解绑净水机?</string>
+    <string name="do_renew">是否续费新服务?</string>
+ 	<string name="do_binddevice">系统检测到您还有未使用完的套餐，您可以使用找回订单同步先前订单，使用设备绑定将会清除先前剩余套餐。</string>
+    
+    <!-- utils -->
+    <string name="network_disConnected">网络未连接,请连接网络</string>
+    <string name="coming_due_time">您使用的套餐剩余不足5%，为了不影响使用，请通过手机APP及时续费！</string>
+    <string name="has_due_time">您的套餐已用完，请通过手机APP续费！</string>
+    <string name="coming_due_lvxin">您有滤芯寿命即将到期，近期将会有工作人员联系您更换滤芯，请保持手机畅通！</string>
+    <string name="has_due_lvxin">您有滤芯寿命已到期，为了您的健康，请停止使用，待工作人员上门更换滤芯！</string>
+    <string name="err_basedata">未能获取净水机数据，请稍候在试！</string>
+    <string name="err_orderdata">未能获取订单数据，请稍候在试！</string>
+    
+    <string name="set_temperature">温度</string>
+    <string name="use_water">用水</string>
+    <string name="equipment_info">滤芯</string>
+    <string name="tds_info">水质</string>
+    <string name="boiling_temperature">100℃为沸水</string>
+    <string name="boiling_temperature_bt">沸水</string>
+    <string name="normal_temperature_text">常温</string>
+    <string name="now_temperature_text">当前温度</string>
+    <string name="normal_temperature">(25℃)</string>
+    <string name="blunt_milk_text">冲奶</string>
+    <string name="blunt_milk">(40℃-60℃)</string>
+    <string name="make_tea_text">泡茶</string>
+    <string name="make_tea">(80℃-95℃)</string>
+    <string name="water_is_inuse">用水情况下暂时不能使用其他功能！</string>
+    <string name="total_flow">已使用流量</string>
+    <string name="total_flow_value">(共%sL)</string>
+    <string name="total_flow_surplus">剩余流量： </string>
+    <string name="title_total_flow_surplus_value">(%sL)</string>
+    <string name="title_total_flow_surplus">剩余流量 </string>
+    <string name="total_flow_surplus_value">%sL</string>
+    <string name="total_make_flow_surplus_value">已制水%sL</string>
+    <string name="total_type_month">包年 </string>
+    <string name="total_day_surplus_value">%s天</string>
+    <string name="title_total_day_surplus">剩余</string>
+    <string name="title_total_day_surplus_value">(剩余%s天)</string>
+    <string name="water_temperature">水温：%s℃</string>
+    <string name="water_tds">TDS:%s</string>
+    <string name="start_water">开始</string>
+    <string name="stop_water">暂停</string>
+    <string name="total_floew_value">(<font color='#fd6212'>共%sL</font>)</string> 
+    <string name="use_state_1">净水器处于缺水状态！</string>
+    <string name="use_state_8">净水器正在冲洗状态！</string>
+    <string name="use_state_4">净水器正在检修状态，请拔电重启！</string>
+    <string name="use_state_open_error">开水失败，请重试！</string>
+    <string name="use_state_off_error">关水失败，请重试！</string>
+    <string name="use_state_error">设备异常，请通过物理按键用水或重启设备！</string>
+     
+    <string name="equipment_state">滤芯状态</string>
+    <string name="equipment_surplus">预计剩余</string>
+    <string name="equipment_ppf">PP</string>
+    <string name="equipment_cto">CTO块状活性炭</string>
+    <string name="equipment_t33">T33</string>
+    <string name="equipment_ro">RO膜</string>
+    <string name="equipment_postposition">后置碳</string>
+    <string name="equipment_wfr">弱碱\n滤芯</string>
+    <string name="equipment_complex_energy">复合能量矿化</string>
+    <string name="equipment_surplus_nuit">%s</string>
+    <string name="filter_get_failed">数据读取失败，请稍后再试！</string>
+    
+    <string name="tds_info_text">当前水质TDS值：</string>
+    <string name="water_type_text_head">已达到国家</string>
+    <string name="water_type_text_end">的标准!</string>
+    <string name="tds_value_title">TDS值(PPM)</string>
+    <string name="tds_value_1">0～9</string>
+    <string name="tds_value_2">10～90</string>
+    <string name="tds_value_3">90～250</string>
+    <string name="tds_value_4">260～600</string>
+    <string name="tds_value_5">600以上</string>
+    <string name="water_type_title">水质</string>
+    <string name="water_type_1">纯净水</string>
+    <string name="water_type_2">饮用水</string>
+    <!-- <string name="water_type_2">山泉水、矿化水</string> -->
+    <string name="water_type_3">净化水</string>
+    <string name="water_type_4">自来水</string>
+    <string name="water_type_5">污染水</string>
+
+    <!-- community services -->
+    
+    <string name="network_disconnected">请求失败，请检查网络后重试~~</string>
+    <string name="data_is_null">暂无相关数据~~</string>
+    <string name="data_get_error">服务器发生未知错误~~</string>
+    <string name="refresh_data">重试</string>
+    <string name="all_data_load_completed">已加载所有数据~~</string>
+    <string name="pull_up_to_load_more">上拉加载更多...</string>
+    <string name="is_loading_more">正在加载中...</string>
+    <string name="to_load_more">放开以加载更多</string>
+    <string name="pull_down_to_refresh">下拉刷新...</string>
+    <string name="to_refresh">放开以刷新</string>
+    <string name="is_refreshing">正在刷新...</string>
+    
+    <string name="appliance_repair">家电维修</string>
+    <string name="clean_house">保洁</string>
+    <string name="pet_care">宠物代养</string>
+    <string name="flower_plant">鲜花绿植</string>
+    <string name="materials_recovery">旧品回收</string>
+    <string name="move_house">搬家服务</string>
+    <string name="dry_cleaning">干洗修鞋</string>
+    <string name="nanny_services">保姆服务</string>
+
+    <!-- store info -->
+    <string name="services_time">服务时间段：</string>
+    <string name="store_describe">服务描述:</string>
+
+    <!-- personal center -->
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+
+    <!-- setting -->
+    <string name="wifi_manage">Wi-Fi</string>
+    <string name="wifi_manage_hint">提示</string>
+    <string name="wifi_manage_connect">连接</string>
+    <string name="wifi_manage_disconnect">断开</string>
+    <string name="wifi_manage_forget">忘记</string>
+    <string name="wifi_manage_pwd">密码：</string>
+    <string name="wifi_manage_shwo_pwd">显示密码</string>
+    <string name="wifi_dialog_todo">请选择你要进行的操作</string>
+    <string name="wifi_connect_progress">正在连接，请稍后！</string>
+    <string name="wifi_dialog_nopwd">你选择的wifi无密码，可能不安全，确定继续连接？</string>   
+    <string name="wifi_dialog_title">请输入该无线的连接密码</string>
+    <string name="wifi_dialog_name">名称：</string>
+    <string name="brightness_control">亮度调节</string>
+    <string name="volume_control">音量调节</string>
+    <string name="device_code">设备绑定</string>
+    <string name="select_wifi">选择网络</string>
+    <string name="brightness_control_tv">亮度</string>
+    <string name="brightness_control_auto">自动调节亮度</string>
+    <string name="volume_control_tv">音量</string>
+    <string name="volume_control_auto">静音</string>
+    <string name="device_code_text_hint">设备绑定功能用于将净水器与用户移动手机端进行绑定，以便同步订单和净水器数据！</string>
+    <string name="device_alias_text_hint">设备别名有助于您能快速找到您的净水机！</string>
+   <!--  <string name="device_code_text_hint">设备码用于将净水器与用户移动手机端进行绑定，以便同步净水器数据，设备码请妥善保管！</string> -->
+    <string name="device_code_edittext_hint">请填写购买净水器时生成的订单号</string>
+    <string name="device_alias_edittext_hint">请填写净水机别名</string>
+    <string name="device_pro_code_edittext_hint">请填写绑定后的净水器编号</string>
+    <string name="device_code_button_hint">绑定设备</string>
+    <string name="device_code_button_unbind">解绑设备</string>
+    <string name="device_code_button_renew">服务续费</string>
+    <string name="device_binding">正在绑定，请稍后！</string>
+    <string name="device_unbinding">正在解绑，请稍后！</string>
+    <string name="device_renew">正在添加服务，请稍后！</string>
+    <string name="edit_text_error">您输入的数据格式有误，请重新输入！</string>
+    <string name="device_bind_success">绑定设备成功!</string>
+    <string name="device_unbind_success">设备解绑成功!</string>
+    <string name="device_unbind_failed">设备解绑失败!</string>
+    <string name="device_bind_success_and_finish">绑定设备成功，页面即将关闭!</string>
+    <string name="device_bind_failed">绑定失败，请重试!</string>
+    <string name="device_already_bound">绑定失败，该设备已经被其他账号绑定过!</string>
+    <string name="device_set_failed">验证失败，请重试!</string>
+    <string name="device_set_success">滤芯已经替换成功!</string>
+    <string name="device_renew_success">服务添加成功！</string>
+    <string name="device_renew_success_2">服务添加成功，数据上传中断！</string>
+    <string name="device_renew_failed">服务添加失败！</string>
+    
+   	<string name="str_loading">正在加载，请稍后！</string>
+   	<string name="play_video_faild">视频加载失败！</string>
+    
+    <!-- 绑定的一些提示信息 -->
+    <string name="bind_no_order_data">未能获取到订单信息！</string>
+    <string name="bind_no_life_data">未能获取到滤芯寿命信息！</string>
+    <string name="bind_write_data_err">数据未能存入主板！</string>
+    <string name="bind_no_model_data">获取净水机机型失败！</string>
+    <string name="bind_model_data_err">此订单不属于该机型！</string>
+    <string name="bind_find_order_success">订单找回成功！</string>
+    <string name="bind_find_order_failed">订单找回失败！</string>
+    
+    <string name="order_no">设备订单号：<font color='#FF0000'>%s</font></string> 
+    <string name="device_alias">别名：<font color='#FF0000'>%s</font></string> 
+    
+    <string name="regulating_Temperature_title">温度修正</string> 
+    <string name="flow_adjustment">流量修正</string> 
+    <string name="regulating_Temperature_remind">温度修正与流量修正为调节机器温度误差功能，非专业人员禁止使用！</string>
+    <string name="regulating_Temperature_pwd_hint">请输入密码</string>
+    
+    <string name="device_bind_hint">该设备已经被绑定</string>
+    <string name="device_bind_text">如需添加新的绑定账号，请在该账号的“个人中心”中进行设备分享！</string>
+    
+    <string name="search_order_no">订单编号</string>
+    <string name="search_pro_no">机器编码</string>
+    <string name="search_discribtion">平板同步功能用于更换平板设备时，同步订单信息到平板电脑中！</string>
+    <string name="search_had_order_info">订单信息未丢失，无需找回！</string>
+    
+    <string name="machine_sycn_had_order_info">净水机工作正常，无需同步！</string>
+    <string name="machine_sycn_discribtion">整机同步功能用于更换主板设备时，同步订单信息到净水机中！</string>
+    <string name="machine_sycn_replace_filter">是否已经更换滤芯</string>    
+    
+    <string name="regulating_temperature">机器修正</string>
+    <string name="version_change">检查版本</string>
+    <string name="version_name_head">当前版本已经是最新版本！</string>
+    <string name="equipment_change">更换滤芯</string>
+    <string name="search_ordinfo">平板同步</string>
+    <string name="machine_synchronization">整机同步</string>
+    <string name="pp_filter_change">PP滤芯</string>
+    <string name="cto_filter_change">CTO块状活性炭滤芯</string>
+    <string name="ro_filter_change">RO膜滤芯</string>
+    <string name="t33_filter_change">T33活性保鲜滤芯</string>
+    <string name="wfr_filter_change">弱碱滤芯</string>
+    <string name="complex_energy_filter_change">复合能量矿化滤芯</string>
+    
+    <string name="equipment_change_no_order_info">请先绑定订单！</string>
+    <string name="equipment_change_edittext_hint">请填写所更换滤芯的编号</string>
+    <string name="equipment_change_text_hint">滤芯更换后，请填写对应的滤芯编号，验证滤芯真伪！</string>
+    <string name="select_city">选择城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="located_city">定位城市</string>
+    <string name="hint_search_box">请输入城市名或者拼音</string>
+    <string name="nothing_found">没有搜索结果~</string>
+    <string name="locating">正在定位…</string>
+    <string name="located_failed">定位失败</string>
+
+    <string name="border">Border</string>
+    <string name="shape">Shape</string>
+    <string name="circle">Circle</string>
+    <string name="square">Square</string>
+    <string name="color">Color</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="defaultColor">Default</string>
+    <string name="pull_to_refresh_pull_label">Pull down to refresh…</string>
+    <string name="pull_to_refresh_release_label">release to refresh…</string>
+    <string name="pull_to_refresh_refreshing_label">loading…</string>
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">Pull down to load more…</string>
+    <string name="pull_to_refresh_from_bottom_release_label">release to load more…</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+
+    
+    <string name="error_configuration">Please configure your serial port first.</string>
+    <string name="error_security">You do not have read/write permission to the serial
+		port.</string>
+    <string name="error_unknown">The serial port can not be opened for an unknown
+		reason.</string>
+</resources>

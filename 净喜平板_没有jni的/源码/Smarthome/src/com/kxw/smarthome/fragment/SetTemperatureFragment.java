@@ -1,0 +1,148 @@
+/*
+ * 温度设置
+ */
+package com.kxw.smarthome.fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
+import android_serialport_api.SerialPortUtil;
+
+import com.kxw.smarthome.MyApplication;
+import com.kxw.smarthome.R;
+import com.kxw.smarthome.entity.BaseData;
+import com.kxw.smarthome.utils.SharedPreferencesUtil;
+import com.kxw.smarthome.view.CircleSeekBar;
+
+public class SetTemperatureFragment extends Fragment implements OnSeekBarChangeListener, OnClickListener{
+
+	private View view = null;
+	private CircleSeekBar mCircleSeekBar;
+	private static SeekBar sBar;
+	private TextView now_temperature;
+	private Button boiling_water;
+	private int temperature_value; 
+	private Handler handler;
+
+	byte[] mBuffer;
+	private SerialPortUtil mSerialPortUtil;
+	private BaseData mBaseData;
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		if(view == null){
+			view = inflater.inflate(R.layout.set_temperature_fragment, container,false); 
+		}
+		initView();	
+		handler = new Handler();
+		return view;
+	}
+
+	private void initView() {
+		// TODO Auto-generated method stub
+		sBar = (SeekBar)view.findViewById(R.id.set_temperature_seekBar);
+		mCircleSeekBar = (CircleSeekBar)view.findViewById(R.id.set_temperature_progress);
+		now_temperature = (TextView)view.findViewById(R.id.now_temperature_tv);
+		boiling_water = (Button)view.findViewById(R.id.boiling_water_bt);
+		boiling_water.setOnClickListener(this);
+		sBar.setOnSeekBarChangeListener(this);
+		sBar.setEnabled(false);
+		mSerialPortUtil =MyApplication.getSerialPortUtil();
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				getTemperature();
+			}
+		}, 500);
+	}
+
+	private void getTemperature() {
+		mBaseData = mSerialPortUtil.returnBaseData();
+		temperature_value = mBaseData.temperature;
+		sBar.setProgress(temperature_value);
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		// TODO Auto-generated method stub
+		temperature_value = progress;
+		mCircleSeekBar.setProgress(progress);
+		if(progress==25){
+			now_temperature.setText(getString(R.string.normal_temperature_text)+"("+progress+"℃)");
+			now_temperature.setTextColor(getResources().getColor(R.color.temperature_text));
+		}else if(progress>=40&&progress<=60){
+			now_temperature.setText(getString(R.string.blunt_milk_text)+"("+progress+"℃)");
+			now_temperature.setTextColor(getResources().getColor(R.color.temperature_text));
+		}else if(progress>=80&&progress<=95){
+			now_temperature.setText(getString(R.string.make_tea_text)+"("+progress+"℃)");
+			now_temperature.setTextColor(getResources().getColor(R.color.temperature_text));
+		}else{
+			now_temperature.setText(getString(R.string.now_temperature_text)+"("+progress+"℃)");
+			now_temperature.setTextColor(getResources().getColor(R.color.now_temperature_text));
+		}
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+		SharedPreferencesUtil.saveIntData(
+				getActivity(), "temperature_value", temperature_value);
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.boiling_water_bt:
+            //发送广播  
+			Intent mIntent = new Intent("ON_TOUCH_ACTION");                 
+            getActivity().sendBroadcast(mIntent);  
+            sBar.setProgress(95);
+			SharedPreferencesUtil.saveIntData(
+					getActivity(), "temperature_value",95);
+			break;
+		}
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();		
+	}
+	
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();		
+	}
+}

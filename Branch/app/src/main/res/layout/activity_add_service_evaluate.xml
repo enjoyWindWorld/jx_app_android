@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务类型："
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_task_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系方式"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务师傅："
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_master_worker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/img_location"
+                    android:hint="请输入师傅名字"
+                    android:textSize="@dimen/sp_13"
+                    android:textColorHint="@color/color_999999"
+                    android:layout_toLeftOf="@+id/img_location_jt"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:singleLine="true"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务师傅联系电话："
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_master_worker_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/img_location"
+                    android:hint="请输入服务师傅联系电话"
+                    android:textSize="@dimen/sp_13"
+                    android:textColorHint="@color/color_999999"
+                    android:layout_toLeftOf="@+id/img_location_jt"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:singleLine="true"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/color_f0f1f5"
+                />
+
+            <EditText
+                android:id="@+id/edit_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_toRightOf="@+id/img_location"
+                android:hint="分享一下您对服务师傅的评价吧（限200字）"
+                android:textSize="@dimen/sp_13"
+                android:textColorHint="@color/color_999999"
+                android:layout_toLeftOf="@+id/img_location_jt"
+                android:layout_marginRight="@dimen/dp_15"
+                android:lines="5"
+                android:padding="@dimen/dp_15"
+                android:gravity="top"
+                />
+
+            <com.jx.intelligent.view.MyGridView
+                android:id="@+id/grid_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numColumns="4"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_15"
+                >
+
+            </com.jx.intelligent.view.MyGridView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/color_f0f1f5"
+                />
+
+            <LinearLayout
+                android:id="@+id/layout_wear_cards"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                >
+
+                <CheckBox
+                    android:id="@+id/checkbox_wear_cards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:background="@drawable/checkbox_zf_bg"
+                    android:button="@null"
+                    android:enabled="false"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="戴工牌"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_15"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_wear_overalls"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                >
+
+                <CheckBox
+                    android:id="@+id/checkbox_wear_overalls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:background="@drawable/checkbox_zf_bg"
+                    android:button="@null"
+                    android:enabled="false"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="穿工服"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_15"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_anonymous"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                >
+
+                <CheckBox
+                    android:id="@+id/checkbox_anonymous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:background="@drawable/checkbox_zf_bg"
+                    android:button="@null"
+                    android:enabled="false"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="匿名"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/sp_15"
+                    />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edit_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:layout_toRightOf="@+id/img_location"
+                android:hint="请输入您的姓名"
+                android:textSize="@dimen/sp_13"
+                android:textColorHint="@color/color_999999"
+                android:layout_toLeftOf="@+id/img_location_jt"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/edit_user_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:layout_toRightOf="@+id/img_location"
+                android:hint="请输入您的电话"
+                android:textSize="@dimen/sp_13"
+                android:textColorHint="@color/color_999999"
+                android:layout_toLeftOf="@+id/img_location_jt"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:singleLine="true"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/color_f0f1f5"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_1"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/pingjia"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的评分"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_25"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_1"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/pingjia"
+                    android:visibility="invisible"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="满意度"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <com.example.xlhratingbar_lib.XLHRatingBar
+                    xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/ratingBar_myd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    xlhRatingBar:canEdit="true"
+                    xlhRatingBar:differentSize="false"
+                    xlhRatingBar:dividerWidth="5dp"
+                    xlhRatingBar:countSelected="1"
+                    xlhRatingBar:starCount="5"
+                    xlhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
+                    xlhRatingBar:widthAndHeight="@dimen/dp_20"
+                    android:layout_centerVertical="true"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_25"
+                android:paddingLeft="@dimen/dp_15"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_1"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/pingjia"
+                    android:visibility="invisible"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务态度"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <com.example.xlhratingbar_lib.XLHRatingBar
+                    xmlns:xlhRatingBar="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/ratingBar_td"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    xlhRatingBar:canEdit="true"
+                    xlhRatingBar:differentSize="false"
+                    xlhRatingBar:dividerWidth="5dp"
+                    xlhRatingBar:countSelected="1"
+                    xlhRatingBar:starCount="5"
+                    xlhRatingBar:stateResId="@drawable/comment_ratingbar_selector"
+                    xlhRatingBar:widthAndHeight="@dimen/dp_20"
+                    android:layout_centerVertical="true"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42.5"
+                android:text="提交评价"
+                android:textColor="@drawable/button_press_txt_blue"
+                android:textSize="@dimen/sp_18"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@drawable/corner_blue_bg_blue"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_50"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

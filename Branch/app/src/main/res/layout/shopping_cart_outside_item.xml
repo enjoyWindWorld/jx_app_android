@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <CheckBox
+            android:layout_gravity="center_vertical"
+            android:button="@null"
+            android:id="@+id/cart_outside_checkbox"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_centerVertical="true"
+            android:background="@drawable/checkbox_shdz_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/otside_tv_name"
+            android:text="壁挂式净水器"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:background="#d7d7d5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cart_recycle_inside"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#d7d7d5"/>
+</LinearLayout>
