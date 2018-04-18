@@ -2,12 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
+
+    <LinearLayout
+        android:id="@+id/layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_gravity="center_vertical"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_back"
+            android:textColor="@color/color_1bb6ef"
+            android:textSize="@dimen/sp_15"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/login_bg"
         android:scaleType="fitCenter"
         >
         <LinearLayout
@@ -15,132 +41,281 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+
                 <LinearLayout
-                    android:id="@+id/layout_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/dp_20"
-                    android:paddingLeft="@dimen/dp_15"
-                    android:paddingRight="@dimen/dp_20"
-                    android:paddingBottom="@dimen/dp_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
                     >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/back"
-                        android:layout_gravity="center_vertical"
-                        />
+
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/dp_100"
                         android:layout_height="wrap_content"
-                        android:text="@string/register_back"
-                        android:textColor="@color/color_1bb6ef"
-                        android:textSize="@dimen/sp_15"
-                        android:layout_marginLeft="@dimen/dp_5"
                         android:layout_gravity="center_vertical"
+                        android:text="推荐人代码"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
                         />
+
+                    <EditText
+                        android:id="@+id/recommen_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入推荐人代码"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
                 </LinearLayout>
 
-                <ImageView
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/login_logo"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:id="@+id/imageView" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_logo_text"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:textColor="@color/color_595656"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_24"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_52.5"
-                    android:background="@drawable/corner_gray_bg_white_up"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="@dimen/dp_45"
+                    android:layout_height="56dp"
                     android:layout_marginLeft="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_20"
-                    android:paddingLeft="@dimen/dp_15"
+                    android:layout_marginTop="10dp"
                     >
-                    <ImageView
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:layout_width="@dimen/dp_100"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/composite_path"
                         android:layout_gravity="center_vertical"
+                        android:text="推荐人姓名"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
                         />
 
                     <EditText
-                        android:id="@+id/edt_phone"
+                        android:id="@+id/recommen_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/login_account"
-                        android:paddingLeft="@dimen/dp_10"
-                        android:textColor="@color/color_333333"
-                        android:textColorHint="@color/color_b2b8c2"
-                        android:textSize="@dimen/sp_13"
                         android:background="@null"
-                        android:inputType="phone"
-                        android:singleLine="true"
-                        android:layout_gravity="center_vertical"
-                        />
+                        android:hint="请输入推荐人姓名"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
                 </LinearLayout>
-                <RelativeLayout
+
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_52.5"
-                    android:background="@drawable/corner_gray_bg_white_down"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="@dimen/dp_1"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
                     android:layout_marginLeft="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_20"
-                    android:paddingLeft="@dimen/dp_15"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="10dp"
                     >
-                    <ImageView
-                        android:id="@+id/img_path"
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:layout_width="@dimen/dp_100"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/path"
-                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:text="申请人订单号"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
                         />
 
                     <EditText
-                        android:id="@+id/edt_code"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/order_no"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/register_code"
-                        android:paddingLeft="@dimen/dp_10"
-                        android:textColor="@color/color_333333"
-                        android:textColorHint="@color/color_b2b8c2"
-                        android:textSize="@dimen/sp_13"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/img_path"
-                        android:layout_toLeftOf="@+id/txt_get_code"
                         android:background="@null"
-                        android:inputType="text"
-                        android:singleLine="true"
-                        android:layout_gravity="center_vertical"
-                        />
+                        android:hint="请输入申请人订单号"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="10dp"
+                    >
+
                     <TextView
-                        android:id="@+id/txt_get_code"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/register_get_code"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="申请人姓名"
+                        android:textColor="@color/color_333333"
                         android:textSize="@dimen/sp_13"
-                        android:textColor="@color/color_1bb6ef"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:paddingRight="@dimen/dp_15"
-                        android:gravity="center"
                         />
-                </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/applicant_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入申请人姓名"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="身份证号码"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
+                        />
+
+                    <EditText
+                        android:id="@+id/code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入身份证号码"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="手机号码"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
+                        />
+
+                    <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入手机号码"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="家庭住址"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13"
+                        />
+
+                    <EditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入家庭住址"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/color_b2b8c2"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp_13" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#fff0f1f6"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="我以阅读并同意本APP用户协议和法律协议"
+                    android:textSize="@dimen/sp_11"
+                    android:layout_marginTop="10dp"
+                    />
 
                 <Button
                     android:id="@+id/btn_register"

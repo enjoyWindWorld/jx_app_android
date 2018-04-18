@@ -151,7 +151,6 @@
                     android:layout_marginLeft="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_20"
                     android:background="@drawable/corner_blue_bg_trans"
-                    android:visibility="gone"
                     >
                     <Button
                         android:layout_width="match_parent"
