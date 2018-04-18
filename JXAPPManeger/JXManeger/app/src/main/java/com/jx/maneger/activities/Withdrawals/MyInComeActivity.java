@@ -30,8 +30,8 @@ import java.text.DecimalFormat;
 public class MyInComeActivity extends RHBaseActivity {
 
     private TextView tv_money, tv_bind_alipay;
-    private RelativeLayout layout_money, layout_bind_alipay;
-    private LinearLayout layout_cash_register;
+    private RelativeLayout layout_bind_alipay;
+    private LinearLayout layout_cash_register, layout_money;
     private ProgressWheelDialog progressWheelDialog;
     private WithdrawalDao withdrawalDao;
     private String withdrawalOrderNo;
@@ -78,7 +78,7 @@ public class MyInComeActivity extends RHBaseActivity {
     protected void findView(View contentView) {
         tv_money = (TextView) contentView.findViewById(R.id.tv_money);
         tv_bind_alipay = (TextView) contentView.findViewById(R.id.tv_bind_alipay);
-        layout_money = (RelativeLayout) contentView.findViewById(R.id.layout_money);
+        layout_money = (LinearLayout) contentView.findViewById(R.id.layout_money);
         layout_bind_alipay = (RelativeLayout) contentView.findViewById(R.id.layout_bind_alipay);
         layout_cash_register = (LinearLayout) contentView.findViewById(R.id.layout_cash_register);
 

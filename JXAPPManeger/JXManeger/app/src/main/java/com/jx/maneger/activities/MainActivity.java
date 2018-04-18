@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         indexOptionsBean = new IndexOptionsBean();
         indexOptionsBean.setId(2);
-        indexOptionsBean.setTitle("我的下属");
+        indexOptionsBean.setTitle("我的e家");
         indexOptionsBean.setResourceId(R.mipmap.icon_subordinate);
         mList.add(indexOptionsBean);
 

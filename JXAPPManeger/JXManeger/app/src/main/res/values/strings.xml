@@ -75,12 +75,12 @@
     <string name="not_new_datas">暂无数据！</string>
 
     <!-- 登录界面字段 -->
-    <string name="login_logo_text">净喜智能</string>
-    <string name="login_account">请输入合伙人编号</string>
+    <string name="login_logo_text">净喜创客家园</string>
+    <string name="login_account">请输入创客代码</string>
     <string name="login_password">请输入密码</string>
     <string name="login_forget">忘记密码</string>
     <string name="login_go">登  录</string>
-    <string name="login_register">注册净喜</string>
+    <string name="login_register">注册</string>
 
     <!-- 注册 -->
     <string name="register_register">注 册</string>

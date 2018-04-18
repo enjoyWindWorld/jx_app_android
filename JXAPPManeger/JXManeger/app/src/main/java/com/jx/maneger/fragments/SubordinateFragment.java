@@ -95,7 +95,7 @@ public class SubordinateFragment extends RHBaseFragment {
             @Override
             public void convert(RecycleCommonViewHolder holder, final SubordinateResult.Data.SubordinateData data) {
                 holder.setText(R.id.tv_code, "编号："+data.getId());
-                holder.setText(R.id.tv_name, "名称："+data.getPar_name());
+                holder.setText(R.id.tv_name, "姓名："+data.getPar_name());
                 if("1".equals(data.getPar_level()))
                 {
                     holder.setText(R.id.tv_level, "级别：省级");
@@ -128,7 +128,7 @@ public class SubordinateFragment extends RHBaseFragment {
                 if(!StringUtil.isEmpty(data.getSuper_id()))
                 {
                     holder.getView(R.id.tv_super_code).setVisibility(View.VISIBLE);
-                    holder.setText(R.id.tv_super_code, "上级合伙人："+data.getSuper_id());
+                    holder.setText(R.id.tv_super_code, "所属直接成员："+data.getSuper_id());
                 }
                 else
                 {
@@ -138,7 +138,7 @@ public class SubordinateFragment extends RHBaseFragment {
                 if(!StringUtil.isEmpty(data.getSuper_par_name()))
                 {
                     holder.getView(R.id.tv_super_name).setVisibility(View.VISIBLE);
-                    holder.setText(R.id.tv_super_name, "上级合伙人编号："+data.getSuper_par_name());
+                    holder.setText(R.id.tv_super_name, "所属直接成员编号："+data.getSuper_par_name());
                 }
                 else
                 {

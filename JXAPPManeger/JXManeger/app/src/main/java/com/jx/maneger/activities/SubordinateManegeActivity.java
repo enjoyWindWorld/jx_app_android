@@ -40,7 +40,7 @@ public class SubordinateManegeActivity extends AppCompatActivity implements  Rad
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_subordinate);
-        ((TextView) findViewById(R.id.titlebar_center_tv)).setText("我的下级");
+        ((TextView) findViewById(R.id.titlebar_center_tv)).setText("我的e家");
         titlebar_left_iv = (ImageView)findViewById(R.id.titlebar_left_iv) ;
         titlebar_left_iv.setVisibility(View.VISIBLE);
         titlebar_left_rl = (RelativeLayout)findViewById(R.id.titlebar_left_rl);
