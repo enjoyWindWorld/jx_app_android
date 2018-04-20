@@ -6,6 +6,7 @@ import com.jx.maneger.db.DBManager;
 import com.jx.maneger.http.callback.HttpResponseCallback;
 import com.jx.maneger.intf.ResponseResult;
 import com.jx.maneger.results.GetCodeResult;
+import com.jx.maneger.results.HomeTextResult;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.NormalResult;
 import com.jx.maneger.util.LogUtil;
@@ -210,4 +211,41 @@ public class LoginAndRegister extends BaseDao {
             }
         });
     }
+
+    /**
+     * 获取首页新闻滚动textView的网络请求
+     * @param
+     * @param
+     * @param responseResult
+     */
+    public void getScrollTextViewTask(final String type,final ResponseResult responseResult)
+    {
+        final Map<String, String> map = new HashMap<String, String>();
+        map.put("type", type);
+
+        sendAsyncRequest(Constant.HOME_TEXT_URL, com.alibaba.fastjson.JSON.toJSONString(map), HomeTextResult.class, new HttpResponseCallback<HomeTextResult>() {
+            @Override
+            public void onFailure(int statusCode, String message, HomeTextResult gethomeTextResult) {
+                responseResult.resFailure(statusCode, message);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, HomeTextResult gethomeTextResult) {
+                LogUtil.e("statusCode::" + statusCode);
+                if (gethomeTextResult.getResult() == Constant.retCode_ok) {
+                    responseResult.resSuccess(gethomeTextResult);
+                    if (StringUtil.isEmpty(dbManager.getUrlJsonData(Constant.HOME_TEXT_URL + StringUtil.obj2JsonStr(map)))) {
+                        dbManager.insertUrlJsonData(Constant.HOME_TEXT_URL + StringUtil.obj2JsonStr(map), StringUtil.obj2JsonStr(gethomeTextResult));
+                    } else {
+                        dbManager.updateUrlJsonData(Constant.HOME_TEXT_URL + StringUtil.obj2JsonStr(map), StringUtil.obj2JsonStr(gethomeTextResult));
+                    }
+
+                } else {
+                    responseResult.resFailure(gethomeTextResult.getResult(), gethomeTextResult.getMsg());
+                }
+            }
+        });
+
+    }
+
 }

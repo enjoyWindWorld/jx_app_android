@@ -1,13 +1,20 @@
 package com.jx.maneger.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.os.Process;
+import android.os.SystemClock;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -28,6 +35,7 @@ import com.jx.maneger.dao.MessageDao;
 import com.jx.maneger.db.DBManager;
 import com.jx.maneger.intf.OnItemClickListener;
 import com.jx.maneger.intf.ResponseResult;
+import com.jx.maneger.results.HomeTextResult;
 import com.jx.maneger.results.IndexOptionsBean;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.MessageNoReadResult;
@@ -40,6 +48,7 @@ import com.jx.maneger.util.UIUtil;
 import com.jx.maneger.util.Utils;
 import com.jx.maneger.view.SpaceItemDecoration;
 import com.jx.maneger.view.dialog.ProgressWheelDialog;
+import com.jx.maneger.view.wheelCityView.AutoVerticalScrollTextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,6 +70,14 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private boolean isBundAlipay;
     private UpdateAgent mUpdateAgent;
     private UpdateAgent.CheckUpdateListener mCheckUpdateListener;
+    private AutoVerticalScrollTextView mTv_scrallow;
+    private String news_content;
+    private String news_type_name;
+    private String news_url;
+    private boolean isRunning=true;
+    private ArrayList<HomeTextResult.DataBean> textDatas = new ArrayList<>();
+    private HomeTextResult TextResut;
+    private List<HomeTextResult.DataBean> mScrollTextDatas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         tv_up_name = (TextView) findViewById(R.id.tv_up_name);
         tv_up_code = (TextView) findViewById(R.id.tv_up_code);
         tv_remind = (TextView) findViewById(R.id.tv_remind);
+        mTv_scrallow = (AutoVerticalScrollTextView) findViewById(R.id.tv_shuizhi);
 
         //下拉刷新
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.srl);
@@ -92,7 +110,65 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         dbManager = new DBManager(RHBaseApplication.getInstance().getApplicationContext());
         dbManager.copyDBFile();
         getPartnerInfo();
+        getAdv();
         initUpdate();
+
+        new Thread(){
+            @Override
+            public void run() {
+                while (isRunning){
+                    if(textDatas != null && textDatas.size() > 0)
+                    {
+                        for(int i=0;i<textDatas.size();i++){
+                            if(textDatas != null && textDatas.size() > 0)
+                            {
+                                news_content = textDatas.get(i).getNews_content();
+                                news_type_name = textDatas.get(i).getNews_type_name();
+                                news_url = textDatas.get(i).getNews_url();
+                            }
+                            SystemClock.sleep(3000);
+                            handler.sendEmptyMessage(199);
+                        }
+                    }
+                }
+            }
+        }.start();
+    }
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 199) {
+                mTv_scrallow.next();
+                //用Spannable 来实现 一个TextView中显示不同颜色的字体
+                String text=news_type_name+"     "+news_content;
+                Spannable span = new SpannableString(text);
+                span.setSpan(new ForegroundColorSpan(Color.parseColor("#F49F28")), 0,7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                span.setSpan(new ForegroundColorSpan(Color.parseColor("#666666")), 7, text.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                mTv_scrallow.setText(span);
+                mTv_scrallow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //跳转浏览器
+                        goWebJX(news_url);
+                    }
+                });
+            }
+        }
+    };
+
+    /**
+     * 跳转到浏览器界面
+     */
+    private void goWebJX(String url) {
+        if(!StringUtil.isEmpty(url))
+        {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            Uri content_url = Uri.parse(url);
+            intent.setData(content_url);
+            startActivity(intent);
+        }
     }
 
     private void initUpdate() {
@@ -325,6 +401,33 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
     }
 
+    private void getAdv()
+    {
+        /**
+         * 网络获取首页 滚动TextView的数据
+         */
+        dao.getScrollTextViewTask(0+"", new ResponseResult() {
+            @Override
+            public void resSuccess(Object object) {
+                TextResut = (HomeTextResult) object;
+                mScrollTextDatas = TextResut.getData();
+                if(textDatas!=null&&textDatas.size()>0) {
+                    textDatas.clear();
+                }
+                for (int i=0;i<mScrollTextDatas.size();i++){
+                    HomeTextResult.DataBean dataBean = mScrollTextDatas.get(i);
+
+                    textDatas.add(dataBean);
+                }
+            }
+
+            @Override
+            public void resFailure(int statusCode, String message) {
+
+            }
+        });
+    }
+
     private void getMessagAmount()
     {
         if(!Utils.isNetworkAvailable(RHBaseApplication.getInstance().getApplicationContext()) || StringUtil.isEmpty(SesSharedReferences.getSafetyMark(MainActivity.this)))
@@ -415,6 +518,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     @Override
     public void onRefresh() {
         getPartnerInfo();
+        getAdv();
         mSwipeRefreshLayout.setRefreshing(false);
     }
 

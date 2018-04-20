@@ -3,13 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Branch.iml" filepath="$PROJECT_DIR$/Branch.iml" />
-      <module fileurl="file://E:\jx_projects\jx_app_android\Branch\Branch.iml" filepath="E:\jx_projects\jx_app_android\Branch\Branch.iml" />
+      <module fileurl="file://E:/jx_projects/jx_app_android/Branch/Branch.iml" filepath="E:/jx_projects/jx_app_android/Branch/Branch.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\jx_projects\jx_app_android\Branch\app\app.iml" filepath="E:\jx_projects\jx_app_android\Branch\app\app.iml" />
+      <module fileurl="file://E:/jx_projects/jx_app_android/Branch/app/app.iml" filepath="E:/jx_projects/jx_app_android/Branch/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ijkplayerlibrary/ijkplayerlibrary.iml" filepath="$PROJECT_DIR$/ijkplayerlibrary/ijkplayerlibrary.iml" />
-      <module fileurl="file://E:\jx_projects\jx_app_android\Branch\ijkplayerlibrary\ijkplayerlibrary.iml" filepath="E:\jx_projects\jx_app_android\Branch\ijkplayerlibrary\ijkplayerlibrary.iml" />
+      <module fileurl="file://E:/jx_projects/jx_app_android/Branch/ijkplayerlibrary/ijkplayerlibrary.iml" filepath="E:/jx_projects/jx_app_android/Branch/ijkplayerlibrary/ijkplayerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/superplayerlibrary/superplayerlibrary.iml" filepath="$PROJECT_DIR$/superplayerlibrary/superplayerlibrary.iml" />
-      <module fileurl="file://E:\jx_projects\jx_app_android\Branch\superplayerlibrary\superplayerlibrary.iml" filepath="E:\jx_projects\jx_app_android\Branch\superplayerlibrary\superplayerlibrary.iml" />
+      <module fileurl="file://E:/jx_projects/jx_app_android/Branch/superplayerlibrary/superplayerlibrary.iml" filepath="E:/jx_projects/jx_app_android/Branch/superplayerlibrary/superplayerlibrary.iml" />
     </modules>
   </component>
 </project>

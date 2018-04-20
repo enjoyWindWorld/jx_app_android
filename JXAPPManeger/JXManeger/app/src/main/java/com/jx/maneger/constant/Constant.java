@@ -58,6 +58,10 @@ public class Constant {
     public static final String CS_FILTER_NOTICE_LIST = BASE_HEAD + "filterwarning.v";
     public static final String CS_TASK_DETAIL = BASE_HEAD + "afterthetaskparticulars.v";
     /**
+     * 首页新闻 滚动textview的数据
+     */
+    public static final String  HOME_TEXT_URL="http://www.szjxzn.tech:8080/jx_smart/smvc/news/information.v";
+    /**
      * 验证码获取间隔
      */
     public static int TOTALTIME = 1;
