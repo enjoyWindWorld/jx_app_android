@@ -161,4 +161,9 @@ public class Constant {
      * 请求设置界面
      */
     public static int REQUEST_MY_SETTING = 18;
+
+    /**
+     * 同意注册条款
+     */
+    public static int REGISTER_AGREE = 19;
 }

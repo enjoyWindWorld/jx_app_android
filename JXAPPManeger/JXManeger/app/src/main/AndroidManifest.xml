@@ -163,6 +163,10 @@
             android:name=".activities.MySubordinateOrderActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Reg"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
 
         <service android:name=".update.UpdataService" />
         <service

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.joanzapata.pdfview.PDFView
+        android:id="@+id/pdfView"
+        android:layout_above="@+id/btn_buydetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <View
+       android:layout_above="@+id/btn_buydetails"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/color_d4d4d8" />
+
+    <Button
+        android:id="@+id/btn_buydetails"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42.5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_9"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/corner_blue_bg_blue"
+        android:text="@string/buy_details_button"
+        android:textColor="@drawable/button_press_txt_blue"
+        android:textSize="@dimen/sp_18" />
+
+</RelativeLayout>

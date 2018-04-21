@@ -3,17 +3,18 @@ package com.jx.maneger.activities.loginAndRegister;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.jx.maneger.R;
 import com.jx.maneger.base.RHBaseActivity;
 import com.jx.maneger.constant.Constant;
 import com.jx.maneger.dao.LoginAndRegister;
 import com.jx.maneger.helper.TitleBarHelper;
+import com.jx.maneger.util.ToastUtil;
 import com.jx.maneger.view.dialog.ProgressWheelDialog;
 
 
@@ -32,6 +33,7 @@ public class RegisterActivity extends RHBaseActivity {
     Button btn_register;
     LoginAndRegister loginAndRegister;
     ProgressWheelDialog dialog;
+    private boolean isAgree;
 
     @Override
     protected void init() {
@@ -77,11 +79,29 @@ public class RegisterActivity extends RHBaseActivity {
                 finish();
                 break;
             case R.id.btn_register:
+                if(!isAgree)
+                {
+                    ToastUtil.showToast("请同意本APP用户协议和法律协议");
+                }
+                else
+                {
 
+                }
                 break;
             case R.id.layout_agree:
-
+                Intent intent = new Intent(RegisterActivity.this, RegisterAgreeActivity.class);
+                startActivityForResult(intent, 100);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Constant.REGISTER_AGREE)
+        {
+            isAgree = true;
+            img_agree.setBackgroundResource(R.mipmap.zf_check_t);
         }
     }
 }
