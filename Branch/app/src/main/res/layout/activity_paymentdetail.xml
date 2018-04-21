@@ -185,7 +185,7 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/color_333333"
                                 android:textSize="@dimen/sp_14"
-                                android:text="共包含押金:¥ "
+                                android:text="共包含履约金:¥ "
                                 android:layout_gravity="center_vertical"
                                 />
                             <TextView

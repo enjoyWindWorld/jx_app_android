@@ -126,7 +126,7 @@
                         android:paddingLeft="@dimen/dp_5"
                         android:paddingRight="@dimen/dp_5"
                         android:textColor="@color/color_fd6212"
-                        android:text="押金：￥0元"
+                        android:text="履约金：￥0元"
                         android:textSize="@dimen/sp_13"
                         android:background="@mipmap/img_btn_selector"
                         android:gravity="center"

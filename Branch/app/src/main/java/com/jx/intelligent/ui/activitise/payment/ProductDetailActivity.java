@@ -351,7 +351,7 @@ public class ProductDetailActivity extends RHBaseActivity {
             //王云  押金数据在这里
             pledge = data.getPaytype().get(0).getPay_pledge();
 
-           mPledge_tv.setText("押金:￥"+pledge+""+"元");
+           mPledge_tv.setText("履约金:￥"+pledge+""+"元");
 
 
             for (ProductDetailResult.Data.PayType payType : data.getPaytype()) {

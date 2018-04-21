@@ -46,6 +46,18 @@ public class GlideHelper {
             loadingImageView.startAnimation(mAnimation);
         }
 
+        if(!StringUtil.isEmpty(url))
+        {
+            if(url.contains("data.jx-inteligent.tech:15010/jx"))
+            {
+                url = url.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
+            else if(url.contains("113.106.93.195:15010/jx"))
+            {
+                url = url.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
+        }
+
 
         Glide.with(context).load(url)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -92,6 +104,10 @@ public class GlideHelper {
             {
                 url = url.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
             }
+            else if(url.contains("113.106.93.195:15010/jx"))
+            {
+                url = url.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
         }
         Glide.with(context).load(url)
                 .placeholder(R.color.color_e0e0e0)
@@ -110,6 +126,19 @@ public class GlideHelper {
      * @param height    指定压缩的高度
      */
     public static void setImageView(Context context, String url, ImageView imageView, int width, int height) {
+
+        if(!StringUtil.isEmpty(url))
+        {
+            if(url.contains("data.jx-inteligent.tech:15010/jx"))
+            {
+                url = url.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
+            else if(url.contains("113.106.93.195:15010/jx"))
+            {
+                url = url.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
+        }
+
         Glide.with(context).load(url)
                 .placeholder(R.color.color_e0e0e0)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

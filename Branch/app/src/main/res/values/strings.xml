@@ -133,7 +133,7 @@
     <string name="pro_detail_weight_title">产品净重：</string>
     <string name="pro_detail_size_title">产品尺寸：</string>
     <string name="pro_detail_packing_size_title">包装尺寸：</string>
-    <string name="product_detail_taitles">服务费用（首次安装须支付押金）</string>
+    <string name="product_detail_taitles">服务费用（首次安装须支付履约金）</string>
 
 
     <!--挂式参数-->
@@ -258,7 +258,7 @@
     <string name="pay_info_button_title">支付</string>
     <string name="buy_details_button">我已阅读并接受协议</string>
     <string name="zf_total">总计金额:</string>
-    <string name="zf_pledge">押金:</string>
+    <string name="zf_pledge">履约金:</string>
 
     <!--支付详情-->
     <string name="DetailsPayment_total">总支付金额：</string>
