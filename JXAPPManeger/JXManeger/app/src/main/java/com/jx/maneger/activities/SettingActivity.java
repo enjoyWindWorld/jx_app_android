@@ -30,7 +30,7 @@ import java.util.HashMap;
  */
 public class SettingActivity extends RHBaseActivity {
 
-    LinearLayout grxx_sz_xgmm_jr, grxx_sz_qc_jr;
+    LinearLayout grxx_sz_xgmm_jr, grxx_sz_qc_jr, layout_share;
     RelativeLayout grxx_sz_bbgx_jr;
     TextView grxx_sz_tcdl_jr, tv_version_code;
     private UpdateAgent mUpdateAgent;
@@ -66,6 +66,7 @@ public class SettingActivity extends RHBaseActivity {
 
     @Override
     protected void findView(View contentView) {
+        layout_share = (LinearLayout) contentView.findViewById(R.id.layout_share);
         grxx_sz_xgmm_jr = (LinearLayout) contentView.findViewById(R.id.grxx_sz_xgmm_jr);
         grxx_sz_bbgx_jr = (RelativeLayout) contentView.findViewById(R.id.grxx_sz_bbgx_jr);
         grxx_sz_qc_jr = (LinearLayout) contentView.findViewById(R.id.grxx_sz_qc_jr);
@@ -75,6 +76,7 @@ public class SettingActivity extends RHBaseActivity {
         grxx_sz_tcdl_jr.setOnClickListener(this);
         grxx_sz_qc_jr.setOnClickListener(this);
         grxx_sz_xgmm_jr.setOnClickListener(this);
+        layout_share.setOnClickListener(this);
         tv_version_code.setText(AppUtil.getVersionName());
     }
 
@@ -93,6 +95,10 @@ public class SettingActivity extends RHBaseActivity {
                 break;
             case R.id.grxx_sz_tcdl_jr:
                 dialog.show();
+                break;
+            case R.id.layout_share:
+                Intent share_intent = new Intent(SettingActivity.this, CustomShareActivity.class);
+                startActivity(share_intent);
                 break;
             case R.id.grxx_sz_xgmm_jr:
                 Intent intent = new Intent(SettingActivity.this, ChagPaswActivity.class);

@@ -163,10 +163,6 @@
             android:name=".activities.MySubordinateOrderActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.Reg"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
 
         <service android:name=".update.UpdataService" />
         <service
@@ -204,6 +200,20 @@
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".activities.loginAndRegister.RegisterAgreeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".activities.CustomShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
     </application>
 

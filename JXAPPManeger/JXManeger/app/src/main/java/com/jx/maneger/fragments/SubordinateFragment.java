@@ -98,32 +98,36 @@ public class SubordinateFragment extends RHBaseFragment {
                 holder.setText(R.id.tv_name, "姓名："+data.getPar_name());
                 if("1".equals(data.getPar_level()))
                 {
-                    holder.setText(R.id.tv_level, "级别：省级");
+                    holder.setText(R.id.tv_level, "级别：运营商");
                 }
                 else if ("2".equals(data.getPar_level()))
                 {
-                    holder.setText(R.id.tv_level, "级别：市级");
+                    holder.setText(R.id.tv_level, "级别：创客");
                 }
-                else if ("3".equals(data.getPar_level()))
+                else
                 {
-                    holder.setText(R.id.tv_level, "级别：区级");
+                    holder.setText(R.id.tv_level, "级别：创客");
                 }
-                else if ("4".equals(data.getPar_level()))
-                {
-                    holder.setText(R.id.tv_level, "级别：产品经理");
-                }
-                else if ("-1".equals(data.getPar_level()))
-                {
-                    holder.setText(R.id.tv_level, "级别：区县代");
-                }
-                else if ("-2".equals(data.getPar_level()))
-                {
-                    holder.setText(R.id.tv_level, "级别：体验店");
-                }
-                else if ("-3".equals(data.getPar_level()))
-                {
-                    holder.setText(R.id.tv_level, "级别：合伙人");
-                }
+//                else if ("3".equals(data.getPar_level()))
+//                {
+//                    holder.setText(R.id.tv_level, "级别：创客");
+//                }
+//                else if ("4".equals(data.getPar_level()))
+//                {
+//                    holder.setText(R.id.tv_level, "级别：创客");
+//                }
+//                else if ("-1".equals(data.getPar_level()))
+//                {
+//                    holder.setText(R.id.tv_level, "级别：创客");
+//                }
+//                else if ("-2".equals(data.getPar_level()))
+//                {
+//                    holder.setText(R.id.tv_level, "级别：创客");
+//                }
+//                else if ("-3".equals(data.getPar_level()))
+//                {
+//                    holder.setText(R.id.tv_level, "级别：创客");
+//                }
 
                 if(!StringUtil.isEmpty(data.getSuper_id()))
                 {

@@ -85,4 +85,7 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.getui:sdk:2.10.2.0'
     testCompile 'junit:junit:4.12'
+    compile files('libs/umeng-share-core-6.9.1.jar')
+    compile files('libs/umeng-share-wechat-simplify-6.9.1.jar')
+    compile files('libs/umeng-sharetool-6.9.1.jar')
 }

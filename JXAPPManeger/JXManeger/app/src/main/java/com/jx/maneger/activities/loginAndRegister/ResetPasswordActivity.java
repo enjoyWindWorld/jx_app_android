@@ -144,28 +144,28 @@ public class ResetPasswordActivity extends RHBaseActivity {
 
     void register(final String account, String password)
     {
-        if(!Utils.isNetworkAvailable(RHBaseApplication.getInstance().getApplicationContext()))
-        {
-            return;
-        }
-
-        dialog.show();
-        loginAndRegister.RegisterTask(account, password,  new ResponseResult(){
-            @Override
-            public void resSuccess(Object object) {
-                dialog.dismiss();
-                SesSharedReferences.setAccount(ResetPasswordActivity.this, account);
-                ToastUtil.showToast("注册成功");
-                Intent intent = new Intent();
-                setResult(Constant.REGISTER_OK, intent);
-                finish();
-            }
-
-            @Override
-            public void resFailure(int statusCode, String message) {
-                dialog.dismiss();
-                ToastUtil.showToast(message);
-            }
-        });
+//        if(!Utils.isNetworkAvailable(RHBaseApplication.getInstance().getApplicationContext()))
+//        {
+//            return;
+//        }
+//
+//        dialog.show();
+//        loginAndRegister.RegisterTask(account, password,  new ResponseResult(){
+//            @Override
+//            public void resSuccess(Object object) {
+//                dialog.dismiss();
+//                SesSharedReferences.setAccount(ResetPasswordActivity.this, account);
+//                ToastUtil.showToast("注册成功");
+//                Intent intent = new Intent();
+//                setResult(Constant.REGISTER_OK, intent);
+//                finish();
+//            }
+//
+//            @Override
+//            public void resFailure(int statusCode, String message) {
+//                dialog.dismiss();
+//                ToastUtil.showToast(message);
+//            }
+//        });
     }
 }

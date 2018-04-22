@@ -18,12 +18,12 @@ public class Constant {
      */
     public static final String SPF_NAME = "";
 
-//    private static final String IP = "http://192.168.1.45:8080/";
-    private static final String IP = "http://www.szjxzn.tech:7686/";
+    private static final String IP = "http://120.79.63.162:80/";
+//    private static final String IP = "http://www.szjxzn.tech:7686/";
 
     private static final String BASE_HEAD = IP + "jx_partner/smvc/partner/";
     private static final String LAUNDCH_URL = BASE_HEAD + "launch/test/";
-    public static final String USER_REGISTER_URL = BASE_HEAD + "register.v";
+    public static final String USER_REGISTER_URL = BASE_HEAD + "registereds.v";
     public static final String USER_GET_CODE = BASE_HEAD + "registerCode.v";
     public static final String USER_CHECK_CODE = BASE_HEAD + "checkCode.v";
     public static final String USER_LOGIN_URL = BASE_HEAD + "toLogin.v";
@@ -41,7 +41,7 @@ public class Constant {
     public static final String USER_NO_READ_MSG = BASE_HEAD + "numberofmessage.v";
     public static final String USER_READ_MSG = BASE_HEAD + "updatemessage.v";
     public static final String USER_DELETE_MSG = BASE_HEAD + "delmessage.v";
-    public static final String USER_WITHDRAWAL_AMOUNT = BASE_HEAD + "withdrawalamount.v";
+    public static final String USER_WITHDRAWAL_AMOUNT = BASE_HEAD + "withdrawalamountnew.v";
     public static final String USER_SALE_AMOUNT = BASE_HEAD + "salesamount.v";
     public static final String USER_SUB_SALE_AMOUNT = BASE_HEAD + "lowerdetails.v";
     public static final String USER_WITHRAWAL_AUDIT = BASE_HEAD + "withdrawalaudit.v";
@@ -61,6 +61,8 @@ public class Constant {
      * 首页新闻 滚动textview的数据
      */
     public static final String  HOME_TEXT_URL="http://www.szjxzn.tech:8080/jx_smart/smvc/news/information.v";
+
+    public static final String USER_SHARE_CONTENT_URL = "http://www.szjxzn.tech:8080/jx_smart/smvc/user/test/shareContent.v";
     /**
      * 验证码获取间隔
      */

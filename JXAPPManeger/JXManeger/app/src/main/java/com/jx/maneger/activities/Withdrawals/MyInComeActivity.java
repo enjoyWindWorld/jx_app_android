@@ -29,7 +29,7 @@ import java.text.DecimalFormat;
  */
 public class MyInComeActivity extends RHBaseActivity {
 
-    private TextView tv_money, tv_bind_alipay;
+    private TextView tv_money, tv_all_money, tv_balance, tv_bind_alipay;
     private RelativeLayout layout_bind_alipay;
     private LinearLayout layout_cash_register, layout_money;
     private ProgressWheelDialog progressWheelDialog;
@@ -77,6 +77,8 @@ public class MyInComeActivity extends RHBaseActivity {
     @Override
     protected void findView(View contentView) {
         tv_money = (TextView) contentView.findViewById(R.id.tv_money);
+        tv_all_money = (TextView) contentView.findViewById(R.id.tv_all_money);
+        tv_balance = (TextView) contentView.findViewById(R.id.tv_balance);
         tv_bind_alipay = (TextView) contentView.findViewById(R.id.tv_bind_alipay);
         layout_money = (LinearLayout) contentView.findViewById(R.id.layout_money);
         layout_bind_alipay = (RelativeLayout) contentView.findViewById(R.id.layout_bind_alipay);
@@ -168,16 +170,11 @@ public class MyInComeActivity extends RHBaseActivity {
                 if(withdrawalAmountResult != null && withdrawalAmountResult.getData().size() > 0)
                 {
                     withdrawalOrderNo = withdrawalAmountResult.getData().get(0).getWithdrawalOrderNo();
-                    if(isBindAliPayAccount)
-                    {
-                        tv_money.setText("¥"+decimalFormat.format(withdrawalAmountResult.getData().get(0).getWithdrawal_total_amount())+"元");
-                    }
-                    else
-                    {
-                        tv_money.setText("¥"+decimalFormat.format(withdrawalAmountResult.getData().get(0).getWithdrawal_total_amount())+"元（未绑定支付宝）");
-                    }
+                    tv_money.setText("¥"+decimalFormat.format(withdrawalAmountResult.getData().get(0).getMyWithdrawalLimit())+"元");
+                    tv_all_money.setText("¥"+decimalFormat.format(withdrawalAmountResult.getData().get(0).getMyTotalIncome())+"元");
+                    tv_balance.setText("¥"+decimalFormat.format(withdrawalAmountResult.getData().get(0).getMy_balance())+"元");
 
-                    if(withdrawalAmountResult.getData().get(0).getWithdrawal_total_amount() > 0)
+                    if(withdrawalAmountResult.getData().get(0).getMyWithdrawalLimit() > 0)
                     {
                         isCanWithdrawal = true;
                     }

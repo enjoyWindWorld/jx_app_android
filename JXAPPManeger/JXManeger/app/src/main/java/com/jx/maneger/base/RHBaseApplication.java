@@ -5,12 +5,13 @@ import android.os.Handler;
 import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 
-import com.jx.maneger.activities.MainActivity;
 import com.jx.maneger.constant.Constant;
 import com.jx.maneger.http.dao.OkHttpDao;
-import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.util.SDCardUtils;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareConfig;
 import com.yolanda.nohttp.NoHttp;
 
 import java.io.BufferedReader;
@@ -67,6 +68,12 @@ public class RHBaseApplication extends MultiDexApplication {
         CrashReport.initCrashReport(mContext, "ea238f4c34", true, strategy);
         // 如果通过“AndroidManifest.xml”来配置APP信息，初始化方法如下
          CrashReport.initCrashReport(mContext, strategy);
+
+        //初始化友盟
+        UMConfigure.init(this,"5adb50e08f4a9d72980000d3","umeng",UMConfigure.DEVICE_TYPE_PHONE,"");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        //开启Log
+        UMConfigure.setLogEnabled(true);
     }
 
 

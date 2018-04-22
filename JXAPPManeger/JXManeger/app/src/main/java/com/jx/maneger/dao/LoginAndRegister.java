@@ -9,6 +9,7 @@ import com.jx.maneger.results.GetCodeResult;
 import com.jx.maneger.results.HomeTextResult;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.NormalResult;
+import com.jx.maneger.results.ShareContentResult;
 import com.jx.maneger.util.LogUtil;
 import com.jx.maneger.util.StringUtil;
 
@@ -91,16 +92,31 @@ public class LoginAndRegister extends BaseDao {
     }
 
     /**
-     * 注册方法
-     *
-     * @param mobile
-     * @param password
+     * 注册创客
+     * @param RecommenderCode
+     * @param NameReferee
+     * @param nameApplicant
+     * @param cardNumber
+     * @param mobilePhone
+     * @param homeAddress
+     * @param s_province
+     * @param s_city
+     * @param s_county
      * @param responseResult
      */
-    public void RegisterTask(String mobile, String password, final ResponseResult responseResult) {
+    public void registerTask(String RecommenderCode, String NameReferee, String nameApplicant, String ord_no, String cardNumber, String mobilePhone, String homeAddress, String s_province, String s_city, String s_county, final ResponseResult responseResult) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("phoneNum", mobile);
-        map.put("password", password);
+        map.put("RecommenderCode", RecommenderCode);
+        map.put("NameReferee", NameReferee);
+        map.put("ord_no", ord_no);
+        map.put("nameApplicant", nameApplicant);
+        map.put("cardNumber", cardNumber);
+        map.put("mobilePhone", mobilePhone);
+        map.put("homeAddress", homeAddress);
+        map.put("s_province", s_province);
+        map.put("s_city", s_city);
+        map.put("s_county", s_county);
+
 
         sendAsyncRequest(Constant.USER_REGISTER_URL, com.alibaba.fastjson.JSON.toJSONString(map), NormalResult.class, new HttpResponseCallback<NormalResult>() {
 
@@ -246,6 +262,40 @@ public class LoginAndRegister extends BaseDao {
             }
         });
 
+    }
+
+    /**
+     * 获取分享的内容
+     *
+     * @param responseResult
+     */
+    public void geShareContentTask(final ResponseResult responseResult) {
+        Map<String, String> map = new HashMap<String, String>();
+
+        sendAsyncRequest(Constant.USER_SHARE_CONTENT_URL, com.alibaba.fastjson.JSON.toJSONString(map), ShareContentResult.class, new HttpResponseCallback<ShareContentResult>() {
+            @Override
+            public void onFailure(int statusCode, String message, ShareContentResult shareContentResult) {
+                responseResult.resFailure(statusCode, message);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, ShareContentResult shareContentResult) {
+                LogUtil.e("statusCode::" + statusCode);
+                if (shareContentResult.getResult() == Constant.retCode_ok) {
+                    responseResult.resSuccess(shareContentResult);
+                    if(StringUtil.isEmpty(dbManager.getUrlJsonData(Constant.USER_SHARE_CONTENT_URL)))
+                    {
+                        dbManager.insertUrlJsonData(Constant.USER_SHARE_CONTENT_URL, StringUtil.obj2JsonStr(shareContentResult));
+                    }
+                    else
+                    {
+                        dbManager.updateUrlJsonData(Constant.USER_SHARE_CONTENT_URL, StringUtil.obj2JsonStr(shareContentResult));
+                    }
+                } else {
+                    responseResult.resFailure(shareContentResult.getResult(), shareContentResult.getMsg());
+                }
+            }
+        });
     }
 
 }

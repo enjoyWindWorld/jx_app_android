@@ -22,15 +22,33 @@ public class WithdrawalAmountResult extends BaseResult {
 
     public class Data implements Serializable
     {
-        private float withdrawal_total_amount;
+        private float my_balance;
+        private float myTotalIncome;
+        private float myWithdrawalLimit;
         private String withdrawalOrderNo;
 
-        public float getWithdrawal_total_amount() {
-            return withdrawal_total_amount;
+        public float getMy_balance() {
+            return my_balance;
         }
 
-        public void setWithdrawal_total_amount(float withdrawal_total_amount) {
-            this.withdrawal_total_amount = withdrawal_total_amount;
+        public void setMy_balance(float my_balance) {
+            this.my_balance = my_balance;
+        }
+
+        public float getMyTotalIncome() {
+            return myTotalIncome;
+        }
+
+        public void setMyTotalIncome(float myTotalIncome) {
+            this.myTotalIncome = myTotalIncome;
+        }
+
+        public float getMyWithdrawalLimit() {
+            return myWithdrawalLimit;
+        }
+
+        public void setMyWithdrawalLimit(float myWithdrawalLimit) {
+            this.myWithdrawalLimit = myWithdrawalLimit;
         }
 
         public String getWithdrawalOrderNo() {

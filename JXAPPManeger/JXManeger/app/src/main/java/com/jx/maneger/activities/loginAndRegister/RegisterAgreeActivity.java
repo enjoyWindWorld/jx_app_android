@@ -49,7 +49,7 @@ public class RegisterAgreeActivity extends Activity implements View.OnClickListe
     }
     private void initData() {
         //从assets目录读取pdf
-        loadBuyNotice("http://www.szjxzn.tech:8080/old_jx/pdf/agreement.pdf", "agreement.pdf");
+        loadBuyNotice("http://www.szjxzn.tech:8080/jx/pdf/partneragreement.pdf", "partneragreement.pdf");
     }
 
     private void displayFromFile(File file) {

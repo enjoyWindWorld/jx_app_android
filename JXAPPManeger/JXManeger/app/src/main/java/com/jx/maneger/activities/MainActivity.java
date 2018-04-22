@@ -1,6 +1,9 @@
 package com.jx.maneger.activities;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +11,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.os.SystemClock;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,6 +46,7 @@ import com.jx.maneger.results.HomeTextResult;
 import com.jx.maneger.results.IndexOptionsBean;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.MessageNoReadResult;
+import com.jx.maneger.runtimepermission.PermissionsChecker;
 import com.jx.maneger.update.UpdateAgent;
 import com.jx.maneger.util.LogUtil;
 import com.jx.maneger.util.SesSharedReferences;
@@ -133,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
             }
         }.start();
+
+        mChecker = new PermissionsChecker(this);
+        isRequireCheck = true;
     }
 
     private Handler handler = new Handler() {
@@ -245,25 +256,28 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             switch (data.getLevel())
             {
                 case "1"://省
-                    tv_level.setText("省级");
+                    tv_level.setText("运营商");
                     break;
                 case "2"://市
-                    tv_level.setText("市级");
+                    tv_level.setText("创客");
                     break;
-                case "3"://区
-                    tv_level.setText("区级");
-                    break;
-                case "4"://产品经理
-                    tv_level.setText("产品经理");
-                    break;
-                case "-1"://区县代
-                    tv_level.setText("区县代");
-                    break;
-                case "-2"://体验店
-                    tv_level.setText("体验店");
-                    break;
-                case "-3"://合伙人
-                    tv_level.setText("合伙人");
+//                case "3"://区
+//                    tv_level.setText("区级");
+//                    break;
+//                case "4"://产品经理
+//                    tv_level.setText("产品经理");
+//                    break;
+//                case "-1"://区县代
+//                    tv_level.setText("区县代");
+//                    break;
+//                case "-2"://体验店
+//                    tv_level.setText("体验店");
+//                    break;
+//                case "-3"://合伙人
+//                    tv_level.setText("合伙人");
+//                    break;
+                default:
+                    tv_level.setText("创客");
                     break;
             }
             tv_up_name.setText(data.getParParentName());
@@ -549,6 +563,125 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
             }
         }
+    }
+
+    //===============权限处理===================
+    private static final int PERMISSION_REQUEST_CODE = 0;
+    // 系统权限管理页面的参数
+    private static final String EXTRA_PERMISSIONS = "me.chunyu.clwang.permission.extra_permission";
+    // 权限参数
+    private static final String PACKAGE_URL_SCHEME = "package:";
+    // 方案
+    private PermissionsChecker mChecker;
+    // 权限检测器
+    private boolean isRequireCheck;
+    // 是否需要系统权限检测
+    private AlertDialog alertDialog;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isRequireCheck) {
+            String[] permissions = getPermissions();
+            if (mChecker.lacksPermissions(permissions)) {
+                requestPermissions(permissions);// 请求权限
+            } else {
+                allPermissionsGranted(); // 全部权限都已获取
+            }
+        } else {
+            isRequireCheck = true;
+        }
+    }
+
+    // 返回传递的权限参数
+    private String[] getPermissions() {
+        String[] mPermissionList = new String[]{
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.CALL_PHONE,
+                Manifest.permission.READ_LOGS,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.SET_DEBUG_APP,
+                Manifest.permission.SYSTEM_ALERT_WINDOW,
+                Manifest.permission.GET_ACCOUNTS,
+                Manifest.permission.WRITE_APN_SETTINGS,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        };
+        return mPermissionList;
+    }
+
+    // 请求权限兼容低版本
+    private void requestPermissions(String... permissions) {
+        ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE);
+    }
+
+    // 全部权限均已获取
+    private void allPermissionsGranted() {
+
+    }
+
+    /**
+     * 用户权限处理,
+     * 如果全部获取, 则直接过.
+     * 如果权限缺失, 则提示Dialog.
+     *
+     * @param requestCode  请求码
+     * @param permissions  权限
+     * @param grantResults 结果
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE && hasAllPermissionsGranted(grantResults)) {
+            isRequireCheck = true;
+            allPermissionsGranted();
+        } else {
+            isRequireCheck = false;
+            showMissingPermissionDialog();
+        }
+    }
+
+    // 含有全部的权限
+    private boolean hasAllPermissionsGranted(@NonNull int[] grantResults) {
+        for (int grantResult : grantResults) {
+            if (grantResult == PackageManager.PERMISSION_DENIED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 显示缺失权限提示
+    private void showMissingPermissionDialog() {
+
+        if (alertDialog == null) {
+            alertDialog = new AlertDialog.Builder(MainActivity.this)
+                    .setMessage("申请权限异常，将影响App正常运作，点击确定进入权限管理")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startAppSettings();
+                        }
+                    })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            alertDialog.dismiss();
+//                            exitApp();
+                        }
+                    }).create();
+        }
+
+        if (alertDialog != null && !alertDialog.isShowing()) {
+            alertDialog.show();
+        }
+    }
+
+    // 启动应用的设置
+    private void startAppSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse(PACKAGE_URL_SCHEME + getPackageName()));
+        startActivity(intent);
     }
 
 }
