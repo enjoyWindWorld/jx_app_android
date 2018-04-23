@@ -31,6 +31,7 @@ public class LoginResult extends BaseResult {
         private String usernum;//销售台数
         private String safetyMark;//安全标识
         private String originalpassword;//重置密码
+        private String operator;//0,可以升级为运营商，-1是未达到
 
         public String getPartnerNumber() {
             return partnerNumber;
@@ -102,6 +103,14 @@ public class LoginResult extends BaseResult {
 
         public void setOriginalpassword(String originalpassword) {
             this.originalpassword = originalpassword;
+        }
+
+        public String getOperator() {
+            return operator;
+        }
+
+        public void setOperator(String operator) {
+            this.operator = operator;
         }
     }
 }

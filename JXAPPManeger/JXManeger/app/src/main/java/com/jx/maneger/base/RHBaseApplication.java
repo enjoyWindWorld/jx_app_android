@@ -71,7 +71,7 @@ public class RHBaseApplication extends MultiDexApplication {
 
         //初始化友盟
         UMConfigure.init(this,"5adb50e08f4a9d72980000d3","umeng",UMConfigure.DEVICE_TYPE_PHONE,"");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
-        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        PlatformConfig.setWeixin("wxf6f67388d7d2d513", "28d530bda8c90ba6ae246b6d38402b7a");
         //开启Log
         UMConfigure.setLogEnabled(true);
     }

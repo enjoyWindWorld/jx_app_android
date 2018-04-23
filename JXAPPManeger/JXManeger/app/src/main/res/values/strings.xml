@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">净喜合伙人</string>
+    <string name="app_name">净喜e创</string>
 
     <string name="text_network_require">An internet connection is required.please check your network settings.</string>
     <string name="text_network_error">Network error.Please try it again.</string>

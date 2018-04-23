@@ -260,6 +260,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     break;
                 case "2"://市
                     tv_level.setText("创客");
+                    if(data.getOperator().equals("0"))
+                    {
+                        ToastUtil.showToast("你已经达到升级为运营商的条件了！");
+                    }
                     break;
 //                case "3"://区
 //                    tv_level.setText("区级");
@@ -596,17 +600,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     // 返回传递的权限参数
     private String[] getPermissions() {
         String[] mPermissionList = new String[]{
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.CALL_PHONE,
-                Manifest.permission.READ_LOGS,
-                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.SET_DEBUG_APP,
-                Manifest.permission.SYSTEM_ALERT_WINDOW,
-                Manifest.permission.GET_ACCOUNTS,
-                Manifest.permission.WRITE_APN_SETTINGS,
-                Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.READ_PHONE_STATE
         };
         return mPermissionList;
     }

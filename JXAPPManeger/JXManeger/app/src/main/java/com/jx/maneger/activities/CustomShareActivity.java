@@ -132,7 +132,7 @@ public class CustomShareActivity extends Activity implements View.OnClickListene
 
     private void goShareDetail(SnsPlatform mPlatform) {
         UMWeb web = new UMWeb (shareContentResult.getData().get(0).getApkurl());
-        web.setTitle("应用分享");//标题
+        web.setTitle(getResources().getString(R.string.app_name));//标题
         web.setThumb(imagelocal);  //缩略图
         web.setDescription(shareContentResult.getData().get(0).getContent());//描述
 
