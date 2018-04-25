@@ -92,15 +92,18 @@ public abstract class HttpCallback implements Callback {
         String responseString = response.body().string();
         LogUtil.e("responseString", responseString);
         LogUtil.e("url", response.request().url().url().toString());
-        try {
-            if(new JSONObject(responseString).getString("data") != null && !StringUtil.isEmpty(new JSONObject(responseString).getString("data")))
-            {
-                JSONObject jsonObject = new JSONObject(responseString);
-                String decodeData = StringUtil.decode(jsonObject.getString("data"));
-                responseString = "{\"result\":"+jsonObject.getInt("result")+",\"msg\":\""+jsonObject.getString("msg")+"\",\"errcode\":"+jsonObject.getInt("errcode")+",\"data\":"+decodeData+"}";
+        if(responseString.contains("data"))
+        {
+            try {
+                if(new JSONObject(responseString).getString("data") != null && !StringUtil.isEmpty(new JSONObject(responseString).getString("data")))
+                {
+                    JSONObject jsonObject = new JSONObject(responseString);
+                    String decodeData = StringUtil.decode(jsonObject.getString("data"));
+                    responseString = "{\"result\":"+jsonObject.getInt("result")+",\"msg\":\""+jsonObject.getString("msg")+"\",\"errcode\":"+jsonObject.getInt("errcode")+",\"data\":"+decodeData+"}";
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
         final int code = response.code(); //code >= 200 && code < 300即为成功,否则为异常
         if (Thread.currentThread() == Looper.getMainLooper().getThread()) {

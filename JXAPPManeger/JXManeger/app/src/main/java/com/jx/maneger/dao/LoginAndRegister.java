@@ -9,6 +9,7 @@ import com.jx.maneger.results.GetCodeResult;
 import com.jx.maneger.results.HomeTextResult;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.NormalResult;
+import com.jx.maneger.results.RegisterResult;
 import com.jx.maneger.results.ShareContentResult;
 import com.jx.maneger.util.LogUtil;
 import com.jx.maneger.util.StringUtil;
@@ -118,20 +119,20 @@ public class LoginAndRegister extends BaseDao {
         map.put("s_county", s_county);
 
 
-        sendAsyncRequest(Constant.USER_REGISTER_URL, com.alibaba.fastjson.JSON.toJSONString(map), NormalResult.class, new HttpResponseCallback<NormalResult>() {
+        sendAsyncRequest(Constant.USER_REGISTER_URL, com.alibaba.fastjson.JSON.toJSONString(map), RegisterResult.class, new HttpResponseCallback<RegisterResult>() {
 
             @Override
-            public void onFailure(int statusCode, String message, NormalResult normalResult) {
+            public void onFailure(int statusCode, String message, RegisterResult registerResult) {
                 responseResult.resFailure(statusCode, message);
             }
 
             @Override
-            public void onSuccess(int statusCode, NormalResult normalResult) {
+            public void onSuccess(int statusCode, RegisterResult registerResult) {
                 LogUtil.e("statusCode::" + statusCode);
-                if (normalResult.getResult() == Constant.retCode_ok) {
-                    responseResult.resSuccess(normalResult);
+                if (registerResult.getResult() == Constant.retCode_ok) {
+                    responseResult.resSuccess(registerResult);
                 } else {
-                    responseResult.resFailure(normalResult.getResult(), normalResult.getMsg());
+                    responseResult.resFailure(registerResult.getResult(), registerResult.getMsg());
                 }
             }
         });

@@ -21,6 +21,7 @@ import com.jx.maneger.helper.TitleBarHelper;
 import com.jx.maneger.intf.ResponseResult;
 import com.jx.maneger.results.LoginResult;
 import com.jx.maneger.results.NormalResult;
+import com.jx.maneger.results.RegisterResult;
 import com.jx.maneger.util.KeyboardUtil;
 import com.jx.maneger.util.SesSharedReferences;
 import com.jx.maneger.util.StringUtil;
@@ -165,15 +166,17 @@ public class RegisterActivity extends RHBaseActivity {
         }
 
         dialog.show();
-        dao.registerTask(RecommenderCode, NameReferee, ord_no, nameApplicant, cardNumber, mobilePhone, homeAddress, s_province, s_city, s_county, new ResponseResult() {
+        dao.registerTask(RecommenderCode, NameReferee, nameApplicant, ord_no, cardNumber, mobilePhone, homeAddress, s_province, s_city, s_county, new ResponseResult() {
             @Override
             public void resSuccess(Object object) {
                 dialog.dismiss();
-                NormalResult normalResult = (NormalResult) object;
+                RegisterResult registerResult = (RegisterResult) object;
 
-                if(normalResult != null && normalResult.getResult()>0)
+                if(registerResult != null && registerResult.getData().size()>0)
                 {
+                    SesSharedReferences.setAccount(RegisterActivity.this, registerResult.getData().get(0).getId());
                     ToastUtil.showToast("注册成功");
+                    setResult(Constant.REGISTER_OK);
                     finish();
                 }
                 else
@@ -202,10 +205,6 @@ public class RegisterActivity extends RHBaseActivity {
                     pcd.setText(select);
                     sheng = menuWindow.getSheng();
                     shi = menuWindow.getShi();
-                    if(shi.equals("市辖区") || shi.equals("县"))
-                    {
-                        shi = "";
-                    }
                     qu = menuWindow.getQu();
                     break;
             }
