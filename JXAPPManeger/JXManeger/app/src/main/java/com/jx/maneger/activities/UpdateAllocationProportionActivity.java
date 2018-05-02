@@ -79,7 +79,7 @@ public class UpdateAllocationProportionActivity extends RHBaseActivity {
         }
 
         titlebar_right_tv = titleBarHelper.getmRightTv();
-        titlebar_right_tv.setVisibility(View.VISIBLE);
+        titlebar_right_tv.setVisibility(View.GONE);
         titlebar_right_tv.setText("编辑");
     }
 

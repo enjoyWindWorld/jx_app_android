@@ -413,6 +413,7 @@ public class UpdateAgent {
                         String decodeData = StringUtil.decode(jsonObject.getString("data"));
                         responseString = "{\"result\":"+jsonObject.getInt("result")+",\"msg\":\""+jsonObject.getString("msg")+"\",\"errcode\":"+jsonObject.getInt("errcode")+",\"data\":"+decodeData+"}";
                     }
+                    System.out.println("=responseString=="+responseString);
                     UpdateResultBean resultBean = JSON.parseObject(responseString, UpdateResultBean.class);
                     if (resultBean.result == Constant.retCode_ok && resultBean.data.size()>0) {
                         UpdateResultBean.Data updateInfoBean = resultBean.data.get(0);

@@ -182,10 +182,10 @@ public class MyInComeActivity extends RHBaseActivity {
                     {
                         isCanWithdrawal = false;
                     }
-
-                    isBindAliPayAccount = true;
-                    isJurisdiction = true;
                 }
+
+                isBindAliPayAccount = true;
+                isJurisdiction = true;
             }
 
             @Override
