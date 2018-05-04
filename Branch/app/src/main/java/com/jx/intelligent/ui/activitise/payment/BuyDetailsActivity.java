@@ -60,12 +60,17 @@ public class BuyDetailsActivity extends Activity implements View.OnClickListener
     }
     private void initData() {
         //从assets目录读取pdf
-        if(flag == 1)
+        if(flag == 1)//社区服务
         {
             mBtn_buy.setVisibility(View.GONE);
             loadBuyNotice("http://www.szjxzn.tech:8080/old_jx/4/5/071310460511831_publishagreement.pdf", "publishagreement.pdf");
         }
-        else
+        else if(flag == 2)//产品参数
+        {
+            mBtn_buy.setVisibility(View.GONE);
+            loadBuyNotice("http://www.szjxzn.tech:8080/jx/pdf/promise.pdf", "promise.pdf");
+        }
+        else//购买须知
         {
             loadBuyNotice("http://www.szjxzn.tech:8080/old_jx/pdf/agreement.pdf", "agreement.pdf");
         }

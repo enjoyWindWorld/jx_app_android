@@ -241,7 +241,10 @@ public class NewProductDetailActivity extends RHBaseActivity implements SwipeRef
             //净水器服务详情与介绍
             case R.id.details_service:
                 //跳转浏览器
-                goWebJX(Constant.PRODUCT_INTRODUCE_AND_SERVICE_UTL);
+//                goWebJX(Constant.PRODUCT_INTRODUCE_AND_SERVICE_UTL);
+                Intent details_service_intent = new Intent(NewProductDetailActivity.this, BuyDetailsActivity.class);
+                details_service_intent.putExtra("flag", 2);
+                startActivity(details_service_intent);
                 break;
             //立即购买弹出 选择类型颜色的 popuWindow
             case R.id.goto_buy:

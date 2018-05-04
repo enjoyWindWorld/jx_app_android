@@ -75,7 +75,7 @@
     <string name="not_new_datas">暂无数据！</string>
 
     <!-- 登录界面字段 -->
-    <string name="login_logo_text">净喜创客家园</string>
+    <string name="login_logo_text">净喜e创</string>
     <string name="login_account">请输入创客代码</string>
     <string name="login_password">请输入密码</string>
     <string name="login_forget">忘记密码</string>

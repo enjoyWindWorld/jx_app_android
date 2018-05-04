@@ -217,6 +217,11 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mYearNumber = mYear_addSubView.getValue();
                 Log.e("包年总数量",mYearNumber+"");
 
+                if(mYearNumber == 2)
+                {
+                    mYearNumber = 3;
+                    mYear_addSubView.setValue(mYearNumber);
+                }
             }
 
             @Override
@@ -224,6 +229,11 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mYearNumber = mYear_addSubView.getValue();
                 Log.e("包年总数量",mYearNumber+"");
 
+                if(mYearNumber == 2)
+                {
+                    mYearNumber = 1;
+                    mYear_addSubView.setValue(mYearNumber);
+                }
             }
 
 
@@ -317,18 +327,19 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
             mUrl= mNormalUrl;
             mType=0;
             if (mProid.equals("1")){
-
+                mPop_type.setText("壁挂式净水机");
                 mPop_red_btn.setVisibility(View.VISIBLE);
                 mPop_golden_btn.setVisibility(View.VISIBLE);
                 mPop_pearl_btn.setVisibility(View.VISIBLE);
                 mPop_black_btn.setVisibility(View.GONE);
             }else if (mProid.equals("2")){
+                mPop_type.setText("台式净水机");
                 mPop_red_btn.setVisibility(View.VISIBLE);
                 mPop_golden_btn.setVisibility(View.GONE);
                 mPop_pearl_btn.setVisibility(View.GONE);
                 mPop_black_btn.setVisibility(View.VISIBLE);
-
             }else if (mProid.equals("3")){
+                mPop_type.setText("立式净水机");
                 mPop_red_btn.setVisibility(View.VISIBLE);
                 mPop_golden_btn.setVisibility(View.GONE);
                 mPop_pearl_btn.setVisibility(View.GONE);
