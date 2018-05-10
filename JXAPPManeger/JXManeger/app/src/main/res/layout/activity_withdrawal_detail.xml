@@ -466,6 +466,7 @@
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/dp_1"
+                android:visibility="gone"
                 >
 
                 <TextView
@@ -559,6 +560,7 @@
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/dp_1"
+                android:visibility="gone"
                 >
 
                 <TextView

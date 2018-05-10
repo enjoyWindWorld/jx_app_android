@@ -295,6 +295,7 @@ public class WyPaymentDetailActivity extends RHBaseActivity implements View.OnLa
                     intent.putExtra("ord_no", result.getData().get(0).getOrd_no());
                     intent.putExtra("context", result.getData().get(0).getContext());
                     intent.putExtra("price", result.getData().get(0).getPrice());
+                    intent.putExtra("pay_price", result.getData().get(0).getPay_price());
                     intent.putExtra("paytype", result.getData().get(0).getPaytype());
                     intent.putExtra("tag", result.getData().get(0).getTag());
                     intent.putExtra("isAgain", "0");

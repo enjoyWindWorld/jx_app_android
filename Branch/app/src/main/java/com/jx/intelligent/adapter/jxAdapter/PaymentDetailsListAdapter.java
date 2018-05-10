@@ -78,9 +78,13 @@ public class PaymentDetailsListAdapter extends BaseAdapter {
             {
                 imgurl = imgurl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
             }
+            else if(imgurl.contains("113.106.93.195:15010/jx"))
+            {
+                imgurl = imgurl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
         }
         holder.mDetails_list_title.setText(dataBean.getName()+"("+dataBean.getColor()+")");
-        holder.mYear_flow_number.setText(dataBean.getYearsorflow());
+        holder.mYear_flow_number.setText(dataBean.getYearsorflow().replace("包年购买", "服务费包年购买"));
         Picasso.with(UIUtil.getContext()).load(imgurl).into(holder.mPayment_detail_img);
         float price = dataBean.getPrice();
         float totalPrice = dataBean.getTotalPrice();

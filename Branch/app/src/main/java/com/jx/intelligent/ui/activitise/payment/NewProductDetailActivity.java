@@ -428,8 +428,8 @@ public class NewProductDetailActivity extends RHBaseActivity implements SwipeRef
 
             //TODO: 这里需要注意  get(0)是正常账号的价格，get(1)是测试账号的价格
             //这是价格部分的数据
-            String price = DetaiAllDatas.getPaytype().get(0).getPrice();
-            String flow_price = DetaiAllDatas.getPaytype().get(1).getPrice();
+            String price = DetaiAllDatas.getPaytype().get(0).getPay_price();
+            String flow_price = DetaiAllDatas.getPaytype().get(1).getPay_price();
             if (price.equals(flow_price)) {
                 mDetair_price.setText(price + " 元");
             } else if (!price.equals(flow_price)) {

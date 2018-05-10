@@ -222,6 +222,7 @@ public class ProductDetailResult extends NormalResult {
             private String price;
             //押金
             private int pay_pledge;
+            private String pay_price;
             public int getPay_pledge() {
                 return pay_pledge;
             }
@@ -244,6 +245,14 @@ public class ProductDetailResult extends NormalResult {
 
             public void setPrice(String price) {
                 this.price = price;
+            }
+
+            public String getPay_price() {
+                return pay_price;
+            }
+
+            public void setPay_price(String pay_price) {
+                this.pay_price = pay_price;
             }
         }
     }

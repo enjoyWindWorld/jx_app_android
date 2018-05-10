@@ -148,7 +148,7 @@ public class ShoppingCartActivity extends RHBaseActivity {
                     mCart_btn_pay.setVisibility(View.GONE);
                     mCart_tv_all.setText("已选" + "0" + "项");
 
-                    ShowAddSubView();
+//                    ShowAddSubView();
                     AllSelectedPrice();
 
                 } else {
@@ -159,7 +159,7 @@ public class ShoppingCartActivity extends RHBaseActivity {
                     mCart_Btn_Detele.setVisibility(View.GONE);
                     mCart_btn_pay.setVisibility(View.VISIBLE);
                     mCart_tv_all.setText("总计¥：0.0元");
-                    GoneAddSubView();
+//                    GoneAddSubView();
                     AllSelectedPrice();
 
                 }

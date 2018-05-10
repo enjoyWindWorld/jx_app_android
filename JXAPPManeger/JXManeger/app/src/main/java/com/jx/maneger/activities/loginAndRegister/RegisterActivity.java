@@ -175,7 +175,7 @@ public class RegisterActivity extends RHBaseActivity {
                 if(registerResult != null && registerResult.getData().size()>0)
                 {
                     SesSharedReferences.setAccount(RegisterActivity.this, registerResult.getData().get(0).getId());
-                    ToastUtil.showToast("注册成功");
+                    ToastUtil.showToast("注册成功, 您的账号是："+registerResult.getData().get(0).getId()+" 您的初始密码是：123456  建议及时修改密码。");
                     setResult(Constant.REGISTER_OK);
                     finish();
                 }

@@ -218,7 +218,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp_10"
-                                        android:text="包年购买"
+                                        android:text="三年服务费"
                                         android:textColor="#030303"
                                         android:textSize="16sp" />
                                 </LinearLayout>
@@ -235,8 +235,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:paddingLeft="@dimen/dp_3"
-                                        atguigu:value="1"
-                                        atguigu:minValue="0"
+                                        atguigu:value="3"
+                                        atguigu:minValue="3"
                                         atguigu:maxValue="3"
                                         />
                                 </LinearLayout>

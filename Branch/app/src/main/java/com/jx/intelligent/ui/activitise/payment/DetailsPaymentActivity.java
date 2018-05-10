@@ -46,11 +46,11 @@ import com.unionpay.UPPayAssistEx;
  */
 public class DetailsPaymentActivity extends RHBaseActivity {
 
-    TextView zf_zfxq_sp_ms, zf_zfxq_bnje, zf_zfxq_yfjems, zf_zfxq_hxzf, zf_zfxq_qrzf_je;
+    TextView zf_zfxq_sp_ms, zf_zfxq_bnje, zf_zfxq_yfjems, zf_zfxq_hxzf, zf_zfxq_qrzf_je, youhui;
     CheckBox zf_zfxq_zfb_checkb, zf_zfxq_wx_checkb, zf_zfxq_yl_checkb;
-    LinearLayout layout_wx, layout_zfb, layout_yl;
+    LinearLayout layout_wx, layout_zfb, layout_yl, layout_youhui;
     RelativeLayout zf_zfxq_qrzf_btn;
-    private String ord_no, context, price, isAgain;
+    private String ord_no, context, price, pay_price, isAgain;
     HomeProductDao dao;
     CommunityService communityServiceDao;
     private ProgressWheelDialog dialog;
@@ -66,6 +66,7 @@ public class DetailsPaymentActivity extends RHBaseActivity {
             ord_no = getIntent().getStringExtra("ord_no");
             context = getIntent().getStringExtra("context");
             price = getIntent().getStringExtra("price");
+            pay_price = getIntent().getStringExtra("pay_price");
             tag = getIntent().getStringExtra("tag");
             serviceTag = getIntent().getStringExtra("serviceTag");
             isAgain = getIntent().getStringExtra("isAgain");
@@ -78,8 +79,17 @@ public class DetailsPaymentActivity extends RHBaseActivity {
             }
             else
             {
-                zf_zfxq_bnje.setText("￥"+price);
+                zf_zfxq_bnje.setText("￥"+ (Float.parseFloat(price) + Float.parseFloat(pay_price)));
                 zf_zfxq_qrzf_je.setText("￥"+price);
+                if("0".equals(pay_price))
+                {
+                    layout_youhui.setVisibility(View.GONE);
+                }
+                else
+                {
+                    layout_youhui.setVisibility(View.VISIBLE);
+                    youhui.setText("￥"+pay_price);
+                }
                 RHBaseApplication.getInstance().setOrd_no(ord_no);
             }
         }
@@ -117,6 +127,8 @@ public class DetailsPaymentActivity extends RHBaseActivity {
         layout_wx = (LinearLayout) contentView.findViewById(R.id.layout_wx);
         layout_zfb = (LinearLayout) contentView.findViewById(R.id.layout_zfb);
         layout_yl = (LinearLayout) contentView.findViewById(R.id.layout_yl);
+        youhui = (TextView) contentView.findViewById(R.id.youhui);
+        layout_youhui = (LinearLayout) contentView.findViewById(R.id.layout_youhui);
         zf_zfxq_qrzf_btn.setOnClickListener(this);
         layout_wx.setOnClickListener(this);
         layout_zfb.setOnClickListener(this);

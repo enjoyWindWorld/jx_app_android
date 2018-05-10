@@ -60,6 +60,7 @@ public class NewPlaceOrderResult extends NormalResult {
         private int paytype;
         private String price;
         private String tag;
+        private String pay_price;
 
         public String getContext() {
             return context;
@@ -99,6 +100,14 @@ public class NewPlaceOrderResult extends NormalResult {
 
         public void setTag(String tag) {
             this.tag = tag;
+        }
+
+        public String getPay_price() {
+            return pay_price;
+        }
+
+        public void setPay_price(String pay_price) {
+            this.pay_price = pay_price;
         }
     }
 }

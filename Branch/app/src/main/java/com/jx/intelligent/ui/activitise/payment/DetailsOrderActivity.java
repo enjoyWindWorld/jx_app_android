@@ -266,11 +266,11 @@ public class DetailsOrderActivity extends RHBaseActivity {
         {
             if("0".equals(isAgain))
             {
-                zf_zt_title_text.setText("包年购买:");
+                zf_zt_title_text.setText("服务费包年购买:");
             }
             else
             {
-                zf_zt_title_text.setText("包年续费:");
+                zf_zt_title_text.setText("服务费包年续费:");
             }
 //            zf_dd_jg_title_text.setText("全额支付");
             layout_date.setVisibility(View.VISIBLE);

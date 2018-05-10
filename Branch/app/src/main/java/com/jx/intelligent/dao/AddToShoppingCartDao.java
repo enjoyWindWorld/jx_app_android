@@ -36,6 +36,8 @@ public class AddToShoppingCartDao extends  BaseDao{
         map.put("price",price);
         map.put("url",url);
 
+        System.out.println("====url===="+Constant.ADDTO_SHOPPING_CART);
+
         sendAsyncRequest(Constant.ADDTO_SHOPPING_CART, com.alibaba.fastjson.JSON.toJSONString(map), AddToShopPingCartResult.class, new HttpResponseCallback<AddToShopPingCartResult>() {
             @Override
             public void onFailure(int statusCode, String message, AddToShopPingCartResult getaddToShopPingCartResult) {

@@ -97,13 +97,17 @@ public class ShopPingCartInSideRecycleAdapter extends RecyclerView.Adapter<ShopP
         holder.mSc_title_number.setText("×"+sc_number);
         holder.mShop_addSubView.setValue(sc_number);
 
-        holder.mSc_year_flow.setText(listBean.getYearsorflow());
+        holder.mSc_year_flow.setText(listBean.getYearsorflow().replace("包年购买", "服务费包年购买"));
 
         if(!StringUtil.isEmpty(sc_imgurl))
         {
             if(sc_imgurl.contains("data.jx-inteligent.tech:15010/jx"))
             {
                 sc_imgurl = sc_imgurl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+            }
+            else if(sc_imgurl.contains("113.106.93.195:15010/jx"))
+            {
+                sc_imgurl = sc_imgurl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
             }
         }
         Picasso.with(UIUtil.getContext()).load(sc_imgurl).into(holder.mSc_title_img);

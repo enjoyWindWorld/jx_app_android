@@ -262,6 +262,7 @@
 
     <!--支付详情-->
     <string name="DetailsPayment_total">总支付金额：</string>
+    <string name="youhui_total">优惠：</string>
     <string name="pay_detail_tile">支付详情</string>
     <string name="pay_detail_no_pay_money_tile">请选择支付方式</string>
     <string name="wechat_title">微信</string>

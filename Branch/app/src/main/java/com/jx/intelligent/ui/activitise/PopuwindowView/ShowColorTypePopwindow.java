@@ -67,7 +67,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
     private NumberAddSubView mBuy_number_addSubView;
 
 
-    private int mYearNumber=1;
+    private int mYearNumber=3;
     private int mFlowNumber=1;
     private int mBuyNumber=1;
     private String mTypeName;
@@ -306,6 +306,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 {
                     mNormalUrl = mNormalUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
                 }
+                else if(mNormalUrl.contains("113.106.93.195:15010/jx"))
+                {
+                    mNormalUrl = mNormalUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                }
             }
             Picasso.with(UIUtil.getContext()).load(mNormalUrl).into(mPop_img);
 
@@ -313,7 +317,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
             mPop_payType = mPop_detaiAllDatas.getPaytype().get(0);
 
             //商品单价
-            mPrice = mPop_payType.getPrice();
+            mPrice = mPop_payType.getPay_price();
             mPop_price.setText("￥ "+ mPrice);
 
             //popuwindow 设置默认 URL和 颜色
@@ -338,7 +342,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mPop_golden_btn.setVisibility(View.GONE);
                 mPop_pearl_btn.setVisibility(View.GONE);
                 mPop_black_btn.setVisibility(View.VISIBLE);
-            }else if (mProid.equals("3")){
+            }else if (mProid.equals("3") || mProid.equals("4")){
                 mPop_type.setText("立式净水机");
                 mPop_red_btn.setVisibility(View.VISIBLE);
                 mPop_golden_btn.setVisibility(View.GONE);
@@ -371,6 +375,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                     {
                         mRedUrl = mRedUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
                     }
+                    else if(mRedUrl.contains("113.106.93.195:15010/jx"))
+                    {
+                        mRedUrl = mRedUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
                 }
                 Picasso.with(UIUtil.getContext()).load(mRedUrl).into(mPop_img);
                 mUrl= mRedUrl;
@@ -398,6 +406,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                     if(mGoldenUrl.contains("data.jx-inteligent.tech:15010/jx"))
                     {
                         mGoldenUrl = mGoldenUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
+                    else if(mGoldenUrl.contains("113.106.93.195:15010/jx"))
+                    {
+                        mGoldenUrl = mGoldenUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
                     }
                 }
                 Picasso.with(UIUtil.getContext()).load(mGoldenUrl).into(mPop_img);
@@ -428,6 +440,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                     {
                         mPearlUrl = mPearlUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
                     }
+                    else if(mPearlUrl.contains("113.106.93.195:15010/jx"))
+                    {
+                        mPearlUrl = mPearlUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
                 }
                 Picasso.with(UIUtil.getContext()).load(mPearlUrl).into(mPop_img);
                 mUrl=mPearlUrl;
@@ -451,6 +467,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                     if(mBlackUrl.contains("data.jx-inteligent.tech:15010/jx"))
                     {
                         mBlackUrl = mBlackUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
+                    else if(mBlackUrl.contains("113.106.93.195:15010/jx"))
+                    {
+                        mBlackUrl = mBlackUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
                     }
                 }
                 Picasso.with(UIUtil.getContext()).load(mBlackUrl).into(mPop_img);
@@ -477,7 +497,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 //产品详情的 payType 数据
                 mPop_payType = mPop_detaiAllDatas.getPaytype().get(0);
                 //商品单价
-                mPrice = mPop_payType.getPrice();
+                mPrice = mPop_payType.getPay_price();
                 //重新设置 显示的单价
                 mPop_price.setText("￥ "+ mPrice);
                 mPop_title.setText(mPop_detailInfo.getName()+" "+mPop_colorInfo.getPic_color()+" 包年购买");
@@ -492,13 +512,13 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mYear_addSubView.ClickFalse();
                 mFlow_addSubView.ClickTrue();
                 //设置包年购买的数量归位 也就是回到原来的1
-                mYear_addSubView.setValue(1);
+                mYear_addSubView.setValue(3);
 
                 //如果是包流量取的是包流量的单价
                 //产品详情的 payType 数据
                 mPop_payType = mPop_detaiAllDatas.getPaytype().get(1);
                 //商品单价
-                mPrice = mPop_payType.getPrice();
+                mPrice = mPop_payType.getPay_price();
                 //重新设置 显示的单价
                 mPop_price.setText("￥ "+ mPrice);
                 mPop_title.setText(mPop_detailInfo.getName()+" "+mPop_colorInfo.getPic_color()+" 流量购买");
