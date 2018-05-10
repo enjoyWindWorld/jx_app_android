@@ -18,13 +18,12 @@ public class Constant {
      */
     public static final String SPF_NAME = "";
 
+//    public static final String IP = "http://192.168.1.102:8080/";
     public static final String IP = "http://120.79.63.162:8080/";
 //    public static final String IP = "http://www.szjxzn.tech:8080/";
 
-//    private static final String BASE_HEAD = IP + "jx_partner/smvc/";
     private static final String BASE_HEAD = IP + "jx_smart/smvc/";
     private static final String USER_URL = BASE_HEAD + "user/test/";
-//    private static final String CS_URL = IP + "jx_partner/after/users/";
     private static final String CS_URL = IP + "jx_smart/after/users/";
     private static final String LAUNDCH_URL = BASE_HEAD + "launch/test/";
     public static final String USER_REGISTER_URL = USER_URL + "register.v";
