@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         messageDao = new MessageDao();
         dbManager = new DBManager(RHBaseApplication.getInstance().getApplicationContext());
         dbManager.copyDBFile();
+        dbManager.deleteUrlJsonData();
         getPartnerInfo();
         getAdv();
         initUpdate();

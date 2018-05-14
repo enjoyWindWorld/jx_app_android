@@ -29,6 +29,7 @@ import com.jx.intelligent.R;
 import com.jx.intelligent.base.RHBaseApplication;
 import com.jx.intelligent.constant.Constant;
 import com.jx.intelligent.dao.UserCenter;
+import com.jx.intelligent.db.DBManager;
 import com.jx.intelligent.intf.ResponseResult;
 import com.jx.intelligent.result.MessageNoReadResult;
 import com.jx.intelligent.runtimepermission.PermissionsChecker;
@@ -37,6 +38,7 @@ import com.jx.intelligent.ui.fragments.ServiceFragment;
 import com.jx.intelligent.ui.fragments.UserFragment;
 import com.jx.intelligent.ui.fragments.VideoFragment;
 import com.jx.intelligent.update.UpdateAgent;
+import com.jx.intelligent.util.AppUtil;
 import com.jx.intelligent.util.LogUtil;
 import com.jx.intelligent.util.SesSharedReferences;
 import com.jx.intelligent.util.StatusBarUtil;
@@ -101,10 +103,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        DBManager dbManager = new DBManager(RHBaseApplication.getInstance().getApplicationContext());
+        dbManager.copyDBFile();
+        dbManager.deleteUrlJsonData();
     }
-
-
-
 
 
     @Override

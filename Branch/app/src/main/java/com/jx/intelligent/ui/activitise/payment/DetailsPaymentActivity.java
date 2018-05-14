@@ -79,9 +79,17 @@ public class DetailsPaymentActivity extends RHBaseActivity {
             }
             else
             {
-                zf_zfxq_bnje.setText("￥"+ (Float.parseFloat(price) + Float.parseFloat(pay_price)));
+                if(!StringUtil.isEmpty(price) && !StringUtil.isEmpty(pay_price))
+                {
+                    zf_zfxq_bnje.setText("￥"+ (Float.parseFloat(price) + Float.parseFloat(pay_price)));
+                }
+                else if(!StringUtil.isEmpty(price))
+                {
+                    zf_zfxq_bnje.setText("￥"+ price);
+                }
+
                 zf_zfxq_qrzf_je.setText("￥"+price);
-                if("0".equals(pay_price))
+                if(StringUtil.isEmpty(pay_price) || "0".equals(pay_price))
                 {
                     layout_youhui.setVisibility(View.GONE);
                 }

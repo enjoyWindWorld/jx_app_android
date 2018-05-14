@@ -139,7 +139,9 @@
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_20"
                                     android:background="@mipmap/red_selected"
-                                    android:text="中国红" />
+                                    android:text="中国红"
+                                    android:visibility="gone"
+                                    />
 
                                 <Button
                                     android:id="@+id/color_pop_golden"
@@ -147,26 +149,40 @@
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_10"
                                     android:background="@mipmap/golden_normal"
-                                    android:text="土豪金" />
+                                    android:text="土豪金"
+                                    android:visibility="gone"
+                                    />
 
                                 <Button
-
                                     android:id="@+id/color_pop_pearl"
                                     android:layout_width="@dimen/dp_90"
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_10"
                                     android:background="@mipmap/pearl_normal"
-                                    android:text="珍珠白" />
-                                <Button
+                                    android:text="珍珠白"
                                     android:visibility="gone"
+                                    />
+
+                                <Button
                                     android:id="@+id/color_pop_black"
                                     android:layout_width="@dimen/dp_90"
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_10"
                                     android:background="@mipmap/pearl_normal"
-                                    android:text="珍珠黑" />
+                                    android:text="珍珠银"
+                                    android:visibility="gone"
+                                    />
 
 
+                                <Button
+                                    android:id="@+id/color_pop_zhuanshi"
+                                    android:layout_width="@dimen/dp_90"
+                                    android:layout_height="@dimen/dp_30"
+                                    android:layout_marginLeft="@dimen/dp_10"
+                                    android:background="@mipmap/pearl_normal"
+                                    android:text="砖石银"
+                                    android:visibility="gone"
+                                    />
                             </LinearLayout>
 
                             <View
@@ -218,7 +234,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp_10"
-                                        android:text="三年服务费"
+                                        android:text="服务费"
                                         android:textColor="#030303"
                                         android:textSize="16sp" />
                                 </LinearLayout>

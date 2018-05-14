@@ -74,6 +74,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
 
     private int ppdnum=1;
     private Button mPop_black_btn;
+    private Button color_pop_zhuanshi;
     private String mRedUrl;
     private String mPrice;
     private String mUserId;
@@ -164,8 +165,10 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
         mPop_golden_btn = (Button) mRootView.findViewById(R.id.color_pop_golden);
         //珍珠白
         mPop_pearl_btn = (Button) mRootView.findViewById(R.id.color_pop_pearl);
-        //珍珠黑
+        //珍珠银
         mPop_black_btn = (Button) mRootView.findViewById(R.id.color_pop_black);
+        //砖石银
+        color_pop_zhuanshi = (Button) mRootView.findViewById(R.id.color_pop_zhuanshi);
 
         //包年购买的选择图标
         mPop_year_buy = (ImageView) mRootView.findViewById(R.id.year_buy_img);
@@ -207,6 +210,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
         mFlow_linearLayout.setOnClickListener(this);
         mAdd_cart.setOnClickListener(this);
         mIdl_buy.setOnClickListener(this);
+        color_pop_zhuanshi.setOnClickListener(this);
 
         /**
          * 包年自定义控件的 监听器
@@ -322,32 +326,50 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
 
             //popuwindow 设置默认 URL和 颜色
             mUrl=mNormalUrl;
-            mColor="中国红";
+            mColor = mPop_colorInfo.getPic_color();
 
             
-            mPop_title.setText(mPop_detailInfo.getName()+" "+ mPop_colorInfo.getPic_color()+" 包年购买");
+            mPop_title.setText(mPop_detailInfo.getName()+" "+ mPop_colorInfo.getPic_color()+" 服务费");
             //商品ID  1 2 3
             mProid = mPop_detailInfo.getId();
             mUrl= mNormalUrl;
             mType=0;
+
+            for(int i = 0; i < color.size(); i ++)
+            {
+                if(color.get(i).getPic_color().equals("中国红"))
+                {
+                    mPop_red_btn.setVisibility(View.VISIBLE);
+                }
+
+                if(color.get(i).getPic_color().equals("土豪金"))
+                {
+                    mPop_golden_btn.setVisibility(View.VISIBLE);
+                }
+
+                if(color.get(i).getPic_color().equals("珍珠银"))
+                {
+                    mPop_black_btn.setVisibility(View.VISIBLE);
+                }
+
+                if(color.get(i).getPic_color().equals("珍珠白"))
+                {
+                    mPop_pearl_btn.setVisibility(View.VISIBLE);
+                }
+
+                if(color.get(i).getPic_color().equals("钻石银"))
+                {
+                    color_pop_zhuanshi.setVisibility(View.VISIBLE);
+                }
+
+            }
+
             if (mProid.equals("1")){
-                mPop_type.setText("壁挂式净水机");
-                mPop_red_btn.setVisibility(View.VISIBLE);
-                mPop_golden_btn.setVisibility(View.VISIBLE);
-                mPop_pearl_btn.setVisibility(View.VISIBLE);
-                mPop_black_btn.setVisibility(View.GONE);
+                mPop_type.setText(mPop_detailInfo.getName());
             }else if (mProid.equals("2")){
-                mPop_type.setText("台式净水机");
-                mPop_red_btn.setVisibility(View.VISIBLE);
-                mPop_golden_btn.setVisibility(View.GONE);
-                mPop_pearl_btn.setVisibility(View.GONE);
-                mPop_black_btn.setVisibility(View.VISIBLE);
-            }else if (mProid.equals("3") || mProid.equals("4")){
-                mPop_type.setText("立式净水机");
-                mPop_red_btn.setVisibility(View.VISIBLE);
-                mPop_golden_btn.setVisibility(View.GONE);
-                mPop_pearl_btn.setVisibility(View.GONE);
-                mPop_black_btn.setVisibility(View.VISIBLE);
+                mPop_type.setText(mPop_detailInfo.getName());
+            }else if (mProid.equals("3")){
+                mPop_type.setText(mPop_detailInfo.getName());
             }
         }
     }
@@ -365,9 +387,25 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_selected));
                 mPop_golden_btn.setBackground(getResources().getDrawable(R.mipmap.golden_normal));
                 mPop_pearl_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+                color_pop_zhuanshi.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
                 ProductDetailResult.Data.DetailInfo reddetailsInfo = mPopuDatas.getData().get(0).getDetail().get(0);
-                ProductDetailResult.Data.ColorInfo redcolorInfo = mPopuDatas.getData().get(0).getColor().get(0);
-                String redUrl = redcolorInfo.getUrl();
+
+                List<ProductDetailResult.Data.ColorInfo> redcolorInfo = mPopuDatas.getData().get(0).getColor();
+                String redUrl = "";
+                for (int i = 0; i < redcolorInfo.size(); i ++)
+                {
+                    if(redcolorInfo.get(i).getPic_color().equals(mColor))
+                    {
+                        redUrl = redcolorInfo.get(i).getUrl();
+                        if(mType==0){
+                            mPop_title.setText(reddetailsInfo.getName() + " " + redcolorInfo.get(i).getPic_color()+" 服务费");
+                        }else if(mType==1){
+                            mPop_title.setText(reddetailsInfo.getName() + " " + redcolorInfo.get(i).getPic_color()+" 流量购买");
+                        }
+                        break;
+                    }
+                }
+
                 mRedUrl = ac.SplitUrl(redUrl);
                 if(!StringUtil.isEmpty(mRedUrl))
                 {
@@ -382,23 +420,33 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 }
                 Picasso.with(UIUtil.getContext()).load(mRedUrl).into(mPop_img);
                 mUrl= mRedUrl;
-                if(mType==0){
-                    mPop_title.setText(reddetailsInfo.getName() + " " + redcolorInfo.getPic_color()+" 包年购买");
-                }else if(mType==1){
-                    mPop_title.setText(reddetailsInfo.getName() + " " + redcolorInfo.getPic_color()+" 流量购买");
-                }
 
                 break;
             //popupwindow里面的 土豪金按钮
             case R.id.color_pop_golden:
                 mColor="土豪金";
+                mPop_black_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
                 mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_normal));
                 mPop_golden_btn.setBackground(getResources().getDrawable(R.mipmap.golden_selected));
                 mPop_pearl_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+                color_pop_zhuanshi.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
                 Log.e("111", "土豪金按钮");
                 ProductDetailResult.Data.DetailInfo goldendetailsInfo = mPopuDatas.getData().get(0).getDetail().get(0);
-                ProductDetailResult.Data.ColorInfo goldencolorInfo = mPopuDatas.getData().get(0).getColor().get(1);
-                String goldenUrl = goldencolorInfo.getUrl();
+                List<ProductDetailResult.Data.ColorInfo> goldencolorInfo = mPopuDatas.getData().get(0).getColor();
+                String goldenUrl = "";
+                for (int i = 0; i < goldencolorInfo.size(); i ++)
+                {
+                    if(goldencolorInfo.get(i).getPic_color().equals(mColor))
+                    {
+                        goldenUrl = goldencolorInfo.get(i).getUrl();
+                        if(mType==0){
+                            mPop_title.setText(goldendetailsInfo.getName() + " " + goldencolorInfo.get(i).getPic_color()+" 服务费");
+                        }else if(mType==1){
+                            mPop_title.setText(goldendetailsInfo.getName() + " " + goldencolorInfo.get(i).getPic_color()+" 流量购买");
+                        }
+                        break;
+                    }
+                }
                 String mGoldenUrl = ac.SplitUrl(goldenUrl);
                 //因为换域名了所以 所有的 图片URL 都要经过切割再重新拼接
                 if(!StringUtil.isEmpty(mGoldenUrl))
@@ -414,25 +462,35 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 }
                 Picasso.with(UIUtil.getContext()).load(mGoldenUrl).into(mPop_img);
                 mUrl=mGoldenUrl;
-                if(mType==0){
-                    mPop_title.setText(goldendetailsInfo.getName() + " " + goldencolorInfo.getPic_color()+" 包年购买");
-                }else if(mType==1){
-                    mPop_title.setText(goldendetailsInfo.getName() + " " + goldencolorInfo.getPic_color()+" 流量购买");
-                }
 
                 break;
             //popupwindow里面的 珍珠白按钮
             case R.id.color_pop_pearl:
-
                 mColor="珍珠白";
                 Log.e("111", "珍珠白按钮");
+                mPop_black_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
                 mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_normal));
                 mPop_golden_btn.setBackground(getResources().getDrawable(R.mipmap.golden_normal));
                 mPop_pearl_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_selected));
-
+                color_pop_zhuanshi.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
                 ProductDetailResult.Data.DetailInfo pearldetailsInfo = mPopuDatas.getData().get(0).getDetail().get(0);
-                ProductDetailResult.Data.ColorInfo pearlcolorInfo = mPopuDatas.getData().get(0).getColor().get(2);
-                String pearlUrl = pearlcolorInfo.getUrl();
+
+                List<ProductDetailResult.Data.ColorInfo> pearlcolorInfo = mPopuDatas.getData().get(0).getColor();
+                String pearlUrl = "";
+                for (int i = 0; i < pearlcolorInfo.size(); i ++)
+                {
+                    if(pearlcolorInfo.get(i).getPic_color().equals(mColor))
+                    {
+                        pearlUrl = pearlcolorInfo.get(i).getUrl();
+                        if(mType==0){
+                            mPop_title.setText(pearldetailsInfo.getName() + " " + pearlcolorInfo.get(i).getPic_color()+" 服务费");
+                        }else if(mType==1){
+                            mPop_title.setText(pearldetailsInfo.getName() + " " + pearlcolorInfo.get(i).getPic_color()+" 流量购买");
+                        }
+                        break;
+                    }
+                }
+
                 String mPearlUrl = ac.SplitUrl(pearlUrl);
                 if(!StringUtil.isEmpty(mPearlUrl))
                 {
@@ -447,20 +505,35 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 }
                 Picasso.with(UIUtil.getContext()).load(mPearlUrl).into(mPop_img);
                 mUrl=mPearlUrl;
-                if(mType==0){
-                    mPop_title.setText(pearldetailsInfo.getName() + " " + pearlcolorInfo.getPic_color()+" 包年购买");
-                }else if(mType==1){
-                    mPop_title.setText(pearldetailsInfo.getName() + " " + pearlcolorInfo.getPic_color()+" 流量购买");
-                }
+
                 break;
-            //popupwindow里面的 珍珠黑按钮
+            //popupwindow里面的 珍珠银按钮
             case R.id.color_pop_black:
-                mColor="珍珠黑";
-                mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_normal));
+                mColor="珍珠银";
                 mPop_black_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_selected));
+                mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_normal));
+                mPop_golden_btn.setBackground(getResources().getDrawable(R.mipmap.golden_normal));
+                mPop_pearl_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+                color_pop_zhuanshi.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+
                 ProductDetailResult.Data.DetailInfo blackdetailsInfo = mPopuDatas.getData().get(0).getDetail().get(0);
-                ProductDetailResult.Data.ColorInfo blackcolorInfo = mPopuDatas.getData().get(0).getColor().get(1);
-                String blackUrl = blackcolorInfo.getUrl();
+
+                List<ProductDetailResult.Data.ColorInfo> blackcolorInfo = mPopuDatas.getData().get(0).getColor();
+                String blackUrl = "";
+                for (int i = 0; i < blackcolorInfo.size(); i ++)
+                {
+                    if(blackcolorInfo.get(i).getPic_color().equals(mColor))
+                    {
+                        blackUrl = blackcolorInfo.get(i).getUrl();
+                        if(mType==0){
+                            mPop_title.setText(blackdetailsInfo.getName() + " " + blackcolorInfo.get(i).getPic_color()+" 服务费");
+                        }else if(mType==1){
+                            mPop_title.setText(blackdetailsInfo.getName() + " " + blackcolorInfo.get(i).getPic_color()+" 流量购买");
+                        }
+                        break;
+                    }
+                }
+
                 String mBlackUrl = ac.SplitUrl(blackUrl);
                 if(!StringUtil.isEmpty(mBlackUrl))
                 {
@@ -475,11 +548,48 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 }
                 Picasso.with(UIUtil.getContext()).load(mBlackUrl).into(mPop_img);
                 mUrl=mBlackUrl;
-                if(mType==0){
-                    mPop_title.setText(blackdetailsInfo.getName() + " " + blackcolorInfo.getPic_color()+" 包年购买");
-                }else if(mType==1){
-                    mPop_title.setText(blackdetailsInfo.getName() + " " + blackcolorInfo.getPic_color()+" 流量购买");
+                break;
+            //popupwindow里面的 砖石银按钮
+            case R.id.color_pop_zhuanshi:
+                mColor="钻石银";
+                mPop_black_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+                mPop_red_btn.setBackground(getResources().getDrawable(R.mipmap.red_normal));
+                mPop_golden_btn.setBackground(getResources().getDrawable(R.mipmap.golden_normal));
+                mPop_pearl_btn.setBackground(getResources().getDrawable(R.mipmap.pearl_normal));
+                color_pop_zhuanshi.setBackground(getResources().getDrawable(R.mipmap.pearl_selected));
+                ProductDetailResult.Data.DetailInfo zhuanshidetailsInfo = mPopuDatas.getData().get(0).getDetail().get(0);
+
+                List<ProductDetailResult.Data.ColorInfo> zhuanshicolorInfo = mPopuDatas.getData().get(0).getColor();
+                String zhuanshiUrl = "";
+                for (int i = 0; i < zhuanshicolorInfo.size(); i ++)
+                {
+                    if(zhuanshicolorInfo.get(i).getPic_color().equals(mColor))
+                    {
+                        zhuanshiUrl = zhuanshicolorInfo.get(i).getUrl();
+                        if(mType==0){
+                            mPop_title.setText(zhuanshidetailsInfo.getName() + " " + zhuanshicolorInfo.get(i).getPic_color()+" 服务费");
+                        }else if(mType==1){
+                            mPop_title.setText(zhuanshidetailsInfo.getName() + " " + zhuanshicolorInfo.get(i).getPic_color()+" 流量购买");
+                        }
+                        break;
+                    }
                 }
+
+                String mZhuanshiUrl = ac.SplitUrl(zhuanshiUrl);
+                if(!StringUtil.isEmpty(mZhuanshiUrl))
+                {
+                    if(mZhuanshiUrl.contains("data.jx-inteligent.tech:15010/jx"))
+                    {
+                        mZhuanshiUrl = mZhuanshiUrl.replace("data.jx-inteligent.tech:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
+                    else if(mZhuanshiUrl.contains("113.106.93.195:15010/jx"))
+                    {
+                        mZhuanshiUrl = mZhuanshiUrl.replace("113.106.93.195:15010/jx", "www.szjxzn.tech:8080/old_jx");
+                    }
+                }
+                Picasso.with(UIUtil.getContext()).load(mZhuanshiUrl).into(mPop_img);
+                mUrl=mZhuanshiUrl;
+
                 break;
 
             //包年购买的选择
@@ -500,7 +610,7 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
                 mPrice = mPop_payType.getPay_price();
                 //重新设置 显示的单价
                 mPop_price.setText("￥ "+ mPrice);
-                mPop_title.setText(mPop_detailInfo.getName()+" "+mPop_colorInfo.getPic_color()+" 包年购买");
+                mPop_title.setText(mPop_detailInfo.getName()+" "+mPop_colorInfo.getPic_color()+" 服务费");
 
                 break;
             //流量购买的选择
