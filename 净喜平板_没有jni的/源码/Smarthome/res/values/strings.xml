@@ -72,8 +72,8 @@
     <string name="equipment_state">滤芯状态</string>
     <string name="equipment_surplus">预计剩余</string>
     <string name="equipment_ppf">PP</string>
-    <string name="equipment_cto">CTO块状活性炭</string>
-    <string name="equipment_t33">T33</string>
+    <string name="equipment_cto">UDF颗粒活性炭</string>
+    <string name="equipment_t33">T33椰壳活性炭</string>
     <string name="equipment_ro">RO膜</string>
     <string name="equipment_postposition">后置碳</string>
     <string name="equipment_wfr">弱碱\n滤芯</string>
@@ -193,6 +193,7 @@
     <string name="regulating_Temperature_title">温度修正</string> 
     <string name="flow_adjustment">流量修正</string> 
     <string name="regulating_Temperature_remind">温度修正与流量修正为调节机器温度误差功能，非专业人员禁止使用！</string>
+    <string name="regulating_Machine_remind">机器修正为调节机器滤芯误差功能，非专业人员禁止使用！</string>
     <string name="regulating_Temperature_pwd_hint">请输入密码</string>
     
     <string name="device_bind_hint">该设备已经被绑定</string>
@@ -207,16 +208,17 @@
     <string name="machine_sycn_discribtion">整机同步功能用于更换主板设备时，同步订单信息到净水机中！</string>
     <string name="machine_sycn_replace_filter">是否已经更换滤芯</string>    
     
-    <string name="regulating_temperature">机器修正</string>
+    <string name="regulating_temperature">温度修正</string>
+    <string name="regulating_machine">机器修正</string>
     <string name="version_change">检查版本</string>
     <string name="version_name_head">当前版本已经是最新版本！</string>
     <string name="equipment_change">更换滤芯</string>
     <string name="search_ordinfo">平板同步</string>
     <string name="machine_synchronization">整机同步</string>
     <string name="pp_filter_change">PP滤芯</string>
-    <string name="cto_filter_change">CTO块状活性炭滤芯</string>
+    <string name="cto_filter_change">UDF颗粒活性炭</string>
     <string name="ro_filter_change">RO膜滤芯</string>
-    <string name="t33_filter_change">T33活性保鲜滤芯</string>
+    <string name="t33_filter_change">T33椰壳活性炭</string>
     <string name="wfr_filter_change">弱碱滤芯</string>
     <string name="complex_energy_filter_change">复合能量矿化滤芯</string>
     

@@ -1,4 +1,4 @@
-# view AndroidManifest.xml #generated:245
+# view AndroidManifest.xml #generated:250
 -keep class com.baidu.location.f { <init>(...); }
 
 # view AndroidManifest.xml #generated:38
@@ -37,6 +37,9 @@
 # view AndroidManifest.xml #generated:32
 -keep class com.kxw.smarthome.MyApplication { <init>(...); }
 
+# view AndroidManifest.xml #generated:148
+-keep class com.kxw.smarthome.RegulatingMachineActivity { <init>(...); }
+
 # view AndroidManifest.xml #generated:143
 -keep class com.kxw.smarthome.RegulatingTemperatureActivity { <init>(...); }
 
@@ -73,43 +76,43 @@
 # view res/layout/appliance_repair_activity.xml #generated:67
 -keep class com.kxw.smarthome.pulltorefresh.PullToRefreshListView { <init>(...); }
 
-# view AndroidManifest.xml #generated:213
+# view AndroidManifest.xml #generated:218
 -keep class com.kxw.smarthome.receiver.ExpirationHintsReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:149
+# view AndroidManifest.xml #generated:154
 -keep class com.kxw.smarthome.receiver.GetRenewReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:157
+# view AndroidManifest.xml #generated:162
 -keep class com.kxw.smarthome.receiver.OnTouchReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:205
+# view AndroidManifest.xml #generated:210
 -keep class com.kxw.smarthome.receiver.ResetDeviceReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:221
+# view AndroidManifest.xml #generated:226
 -keep class com.kxw.smarthome.receiver.SyncFilterLifeReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:165
+# view AndroidManifest.xml #generated:170
 -keep class com.kxw.smarthome.receiver.UpdateAdReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:173
+# view AndroidManifest.xml #generated:178
 -keep class com.kxw.smarthome.receiver.UpdateFilterInfoReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:229
+# view AndroidManifest.xml #generated:234
 -keep class com.kxw.smarthome.receiver.UpdateOptionDescriptionReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:181
+# view AndroidManifest.xml #generated:186
 -keep class com.kxw.smarthome.receiver.UpdateTimeReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:189
+# view AndroidManifest.xml #generated:194
 -keep class com.kxw.smarthome.receiver.UpdateWeatherReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:197
+# view AndroidManifest.xml #generated:202
 -keep class com.kxw.smarthome.receiver.UpgradeReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:237
+# view AndroidManifest.xml #generated:242
 -keep class com.kxw.smarthome.receiver.VerificationDataReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:260
+# view AndroidManifest.xml #generated:265
 -keep class com.kxw.smarthome.service.UpdateService { <init>(...); }
 
 # view res/layout/layout_custom_banner.xml #generated:6

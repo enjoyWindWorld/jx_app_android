@@ -42,7 +42,7 @@ import com.kxw.smarthome.utils.Utils;
 
 public class SettingActivity extends BaseActivity implements OnClickListener {
 	
-	private LinearLayout wifi_manage_ll, brightness_control_ll, volume_control_ll,device_code_ll,equipment_change_ll,version_change_ll, search_ordinfo_ll, machine_synchronization_ll, regulating_temperature_ll;
+	private LinearLayout wifi_manage_ll, brightness_control_ll, volume_control_ll,device_code_ll,equipment_change_ll,version_change_ll, search_ordinfo_ll, machine_synchronization_ll, regulating_temperature_ll, regulating_machine_ll;
 	private TextView tv_version_code;
 	private Button btn_jia_time, btn_jian_time, btn_jia_filter_1, btn_jian_filter_1, btn_jia_filter_2, btn_jian_filter_2, btn_jia_filter_3, btn_jian_filter_3, btn_jia_filter_4, btn_jian_filter_4;
 	
@@ -83,6 +83,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 		search_ordinfo_ll = (LinearLayout)findViewById(R.id.search_ordinfo_ll);
 		machine_synchronization_ll = (LinearLayout)findViewById(R.id.machine_synchronization_ll);
 		regulating_temperature_ll = (LinearLayout)findViewById(R.id.regulating_temperature_ll);
+		regulating_machine_ll = (LinearLayout)findViewById(R.id.regulating_machine_ll);
 		tv_version_code = (TextView)findViewById(R.id.tv_version_code);
 		
 		btn_jia_time = (Button) findViewById(R.id.btn_jia_time);
@@ -116,6 +117,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 		search_ordinfo_ll.setOnClickListener(this);
 		machine_synchronization_ll.setOnClickListener(this);
 		regulating_temperature_ll.setOnClickListener(this);
+		regulating_machine_ll.setOnClickListener(this);
 		tv_version_code.setText(AppUtil.getVersionName());
 		
 		mFilterLifeInfo = DBUtils.getFirstData(FilterLifeInfo.class);
@@ -274,6 +276,10 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.regulating_temperature_ll:
 			intent.setClass(this, RegulatingTemperatureActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.regulating_machine_ll:
+			intent.setClass(this, RegulatingMachineActivity.class);
 			startActivity(intent);
 			break;
 			

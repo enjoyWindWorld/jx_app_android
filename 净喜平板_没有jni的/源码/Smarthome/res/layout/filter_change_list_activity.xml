@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_20dp"
             android:layout_weight="1"
-            android:text="@string/complex_energy_filter_change"
+            android:text="@string/t33_filter_change"
             android:textColor="#333333"
             android:textSize="@dimen/text_size_24sp" />
 

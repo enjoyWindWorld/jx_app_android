@@ -145,6 +145,11 @@
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name=".RegulatingMachineActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape" >
+        </activity>
          
         <receiver
             android:name="com.kxw.smarthome.receiver.GetRenewReceiver"

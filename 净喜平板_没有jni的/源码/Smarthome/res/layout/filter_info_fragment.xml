@@ -159,7 +159,7 @@
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="@string/equipment_complex_energy"
+            android:text="@string/equipment_t33"
             android:textColor="#333333"
             android:textSize="@dimen/equipment_text" />
 

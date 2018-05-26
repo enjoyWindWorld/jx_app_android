@@ -180,7 +180,7 @@
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_10"
                                     android:background="@mipmap/pearl_normal"
-                                    android:text="砖石银"
+                                    android:text="钻石银"
                                     android:visibility="gone"
                                     />
                             </LinearLayout>

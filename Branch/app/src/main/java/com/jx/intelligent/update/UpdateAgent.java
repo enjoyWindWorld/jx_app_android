@@ -23,7 +23,6 @@ import com.jx.intelligent.R;
 import com.jx.intelligent.base.RHBaseApplication;
 import com.jx.intelligent.constant.Constant;
 import com.jx.intelligent.constant.ErrorCode;
-import com.jx.intelligent.db.DBManager;
 import com.jx.intelligent.view.dialog.NormalAlertDialog;
 import com.jx.intelligent.intf.DialogOnClickListener;
 import com.jx.intelligent.util.AppUtil;
@@ -1254,9 +1253,6 @@ public class UpdateAgent {
     private void showDialog(final Activity activity, String msg, String isMustUpdateApp) {
         if(!StringUtil.isEmpty(isMustUpdateApp) && isMustUpdateApp.equals("1"))
         {
-            DBManager dbManager = new DBManager(RHBaseApplication.getInstance().getApplicationContext());
-            dbManager.copyDBFile();
-            dbManager.deleteUrlJsonData();
             mDialog = new NormalAlertDialog.Builder(activity)
                     .setTitleText(UIUtil.getString(R.string.about_update_tip))
                     .setTitleVisible(true)
@@ -1291,9 +1287,6 @@ public class UpdateAgent {
         }
         else
         {
-            DBManager dbManager = new DBManager(RHBaseApplication.getInstance().getApplicationContext());
-            dbManager.copyDBFile();
-            dbManager.deleteUrlJsonData();
             mDialog = new NormalAlertDialog.Builder(activity)
                     .setTitleText(UIUtil.getString(R.string.about_update_tip))
                     .setTitleVisible(true)

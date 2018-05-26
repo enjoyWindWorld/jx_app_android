@@ -133,14 +133,14 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 				}
 				break;
 			case R.id.txt_flow_adjustment_add:
-				if(flow < 20)
+				if(flow < 50)
 				{
 					flow ++;
 					edit_flow_adjustment.setText(flow+"");
 				}
 				break;
 			case R.id.txt_flow_adjustment_reduce:
-				if(flow > -20)
+				if(flow > -50)
 				{
 					flow --;
 					edit_flow_adjustment.setText(flow+"");
@@ -163,7 +163,7 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 				{
 					MyToast.getManager(getApplicationContext()).show("请输入密码");
 				}
-				else if(!pwd_et.getText().toString().equals("jxsmart20160830"))
+				else if(!pwd_et.getText().toString().equals("12345"))
 				{
 					MyToast.getManager(getApplicationContext()).show("密码错误");
 				}
