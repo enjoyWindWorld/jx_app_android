@@ -1276,6 +1276,9 @@ com.kxw.smarthome.MachineSynchronizationActivity$7: void onSuccess(java.lang.Str
 com.kxw.smarthome.MachineSynchronizationActivity$7: void onSuccess(java.lang.Object)
 com.kxw.smarthome.MyApplication
 com.kxw.smarthome.MyApplication: MyApplication()
+com.kxw.smarthome.RegulatingMachineActivity
+com.kxw.smarthome.RegulatingMachineActivity: RegulatingMachineActivity()
+com.kxw.smarthome.RegulatingMachineActivity: void onClick(android.view.View)
 com.kxw.smarthome.RegulatingTemperatureActivity
 com.kxw.smarthome.RegulatingTemperatureActivity: RegulatingTemperatureActivity()
 com.kxw.smarthome.RegulatingTemperatureActivity: void onClick(android.view.View)
@@ -1458,52 +1461,40 @@ com.kxw.smarthome.entity.FilterLifeInfo: int getWfr()
 com.kxw.smarthome.entity.FilterLifeInfo: void setWfr(int)
 com.kxw.smarthome.entity.FilterLifeInfo: java.lang.String toString()
 com.kxw.smarthome.entity.FreeWeatherInfo
-com.kxw.smarthome.entity.FreeWeatherInfo: java.lang.String status
 com.kxw.smarthome.entity.FreeWeatherInfo: com.kxw.smarthome.entity.FreeWeatherInfo$Data data
+com.kxw.smarthome.entity.FreeWeatherInfo: int status
 com.kxw.smarthome.entity.FreeWeatherInfo: FreeWeatherInfo()
-com.kxw.smarthome.entity.FreeWeatherInfo: java.lang.String getStatus()
-com.kxw.smarthome.entity.FreeWeatherInfo: void setStatus(java.lang.String)
 com.kxw.smarthome.entity.FreeWeatherInfo: com.kxw.smarthome.entity.FreeWeatherInfo$Data getData()
 com.kxw.smarthome.entity.FreeWeatherInfo: void setData(com.kxw.smarthome.entity.FreeWeatherInfo$Data)
+com.kxw.smarthome.entity.FreeWeatherInfo: int getStatus()
+com.kxw.smarthome.entity.FreeWeatherInfo: void setStatus(int)
 com.kxw.smarthome.entity.FreeWeatherInfo$Data
 com.kxw.smarthome.entity.FreeWeatherInfo$Data: java.util.List forecast
 com.kxw.smarthome.entity.FreeWeatherInfo$Data: com.kxw.smarthome.entity.FreeWeatherInfo this$0
 com.kxw.smarthome.entity.FreeWeatherInfo$Data: FreeWeatherInfo$Data(com.kxw.smarthome.entity.FreeWeatherInfo)
 com.kxw.smarthome.entity.FreeWeatherInfo$Data: java.util.List getForecast()
 com.kxw.smarthome.entity.FreeWeatherInfo$Data: void setForecast(java.util.List)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String date
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String sunrise
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String high
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String low
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String sunset
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String aqi
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String fx
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String fl
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String type
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String notice
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: com.kxw.smarthome.entity.FreeWeatherInfo$Data this$1
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: FreeWeatherInfo$Data$Forecast(com.kxw.smarthome.entity.FreeWeatherInfo$Data)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getDate()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setDate(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getSunrise()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setSunrise(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getHigh()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setHigh(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getLow()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setLow(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getSunset()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setSunset(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getAqi()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setAqi(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getFx()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setFx(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getFl()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setFl(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getType()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setType(java.lang.String)
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: java.lang.String getNotice()
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast: void setNotice(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String date
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String high
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String fengli
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String low
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String fengxiang
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String type
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: com.kxw.smarthome.entity.FreeWeatherInfo this$0
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: FreeWeatherInfo$Forecast(com.kxw.smarthome.entity.FreeWeatherInfo)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getDate()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setDate(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getHigh()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setHigh(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getFengli()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setFengli(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getLow()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setLow(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getFengxiang()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setFengxiang(java.lang.String)
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: java.lang.String getType()
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast: void setType(java.lang.String)
 com.kxw.smarthome.entity.OldFilterLifeInfo
 com.kxw.smarthome.entity.OldFilterLifeInfo: java.util.List code
 com.kxw.smarthome.entity.OldFilterLifeInfo: java.util.List pro_no
@@ -1945,16 +1936,21 @@ com.kxw.smarthome.utils.LocationAndWeatherUtils: com.baidu.location.LocationClie
 com.kxw.smarthome.utils.LocationAndWeatherUtils: void start(com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult)
 com.kxw.smarthome.utils.LocationAndWeatherUtils: void stop()
 com.kxw.smarthome.utils.LocationAndWeatherUtils: boolean requestHotSpotState()
-com.kxw.smarthome.utils.LocationAndWeatherUtils: void getFreeWeather(java.lang.String)
+com.kxw.smarthome.utils.LocationAndWeatherUtils: void getFreeWeatherByCityId(java.lang.String)
+com.kxw.smarthome.utils.LocationAndWeatherUtils: void getFreeWeatherByCityName(java.lang.String)
 com.kxw.smarthome.utils.LocationAndWeatherUtils: com.baidu.location.LocationClient access$0()
 com.kxw.smarthome.utils.LocationAndWeatherUtils: android.content.Context access$1()
-com.kxw.smarthome.utils.LocationAndWeatherUtils: void access$2(com.kxw.smarthome.utils.LocationAndWeatherUtils,java.lang.String)
-com.kxw.smarthome.utils.LocationAndWeatherUtils: com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult access$3()
+com.kxw.smarthome.utils.LocationAndWeatherUtils: com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult access$2()
 com.kxw.smarthome.utils.LocationAndWeatherUtils$2: void onCancelled(org.xutils.common.Callback$CancelledException)
 com.kxw.smarthome.utils.LocationAndWeatherUtils$2: void onError(java.lang.Throwable,boolean)
 com.kxw.smarthome.utils.LocationAndWeatherUtils$2: void onFinished()
 com.kxw.smarthome.utils.LocationAndWeatherUtils$2: void onSuccess(java.lang.String)
 com.kxw.smarthome.utils.LocationAndWeatherUtils$2: void onSuccess(java.lang.Object)
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3: void onCancelled(org.xutils.common.Callback$CancelledException)
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3: void onError(java.lang.Throwable,boolean)
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3: void onFinished()
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3: void onSuccess(java.lang.String)
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3: void onSuccess(java.lang.Object)
 com.kxw.smarthome.utils.RequestUtils$1: void onCancelled(org.xutils.common.Callback$CancelledException)
 com.kxw.smarthome.utils.RequestUtils$1: void onError(java.lang.Throwable,boolean)
 com.kxw.smarthome.utils.RequestUtils$1: void onFinished()

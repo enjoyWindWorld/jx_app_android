@@ -38,6 +38,7 @@ import com.kxw.smarthome.imagecycleview.ImageCycleView;
 import com.kxw.smarthome.imagecycleview.ImageCycleView.ImageCycleViewListener;
 import com.kxw.smarthome.utils.ConfigUtils;
 import com.kxw.smarthome.utils.DBUtils;
+import com.kxw.smarthome.utils.LocationAndWeatherUtils;
 import com.kxw.smarthome.utils.MyLogger;
 import com.kxw.smarthome.utils.MyToast;
 import com.kxw.smarthome.utils.NetUtils;

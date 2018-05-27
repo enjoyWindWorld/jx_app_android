@@ -3592,7 +3592,6 @@ com.baidu.location.BDLocation:
     public float getDerect()
     public float getDirection()
     public boolean hasSateNumber()
-    public java.lang.String getCityCode()
     public java.lang.String getCountry()
     public java.lang.String getCountryCode()
     public java.lang.String getStreet()
@@ -4949,8 +4948,8 @@ com.hp.hpl.sparta.xpath.XPath:
     public static com.hp.hpl.sparta.xpath.XPath get(boolean,com.hp.hpl.sparta.xpath.Step[])
     public static boolean isStringValue(java.lang.String)
 com.kxw.smarthome.AdvMainActivity:
-    168:183:protected void replayMedia()
-    580:581:public void setIs_ShowADV(boolean)
+    172:187:protected void replayMedia()
+    584:585:public void setIs_ShowADV(boolean)
 com.kxw.smarthome.BuildConfig
 com.kxw.smarthome.FilterChangeListActivity:
     private android.widget.LinearLayout wfr_filter_ll
@@ -5030,7 +5029,7 @@ com.kxw.smarthome.R$styleable:
     public static final int RippleBackground_rb_scale
     public static final int RippleBackground_rb_strokeWidth
     public static final int RippleBackground_rb_type
-    1210:1210:public R$styleable()
+    1231:1231:public R$styleable()
 com.kxw.smarthome.SearchOrderInfoActivity:
     249:350:public void getFilterLife()
 com.kxw.smarthome.SearchOrderInfoActivity$3

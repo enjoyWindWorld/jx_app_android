@@ -1,16 +1,8 @@
 package com.kxw.smarthome.utils;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 import org.xutils.DbManager;
 import org.xutils.DbManager.DaoConfig;
 import org.xutils.x;
@@ -189,7 +181,7 @@ public class LocationAndWeatherUtils {
 						mContext, "latitude", location.getLatitude()+"");
 				
 				city = location.getCity().substring(0, location.getCity().indexOf("市"));
-				getFreeWeather(city);
+				getFreeWeatherByCityName(city);
 				
 				if(locationResult != null)
 				{
@@ -213,19 +205,12 @@ public class LocationAndWeatherUtils {
 
 	};
 	
-	/**
-	 * 新浪的天气api
-	 * @param cityName
-	 */
-	private void getFreeWeather(String cityName) {
+	//{"weatherinfo":{"city":"北京","cityid":"101010100","temp1":"18℃","temp2":"31℃","weather":"多云转阴","img1":"n1.gif","img2":"d2.gif","ptime":"18:00"}}
+	public void getFreeWeatherByCityId(String cityId) {
 		try {
-			cityName = URLEncoder.encode(cityName, "utf-8");
-			System.out.println("url==="
-					+ "http://www.sojson.com/open/api/weather/json.shtml?city="
-					+ cityName);
-			RequestParams params = new RequestParams(
-					"http://www.sojson.com/open/api/weather/json.shtml?city="
-							+ cityName);
+			cityId = URLEncoder.encode(cityId, "utf-8");
+			System.out.println("url===http://www.weather.com.cn/data/cityinfo/" + cityId + ".html");
+			RequestParams params = new RequestParams("http://www.weather.com.cn/data/cityinfo/"+ cityId + ".html");
 			x.http().get(params, new CommonCallback<String>() {
 
 				@Override
@@ -249,19 +234,68 @@ public class LocationAndWeatherUtils {
 				public void onSuccess(String response) {
 					try {
 						System.out.println("===json===" + response);
-						 FreeWeatherInfo freeWeatherInfo = new
-						 Gson().fromJson(response, FreeWeatherInfo.class);
-						 if("200".equals(freeWeatherInfo.getStatus()))
+//						 FreeWeatherInfo freeWeatherInfo = new
+//						 Gson().fromJson(response, FreeWeatherInfo.class);
+//						 DaoConfig daoConfig = DBUtils.getDaoConfig();
+//						 DbManager db = x.getDb(daoConfig);
+//						 db.delete(WeatherInfo.class);
+//						 WeatherInfo weatherInfo = new WeatherInfo();
+//						 weatherInfo.setTemperature(freeWeatherInfo.getWeatherinfo().getTemp2());
+//						 weatherInfo.setState(freeWeatherInfo.getWeatherinfo().getWeather());
+//						 weatherInfo.setUpdataTime();
+//						 db.save(weatherInfo);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	public void getFreeWeatherByCityName(String cityName) {
+		try {
+			cityName = URLEncoder.encode(cityName, "utf-8");
+			System.out.println("url===http://wthrcdn.etouch.cn/weather_mini?city=" + cityName);
+			RequestParams params = new RequestParams("http://wthrcdn.etouch.cn/weather_mini?city=" + cityName);
+			x.http().get(params, new CommonCallback<String>() {
+
+				@Override
+				public void onCancelled(CancelledException arg0) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void onError(Throwable arg0, boolean arg1) {
+
+				}
+
+				@Override
+				public void onFinished() {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void onSuccess(String response) {
+					try {
+						System.out.println("===json===" + response);
+						 FreeWeatherInfo freeWeatherInfo = new Gson().fromJson(response, FreeWeatherInfo.class);
+						 if(freeWeatherInfo != null && freeWeatherInfo.getStatus() == 1000)
 						 {
-						 DaoConfig daoConfig = DBUtils.getDaoConfig();
-						 DbManager db = x.getDb(daoConfig);
-						 db.delete(WeatherInfo.class);
-						 WeatherInfo weatherInfo = new WeatherInfo();
-						 String highString = freeWeatherInfo.getData().getForecast().get(0).getHigh().replace("高温", "");
-						 weatherInfo.setTemperature(highString);
-						 weatherInfo.setState(freeWeatherInfo.getData().getForecast().get(0).getType());
-						 weatherInfo.setUpdataTime();
-						 db.save(weatherInfo);
+							 DaoConfig daoConfig = DBUtils.getDaoConfig();
+							 DbManager db = x.getDb(daoConfig);
+							 db.delete(WeatherInfo.class);
+							 WeatherInfo weatherInfo = new WeatherInfo();
+							 String temperature = freeWeatherInfo.getData().getForecast().get(0).getHigh().replace("高温", "");
+							 weatherInfo.setTemperature(temperature);
+							 weatherInfo.setState(freeWeatherInfo.getData().getForecast().get(0).getType());
+							 weatherInfo.setUpdataTime();
+							 db.save(weatherInfo);
 						 }
 					} catch (Exception e) {
 						// TODO Auto-generated catch block

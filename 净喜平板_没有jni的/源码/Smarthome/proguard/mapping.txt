@@ -4193,20 +4193,21 @@ com.baidu.location.BDLocation -> com.baidu.location.BDLocation:
     java.lang.String getAddrStr() -> q
     java.lang.String getProvince() -> r
     java.lang.String getCity() -> s
-    java.lang.String getDistrict() -> t
-    java.lang.String getLocationDescribe() -> u
+    java.lang.String getCityCode() -> t
+    java.lang.String getDistrict() -> u
+    java.lang.String getLocationDescribe() -> v
     void setLocationDescribe(java.lang.String) -> e
-    java.lang.String getFloor() -> v
+    java.lang.String getFloor() -> w
     void setFloor(java.lang.String) -> f
-    java.lang.String getBuildingID() -> w
+    java.lang.String getBuildingID() -> x
     void setBuildingID(java.lang.String) -> g
-    java.lang.String getBuildingName() -> x
+    java.lang.String getBuildingName() -> y
     void setBuildingName(java.lang.String) -> h
-    int isParkAvailable() -> y
+    int isParkAvailable() -> z
     void setParkAvailable(int) -> c
     void setIndoorLocMode(boolean) -> a
     void setGpsAccuracyStatus(int) -> d
-    java.lang.String getNetworkLocationType() -> z
+    java.lang.String getNetworkLocationType() -> A
     void setNetworkLocationType(java.lang.String) -> i
     void setOperators(int) -> e
     int describeContents() -> describeContents
@@ -9463,6 +9464,62 @@ com.kxw.smarthome.R$styleable -> com.kxw.smarthome.ax:
     int[] CircleSeekBar -> c
     int[] PullToRefresh -> d
     int[] RippleBackground -> e
+com.kxw.smarthome.RegulatingMachineActivity -> com.kxw.smarthome.RegulatingMachineActivity:
+    android.widget.TextView txt_regulating_pp_add -> i
+    android.widget.TextView txt_regulating_pp_reduce -> j
+    android.widget.TextView txt_cto_add -> k
+    android.widget.TextView txt_cto_reduce -> l
+    android.widget.TextView txt_ro_add -> m
+    android.widget.TextView txt_ro_reduce -> n
+    android.widget.TextView txt_t33_add -> o
+    android.widget.TextView txt_t33_reduce -> p
+    android.widget.EditText edit_regulating_pp -> q
+    android.widget.EditText edit_cto_adjustment -> r
+    android.widget.EditText edit_ro_adjustment -> s
+    android.widget.EditText edit_t33_adjustment -> t
+    android.widget.EditText pwd_et -> u
+    android.widget.Button regulating_pp_bt -> v
+    android.widget.Button cto_adjustment_bt -> w
+    android.widget.Button ro_adjustment_bt -> x
+    android.widget.Button t33_adjustment_bt -> y
+    android.widget.Button login_bt -> z
+    android.widget.Button reset_bt -> A
+    android.widget.LinearLayout layout_regulating -> B
+    android.widget.LinearLayout layout_login -> C
+    android.os.Handler mRegulatingTemperatureHandler -> D
+    android.os.HandlerThread mRegulatingTemperatureHandlerThread -> E
+    android_serialport_api.SerialPortUtil mSerialPortUtil -> F
+    com.kxw.smarthome.entity.BaseData mBaseData -> G
+    int pp -> H
+    int cto -> I
+    int ro -> J
+    int t33 -> K
+    boolean isSuccess -> L
+    com.kxw.smarthome.entity.OptionDescriptions optionDescriptions -> M
+    java.util.List options -> N
+    com.kxw.smarthome.entity.OptionDescriptionInfo optionDescriptionInfo -> O
+    com.kxw.smarthome.entity.FilterLifeInfo mDataFilterLifeInfo -> P
+    com.kxw.smarthome.entity.VerificationData verificationData -> Q
+    java.lang.Runnable mFilterLifeRunnable -> R
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onDestroy() -> onDestroy
+    int access$0(com.kxw.smarthome.RegulatingMachineActivity) -> a
+    int access$1(com.kxw.smarthome.RegulatingMachineActivity) -> b
+    int access$2(com.kxw.smarthome.RegulatingMachineActivity) -> c
+    int access$3(com.kxw.smarthome.RegulatingMachineActivity) -> d
+    android_serialport_api.SerialPortUtil access$4(com.kxw.smarthome.RegulatingMachineActivity) -> e
+    void access$5$1527fb00(com.kxw.smarthome.RegulatingMachineActivity) -> f
+    boolean access$6(com.kxw.smarthome.RegulatingMachineActivity) -> g
+    com.kxw.smarthome.entity.VerificationData access$7(com.kxw.smarthome.RegulatingMachineActivity) -> h
+    com.kxw.smarthome.entity.OptionDescriptionInfo access$8(com.kxw.smarthome.RegulatingMachineActivity) -> i
+    com.kxw.smarthome.entity.BaseData access$9(com.kxw.smarthome.RegulatingMachineActivity) -> j
+    java.util.List access$10(com.kxw.smarthome.RegulatingMachineActivity) -> k
+    com.kxw.smarthome.entity.OptionDescriptions access$11(com.kxw.smarthome.RegulatingMachineActivity) -> l
+com.kxw.smarthome.RegulatingMachineActivity$1 -> com.kxw.smarthome.ay:
+    com.kxw.smarthome.RegulatingMachineActivity this$0 -> a
+    void run() -> run
 com.kxw.smarthome.RegulatingTemperatureActivity -> com.kxw.smarthome.RegulatingTemperatureActivity:
     android.widget.TextView txt_regulating_Temperature_add -> i
     android.widget.TextView txt_regulating_Temperature_reduce -> j
@@ -9500,13 +9557,13 @@ com.kxw.smarthome.RegulatingTemperatureActivity -> com.kxw.smarthome.RegulatingT
     android.widget.EditText access$7(com.kxw.smarthome.RegulatingTemperatureActivity) -> g
     void access$8$71707bdc(com.kxw.smarthome.RegulatingTemperatureActivity) -> h
     android.widget.EditText access$9(com.kxw.smarthome.RegulatingTemperatureActivity) -> i
-com.kxw.smarthome.RegulatingTemperatureActivity$1 -> com.kxw.smarthome.ay:
+com.kxw.smarthome.RegulatingTemperatureActivity$1 -> com.kxw.smarthome.az:
     com.kxw.smarthome.RegulatingTemperatureActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.RegulatingTemperatureActivity$2 -> com.kxw.smarthome.az:
+com.kxw.smarthome.RegulatingTemperatureActivity$2 -> com.kxw.smarthome.ba:
     com.kxw.smarthome.RegulatingTemperatureActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.RegulatingTemperatureActivity$3 -> com.kxw.smarthome.ba:
+com.kxw.smarthome.RegulatingTemperatureActivity$3 -> com.kxw.smarthome.bb:
     com.kxw.smarthome.RegulatingTemperatureActivity this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
 com.kxw.smarthome.SearchOrderInfoActivity -> com.kxw.smarthome.SearchOrderInfoActivity:
@@ -9555,10 +9612,10 @@ com.kxw.smarthome.SearchOrderInfoActivity -> com.kxw.smarthome.SearchOrderInfoAc
     void access$15(com.kxw.smarthome.SearchOrderInfoActivity,com.kxw.smarthome.entity.FilterLifeInfo) -> b
     com.kxw.smarthome.entity.FilterLifeInfo access$16(com.kxw.smarthome.SearchOrderInfoActivity) -> k
     void access$17(com.kxw.smarthome.SearchOrderInfoActivity,com.kxw.smarthome.entity.VerificationData) -> a
-com.kxw.smarthome.SearchOrderInfoActivity$1 -> com.kxw.smarthome.bb:
+com.kxw.smarthome.SearchOrderInfoActivity$1 -> com.kxw.smarthome.bc:
     com.kxw.smarthome.SearchOrderInfoActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.SearchOrderInfoActivity$2 -> com.kxw.smarthome.bc:
+com.kxw.smarthome.SearchOrderInfoActivity$2 -> com.kxw.smarthome.bd:
     com.kxw.smarthome.SearchOrderInfoActivity this$0 -> a
     java.lang.String val$orderNo -> b
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
@@ -9566,7 +9623,7 @@ com.kxw.smarthome.SearchOrderInfoActivity$2 -> com.kxw.smarthome.bc:
     void onFinished() -> onFinished
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
-com.kxw.smarthome.SearchOrderInfoActivity$4 -> com.kxw.smarthome.bd:
+com.kxw.smarthome.SearchOrderInfoActivity$4 -> com.kxw.smarthome.be:
     com.kxw.smarthome.SearchOrderInfoActivity this$0 -> a
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
     void onError(java.lang.Throwable,boolean) -> onError
@@ -9585,10 +9642,10 @@ com.kxw.smarthome.SerialPortActivity -> com.kxw.smarthome.SerialPortActivity:
     void onDataReceived$49634b87() -> a
     void onDestroy() -> onDestroy
     java.io.InputStream access$0(com.kxw.smarthome.SerialPortActivity) -> a
-com.kxw.smarthome.SerialPortActivity$1 -> com.kxw.smarthome.be:
+com.kxw.smarthome.SerialPortActivity$1 -> com.kxw.smarthome.bf:
     com.kxw.smarthome.SerialPortActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.SerialPortActivity$ReadThread -> com.kxw.smarthome.bf:
+com.kxw.smarthome.SerialPortActivity$ReadThread -> com.kxw.smarthome.bg:
     com.kxw.smarthome.SerialPortActivity this$0 -> a
     void run() -> run
 com.kxw.smarthome.SettingActivity -> com.kxw.smarthome.SettingActivity:
@@ -9601,31 +9658,32 @@ com.kxw.smarthome.SettingActivity -> com.kxw.smarthome.SettingActivity:
     android.widget.LinearLayout search_ordinfo_ll -> p
     android.widget.LinearLayout machine_synchronization_ll -> q
     android.widget.LinearLayout regulating_temperature_ll -> r
-    android.widget.TextView tv_version_code -> s
-    android.widget.Button btn_jia_time -> t
-    android.widget.Button btn_jian_time -> u
-    android.widget.Button btn_jia_filter_1 -> v
-    android.widget.Button btn_jian_filter_1 -> w
-    android.widget.Button btn_jia_filter_2 -> x
-    android.widget.Button btn_jian_filter_2 -> y
-    android.widget.Button btn_jia_filter_3 -> z
-    android.widget.Button btn_jian_filter_3 -> A
-    android.widget.Button btn_jia_filter_4 -> B
-    android.widget.Button btn_jian_filter_4 -> C
-    boolean mustupgrade -> D
-    android_serialport_api.SerialPortUtil mSerialPortUtil -> E
-    com.kxw.smarthome.entity.UserInfo userInfo -> F
-    com.kxw.smarthome.entity.FilterLifeInfo mFilterLifeInfo -> G
+    android.widget.LinearLayout regulating_machine_ll -> s
+    android.widget.TextView tv_version_code -> t
+    android.widget.Button btn_jia_time -> u
+    android.widget.Button btn_jian_time -> v
+    android.widget.Button btn_jia_filter_1 -> w
+    android.widget.Button btn_jian_filter_1 -> x
+    android.widget.Button btn_jia_filter_2 -> y
+    android.widget.Button btn_jian_filter_2 -> z
+    android.widget.Button btn_jia_filter_3 -> A
+    android.widget.Button btn_jian_filter_3 -> B
+    android.widget.Button btn_jia_filter_4 -> C
+    android.widget.Button btn_jian_filter_4 -> D
+    boolean mustupgrade -> E
+    android_serialport_api.SerialPortUtil mSerialPortUtil -> F
+    com.kxw.smarthome.entity.UserInfo userInfo -> G
+    com.kxw.smarthome.entity.FilterLifeInfo mFilterLifeInfo -> H
     int translate -> i
-    android.os.Handler mUpgradeHandler -> H
-    android.os.HandlerThread mUpgradeHandlerThread -> I
-    android.os.Handler mFilterLifeHandler -> J
-    android.os.HandlerThread mFilterLifeHandlerThread -> K
-    android.os.Handler mQuantityHandler -> L
-    android.os.HandlerThread mQuantityHandlerThread -> M
-    java.lang.Runnable mUpgradeRunnable -> N
-    java.lang.Runnable mFilterLifeRunnable -> O
-    java.lang.Runnable mQuantitykRunnable -> P
+    android.os.Handler mUpgradeHandler -> I
+    android.os.HandlerThread mUpgradeHandlerThread -> J
+    android.os.Handler mFilterLifeHandler -> K
+    android.os.HandlerThread mFilterLifeHandlerThread -> L
+    android.os.Handler mQuantityHandler -> M
+    android.os.HandlerThread mQuantityHandlerThread -> N
+    java.lang.Runnable mUpgradeRunnable -> O
+    java.lang.Runnable mFilterLifeRunnable -> P
+    java.lang.Runnable mQuantitykRunnable -> Q
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onPause() -> onPause
@@ -9641,23 +9699,23 @@ com.kxw.smarthome.SettingActivity -> com.kxw.smarthome.SettingActivity:
     android.os.Handler access$6(com.kxw.smarthome.SettingActivity) -> d
     java.lang.Runnable access$7(com.kxw.smarthome.SettingActivity) -> e
     void access$8(com.kxw.smarthome.SettingActivity,com.kxw.smarthome.entity.UserInfo) -> a
-com.kxw.smarthome.SettingActivity$1 -> com.kxw.smarthome.bg:
+com.kxw.smarthome.SettingActivity$1 -> com.kxw.smarthome.bh:
     com.kxw.smarthome.SettingActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.SettingActivity$2 -> com.kxw.smarthome.bh:
+com.kxw.smarthome.SettingActivity$2 -> com.kxw.smarthome.bi:
     com.kxw.smarthome.SettingActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.SettingActivity$3 -> com.kxw.smarthome.bi:
+com.kxw.smarthome.SettingActivity$3 -> com.kxw.smarthome.bj:
     com.kxw.smarthome.SettingActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.SettingActivity$4 -> com.kxw.smarthome.bj:
+com.kxw.smarthome.SettingActivity$4 -> com.kxw.smarthome.bk:
     com.kxw.smarthome.SettingActivity this$0 -> a
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
     void onError(java.lang.Throwable,boolean) -> onError
     void onFinished() -> onFinished
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
-com.kxw.smarthome.SettingActivity$5 -> com.kxw.smarthome.bk:
+com.kxw.smarthome.SettingActivity$5 -> com.kxw.smarthome.bl:
     com.kxw.smarthome.SettingActivity this$0 -> a
     com.kxw.smarthome.entity.UserInfo val$userInfo -> b
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
@@ -9701,7 +9759,7 @@ com.kxw.smarthome.StoreInfoActivity -> com.kxw.smarthome.StoreInfoActivity:
     android.widget.TextView access$9(com.kxw.smarthome.StoreInfoActivity) -> h
     android.widget.TextView access$10(com.kxw.smarthome.StoreInfoActivity) -> i
     android.widget.TextView access$11(com.kxw.smarthome.StoreInfoActivity) -> j
-com.kxw.smarthome.StoreInfoActivity$1 -> com.kxw.smarthome.bl:
+com.kxw.smarthome.StoreInfoActivity$1 -> com.kxw.smarthome.bm:
     com.kxw.smarthome.StoreInfoActivity this$0 -> a
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
     void onError(java.lang.Throwable,boolean) -> onError
@@ -9748,17 +9806,17 @@ com.kxw.smarthome.StoreListActivity -> com.kxw.smarthome.StoreListActivity:
     int access$9(com.kxw.smarthome.StoreListActivity) -> i
     int access$10(com.kxw.smarthome.StoreListActivity) -> j
     void access$11(com.kxw.smarthome.StoreListActivity,int) -> b
-com.kxw.smarthome.StoreListActivity$1 -> com.kxw.smarthome.bm:
+com.kxw.smarthome.StoreListActivity$1 -> com.kxw.smarthome.bn:
     com.kxw.smarthome.StoreListActivity this$0 -> a
     void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
     void onError(java.lang.Throwable,boolean) -> onError
     void onFinished() -> onFinished
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
-com.kxw.smarthome.StoreListActivity$2 -> com.kxw.smarthome.bn:
+com.kxw.smarthome.StoreListActivity$2 -> com.kxw.smarthome.bo:
     com.kxw.smarthome.StoreListActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.StoreListActivity$3 -> com.kxw.smarthome.bo:
+com.kxw.smarthome.StoreListActivity$3 -> com.kxw.smarthome.bp:
     com.kxw.smarthome.StoreListActivity this$0 -> a
     void run() -> run
 com.kxw.smarthome.UpdateDialogActivity -> com.kxw.smarthome.UpdateDialogActivity:
@@ -9785,7 +9843,7 @@ com.kxw.smarthome.WebViewActivity -> com.kxw.smarthome.WebViewActivity:
     android.webkit.WebView webView -> i
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
-com.kxw.smarthome.WebViewActivity$1 -> com.kxw.smarthome.bp:
+com.kxw.smarthome.WebViewActivity$1 -> com.kxw.smarthome.bq:
     com.kxw.smarthome.WebViewActivity this$0 -> a
     void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
 com.kxw.smarthome.WifiManageActivity -> com.kxw.smarthome.WifiManageActivity:
@@ -9833,38 +9891,38 @@ com.kxw.smarthome.WifiManageActivity -> com.kxw.smarthome.WifiManageActivity:
     java.lang.String access$8(com.kxw.smarthome.WifiManageActivity) -> h
     void access$9(com.kxw.smarthome.WifiManageActivity,com.kxw.smarthome.entity.WiFiInfo) -> a
     com.kxw.smarthome.entity.WiFiInfo access$10(com.kxw.smarthome.WifiManageActivity) -> i
-com.kxw.smarthome.WifiManageActivity$1 -> com.kxw.smarthome.bq:
+com.kxw.smarthome.WifiManageActivity$1 -> com.kxw.smarthome.br:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.kxw.smarthome.WifiManageActivity$10 -> com.kxw.smarthome.br:
+com.kxw.smarthome.WifiManageActivity$10 -> com.kxw.smarthome.bs:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     void onCancelClick() -> a
-com.kxw.smarthome.WifiManageActivity$2 -> com.kxw.smarthome.bs:
+com.kxw.smarthome.WifiManageActivity$2 -> com.kxw.smarthome.bt:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     void run() -> run
-com.kxw.smarthome.WifiManageActivity$3 -> com.kxw.smarthome.bt:
+com.kxw.smarthome.WifiManageActivity$3 -> com.kxw.smarthome.bu:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
-com.kxw.smarthome.WifiManageActivity$4 -> com.kxw.smarthome.bu:
+com.kxw.smarthome.WifiManageActivity$4 -> com.kxw.smarthome.bv:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     int val$netID -> b
     android.net.wifi.ScanResult val$wifiinfo -> c
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.WifiManageActivity$5 -> com.kxw.smarthome.bv:
+com.kxw.smarthome.WifiManageActivity$5 -> com.kxw.smarthome.bw:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     int val$netID -> b
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.WifiManageActivity$6 -> com.kxw.smarthome.bw:
+com.kxw.smarthome.WifiManageActivity$6 -> com.kxw.smarthome.bx:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.WifiManageActivity$7 -> com.kxw.smarthome.bx:
+com.kxw.smarthome.WifiManageActivity$7 -> com.kxw.smarthome.by:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     android.net.wifi.ScanResult val$wifiinfo -> b
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.WifiManageActivity$8 -> com.kxw.smarthome.by:
+com.kxw.smarthome.WifiManageActivity$8 -> com.kxw.smarthome.bz:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.kxw.smarthome.WifiManageActivity$9 -> com.kxw.smarthome.bz:
+com.kxw.smarthome.WifiManageActivity$9 -> com.kxw.smarthome.ca:
     com.kxw.smarthome.WifiManageActivity this$0 -> a
     android.net.wifi.ScanResult val$wifiinfo -> b
     void onConfirmClick() -> a
@@ -10093,49 +10151,37 @@ com.kxw.smarthome.entity.FilterLifeInfo -> com.kxw.smarthome.entity.FilterLifeIn
     void setWfr(int) -> setWfr
     java.lang.String toString() -> toString
 com.kxw.smarthome.entity.FreeWeatherInfo -> com.kxw.smarthome.entity.FreeWeatherInfo:
-    java.lang.String status -> status
     com.kxw.smarthome.entity.FreeWeatherInfo$Data data -> data
-    java.lang.String getStatus() -> getStatus
-    void setStatus(java.lang.String) -> setStatus
+    int status -> status
     com.kxw.smarthome.entity.FreeWeatherInfo$Data getData() -> getData
     void setData(com.kxw.smarthome.entity.FreeWeatherInfo$Data) -> setData
+    int getStatus() -> getStatus
+    void setStatus(int) -> setStatus
 com.kxw.smarthome.entity.FreeWeatherInfo$Data -> com.kxw.smarthome.entity.FreeWeatherInfo$Data:
     java.util.List forecast -> forecast
     com.kxw.smarthome.entity.FreeWeatherInfo this$0 -> this$0
     java.util.List getForecast() -> getForecast
     void setForecast(java.util.List) -> setForecast
-com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast -> com.kxw.smarthome.entity.FreeWeatherInfo$Data$Forecast:
+com.kxw.smarthome.entity.FreeWeatherInfo$Forecast -> com.kxw.smarthome.entity.FreeWeatherInfo$Forecast:
     java.lang.String date -> date
-    java.lang.String sunrise -> sunrise
     java.lang.String high -> high
+    java.lang.String fengli -> fengli
     java.lang.String low -> low
-    java.lang.String sunset -> sunset
-    java.lang.String aqi -> aqi
-    java.lang.String fx -> fx
-    java.lang.String fl -> fl
+    java.lang.String fengxiang -> fengxiang
     java.lang.String type -> type
-    java.lang.String notice -> notice
-    com.kxw.smarthome.entity.FreeWeatherInfo$Data this$1 -> this$1
+    com.kxw.smarthome.entity.FreeWeatherInfo this$0 -> this$0
     java.lang.String getDate() -> getDate
     void setDate(java.lang.String) -> setDate
-    java.lang.String getSunrise() -> getSunrise
-    void setSunrise(java.lang.String) -> setSunrise
     java.lang.String getHigh() -> getHigh
     void setHigh(java.lang.String) -> setHigh
+    java.lang.String getFengli() -> getFengli
+    void setFengli(java.lang.String) -> setFengli
     java.lang.String getLow() -> getLow
     void setLow(java.lang.String) -> setLow
-    java.lang.String getSunset() -> getSunset
-    void setSunset(java.lang.String) -> setSunset
-    java.lang.String getAqi() -> getAqi
-    void setAqi(java.lang.String) -> setAqi
-    java.lang.String getFx() -> getFx
-    void setFx(java.lang.String) -> setFx
-    java.lang.String getFl() -> getFl
-    void setFl(java.lang.String) -> setFl
+    java.lang.String getFengxiang() -> getFengxiang
+    void setFengxiang(java.lang.String) -> setFengxiang
     java.lang.String getType() -> getType
     void setType(java.lang.String) -> setType
-    java.lang.String getNotice() -> getNotice
-    void setNotice(java.lang.String) -> setNotice
 com.kxw.smarthome.entity.OldFilterLifeInfo -> com.kxw.smarthome.entity.OldFilterLifeInfo:
     java.util.List code -> code
     java.util.List pro_no -> pro_no
@@ -11328,11 +11374,11 @@ com.kxw.smarthome.utils.LocationAndWeatherUtils -> com.kxw.smarthome.utils.Locat
     void start(com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult) -> start
     void stop() -> stop
     boolean requestHotSpotState() -> requestHotSpotState
-    void getFreeWeather(java.lang.String) -> getFreeWeather
+    void getFreeWeatherByCityId(java.lang.String) -> getFreeWeatherByCityId
+    void getFreeWeatherByCityName(java.lang.String) -> getFreeWeatherByCityName
     com.baidu.location.LocationClient access$0() -> access$0
     android.content.Context access$1() -> access$1
-    void access$2(com.kxw.smarthome.utils.LocationAndWeatherUtils,java.lang.String) -> access$2
-    com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult access$3() -> access$3
+    com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult access$2() -> access$2
 com.kxw.smarthome.utils.LocationAndWeatherUtils$1 -> com.kxw.smarthome.utils.r:
     com.kxw.smarthome.utils.LocationAndWeatherUtils this$0 -> a
     void onReceiveLocation(com.baidu.location.BDLocation) -> a
@@ -11343,10 +11389,17 @@ com.kxw.smarthome.utils.LocationAndWeatherUtils$2 -> com.kxw.smarthome.utils.s:
     void onFinished() -> onFinished
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
-com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult -> com.kxw.smarthome.utils.t:
+com.kxw.smarthome.utils.LocationAndWeatherUtils$3 -> com.kxw.smarthome.utils.t:
+    com.kxw.smarthome.utils.LocationAndWeatherUtils this$0 -> a
+    void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
+    void onError(java.lang.Throwable,boolean) -> onError
+    void onFinished() -> onFinished
+    void onSuccess(java.lang.String) -> onSuccess
+    void onSuccess(java.lang.Object) -> onSuccess
+com.kxw.smarthome.utils.LocationAndWeatherUtils$ILocationResult -> com.kxw.smarthome.utils.u:
     void setResult$14e1ec6d(java.lang.String) -> a
     void failResult() -> a
-com.kxw.smarthome.utils.MyLogger -> com.kxw.smarthome.utils.u:
+com.kxw.smarthome.utils.MyLogger -> com.kxw.smarthome.utils.v:
     java.util.Hashtable sLoggerTable -> a
     java.lang.String mClassName -> b
     com.kxw.smarthome.utils.MyLogger mylog -> c
@@ -11355,20 +11408,20 @@ com.kxw.smarthome.utils.MyLogger -> com.kxw.smarthome.utils.u:
     void d$5d527811() -> c
     void w$5d527811() -> d
     void e$5d527811() -> e
-com.kxw.smarthome.utils.MyToast -> com.kxw.smarthome.utils.v:
+com.kxw.smarthome.utils.MyToast -> com.kxw.smarthome.utils.w:
     android.content.Context context -> a
     android.widget.Toast toast -> b
     boolean isshow -> c
     com.kxw.smarthome.utils.MyToast myTost -> d
     com.kxw.smarthome.utils.MyToast getManager(android.content.Context) -> a
     void show(java.lang.Object) -> a
-com.kxw.smarthome.utils.NetUtils -> com.kxw.smarthome.utils.w:
+com.kxw.smarthome.utils.NetUtils -> com.kxw.smarthome.utils.x:
     boolean isConnected(android.content.Context) -> a
-com.kxw.smarthome.utils.PinyinUtils -> com.kxw.smarthome.utils.x:
+com.kxw.smarthome.utils.PinyinUtils -> com.kxw.smarthome.utils.y:
     java.lang.String getFirstLetter(java.lang.String) -> a
     java.lang.String getPinyinString(java.lang.String) -> b
     java.lang.String getFirstLetterByChinese(java.lang.String) -> c
-com.kxw.smarthome.utils.ScreenSizeUtil -> com.kxw.smarthome.utils.y:
+com.kxw.smarthome.utils.ScreenSizeUtil -> com.kxw.smarthome.utils.z:
     android.view.WindowManager manager -> a
     android.util.DisplayMetrics dm -> b
     com.kxw.smarthome.utils.ScreenSizeUtil instance -> c
@@ -11377,7 +11430,7 @@ com.kxw.smarthome.utils.ScreenSizeUtil -> com.kxw.smarthome.utils.y:
     com.kxw.smarthome.utils.ScreenSizeUtil getInstance(android.content.Context) -> a
     int getScreenWidth() -> a
     int getScreenHeight() -> b
-com.kxw.smarthome.utils.SharedPreferencesUtil -> com.kxw.smarthome.utils.z:
+com.kxw.smarthome.utils.SharedPreferencesUtil -> com.kxw.smarthome.utils.aa:
     java.lang.String CONFIG -> b
     android.content.SharedPreferences sharedPreferences -> a
     void saveStringData(android.content.Context,java.lang.String,java.lang.String) -> a
@@ -11386,16 +11439,16 @@ com.kxw.smarthome.utils.SharedPreferencesUtil -> com.kxw.smarthome.utils.z:
     int getIntData(android.content.Context,java.lang.String,int) -> b
     void saveLongData(android.content.Context,java.lang.String,long) -> a
     long getLongtData$607b6aa5(android.content.Context,java.lang.String) -> a
-com.kxw.smarthome.utils.ToastUtil -> com.kxw.smarthome.utils.aa:
+com.kxw.smarthome.utils.ToastUtil -> com.kxw.smarthome.utils.ab:
     android.widget.Toast toast -> a
     void showShortToast(java.lang.String) -> a
     void showLongToast(java.lang.String) -> b
-com.kxw.smarthome.utils.ToolsUtils -> com.kxw.smarthome.utils.ab:
+com.kxw.smarthome.utils.ToolsUtils -> com.kxw.smarthome.utils.ac:
     long lastClickTime -> a
     boolean isEmpty(java.lang.String) -> a
     boolean isFastDoubleClick() -> a
     boolean isShowHint(android.content.Context) -> a
-com.kxw.smarthome.utils.UseStateToast -> com.kxw.smarthome.utils.ac:
+com.kxw.smarthome.utils.UseStateToast -> com.kxw.smarthome.utils.ad:
     android.widget.TextView mTextView -> a
     android.view.View toastRoot -> b
     android.content.Context context -> c
@@ -11404,7 +11457,7 @@ com.kxw.smarthome.utils.UseStateToast -> com.kxw.smarthome.utils.ac:
     com.kxw.smarthome.utils.UseStateToast myTost -> f
     com.kxw.smarthome.utils.UseStateToast getManager(android.content.Context) -> a
     void showToast(java.lang.String) -> a
-com.kxw.smarthome.utils.Utils -> com.kxw.smarthome.utils.ad:
+com.kxw.smarthome.utils.Utils -> com.kxw.smarthome.utils.ae:
     boolean connected -> a
     int temperature -> b
     int value -> c
@@ -11415,7 +11468,7 @@ com.kxw.smarthome.utils.Utils -> com.kxw.smarthome.utils.ad:
     int this_value -> h
     boolean inuse -> i
     boolean isUsing -> j
-com.kxw.smarthome.utils.WiFiConnectDialog -> com.kxw.smarthome.utils.ae:
+com.kxw.smarthome.utils.WiFiConnectDialog -> com.kxw.smarthome.utils.af:
     android.widget.TextView dialog_title -> a
     android.widget.TextView wifi_name -> b
     android.widget.TextView cancel -> c
@@ -11436,15 +11489,15 @@ com.kxw.smarthome.utils.WiFiConnectDialog -> com.kxw.smarthome.utils.ae:
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
     com.kxw.smarthome.utils.WiFiConnectDialog$onConfirmOnClickListener access$0(com.kxw.smarthome.utils.WiFiConnectDialog) -> a
     com.kxw.smarthome.utils.WiFiConnectDialog$onCancelOnClickListener access$1(com.kxw.smarthome.utils.WiFiConnectDialog) -> b
-com.kxw.smarthome.utils.WiFiConnectDialog$1 -> com.kxw.smarthome.utils.af:
+com.kxw.smarthome.utils.WiFiConnectDialog$1 -> com.kxw.smarthome.utils.ag:
     com.kxw.smarthome.utils.WiFiConnectDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.kxw.smarthome.utils.WiFiConnectDialog$2 -> com.kxw.smarthome.utils.ag:
+com.kxw.smarthome.utils.WiFiConnectDialog$2 -> com.kxw.smarthome.utils.ah:
     com.kxw.smarthome.utils.WiFiConnectDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.kxw.smarthome.utils.WiFiConnectDialog$onCancelOnClickListener -> com.kxw.smarthome.utils.ah:
+com.kxw.smarthome.utils.WiFiConnectDialog$onCancelOnClickListener -> com.kxw.smarthome.utils.ai:
     void onCancelClick() -> a
-com.kxw.smarthome.utils.WiFiConnectDialog$onConfirmOnClickListener -> com.kxw.smarthome.utils.ai:
+com.kxw.smarthome.utils.WiFiConnectDialog$onConfirmOnClickListener -> com.kxw.smarthome.utils.aj:
     void onConfirmClick() -> a
 com.kxw.smarthome.utils.WifiUtils -> com.kxw.smarthome.utils.WifiUtils:
     android.net.wifi.WifiManager wifiManager -> a
@@ -11457,7 +11510,7 @@ com.kxw.smarthome.utils.WifiUtils -> com.kxw.smarthome.utils.WifiUtils:
     android.net.wifi.WifiConfiguration CreateWifiInfo$623ea85c(java.lang.String,java.lang.String,com.kxw.smarthome.utils.WifiUtils$WifiCipherType) -> a
     int getMaxPriority() -> b
     int shiftPriorityAndSave() -> c
-com.kxw.smarthome.utils.WifiUtils$SjrsWifiManagerCompare -> com.kxw.smarthome.utils.aj:
+com.kxw.smarthome.utils.WifiUtils$SjrsWifiManagerCompare -> com.kxw.smarthome.utils.ak:
     com.kxw.smarthome.utils.WifiUtils this$0 -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
 com.kxw.smarthome.utils.WifiUtils$WifiCipherType -> com.kxw.smarthome.utils.WifiUtils$WifiCipherType:
