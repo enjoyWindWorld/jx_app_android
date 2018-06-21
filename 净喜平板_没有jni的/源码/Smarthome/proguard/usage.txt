@@ -3592,6 +3592,7 @@ com.baidu.location.BDLocation:
     public float getDerect()
     public float getDirection()
     public boolean hasSateNumber()
+    public java.lang.String getCityCode()
     public java.lang.String getCountry()
     public java.lang.String getCountryCode()
     public java.lang.String getStreet()
@@ -4948,8 +4949,8 @@ com.hp.hpl.sparta.xpath.XPath:
     public static com.hp.hpl.sparta.xpath.XPath get(boolean,com.hp.hpl.sparta.xpath.Step[])
     public static boolean isStringValue(java.lang.String)
 com.kxw.smarthome.AdvMainActivity:
-    172:187:protected void replayMedia()
-    584:585:public void setIs_ShowADV(boolean)
+    168:183:protected void replayMedia()
+    579:580:public void setIs_ShowADV(boolean)
 com.kxw.smarthome.BuildConfig
 com.kxw.smarthome.FilterChangeListActivity:
     private android.widget.LinearLayout wfr_filter_ll

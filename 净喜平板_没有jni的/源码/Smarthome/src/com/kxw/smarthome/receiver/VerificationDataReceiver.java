@@ -57,6 +57,7 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 	public void onReceive(Context context, Intent intent) {
 		// TODO Auto-generated method stub
 		System.out.println("====数据验证====");
+		
 		if(intent.getAction().equals(ConfigUtils.verification_data_action)){
 			this.mContext = context;
 			originalUserInfo = DBUtils.getFirstData(UserInfo.class);
@@ -79,6 +80,7 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 					|| verificationData.getThirdFilter() == -1
 					|| verificationData.getFourthFilter() == -1
 					|| verificationData.getFirstFilter() == -1
+					|| verificationData.getMultiple() == -1
 					)
 			{
 				if(originalUserInfo != null && originalFilterLifeInfo != null)
@@ -367,55 +369,64 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 			{
 				quantityDiff = verificationData.getTimeSurplus() - mBaseData.timeSurplus;
 				
-				//不在范围里
-				if(mBaseData.timeSurplus < 0 || mBaseData.timeSurplus > originalUserInfo.quantity)
+				if(verificationData.getMultiple() == 3)
 				{
-					System.out.println("====verificationWater_包年天数值不在范围里===="+mBaseData.toString());
-					verification_water_option.setOption("====verificationWater_包年天数值不在范围里====");
+					System.out.println("====verificationWater_3年保持天数不变===="+mBaseData.toString());
+					verification_water_option.setOption("====verificationWater_3年保持天数不变====");
 					mQuantityHandler.post(mQuantitykRunnable);
 				}
-				//递减值异常
-				else if(quantityDiff < 0 || quantityDiff > 1)
+				else
 				{
-					System.out.println("====verificationWater_包年天数值递减值异常===="+mBaseData.toString());
-					verification_water_option.setOption("====verificationWater_包年天数值递减值异常====");
-					mQuantityHandler.post(mQuantitykRunnable);
-				}
-				//正常减少数据，但是要看看是不是24小时的
-				else if(quantityDiff == 1)
-				{
-					if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+					//不在范围里
+					if(mBaseData.timeSurplus < 0 || mBaseData.timeSurplus > originalUserInfo.quantity)
 					{
-						System.out.println("====verificationWater_包年天数正常减少数据，够24小时===="+mBaseData.toString());
-						verification_water_option.setOption("====verificationWater_包年天数正常减少数据，够24小时====");
-						//绑定时间加多一天
-						long times = verificationData.getBindDate() + 24*60*60;
-						verificationData.setBindDate(times);
-						verificationData.setTimeSurplus(mBaseData.timeSurplus);
-						verificationFilterTime();
-					}
-					else
-					{
-						System.out.println("====verificationWater_包年天数正常减少数据，但是不够24小时===="+mBaseData.toString());
-						verification_water_option.setOption("====verificationWater_包年天数正常减少数据，但是不够24小时====");
+						System.out.println("====verificationWater_包年天数值不在范围里===="+mBaseData.toString());
+						verification_water_option.setOption("====verificationWater_包年天数值不在范围里====");
 						mQuantityHandler.post(mQuantitykRunnable);
 					}
-				}
-				//不变的情况，直接验证滤芯剩余寿命
-				else if(quantityDiff == 0)
-				{
-					if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+					//递减值异常
+					else if(quantityDiff < 0 || quantityDiff > 1)
 					{
-						//绑定时间加多一天
-						System.out.println("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天===="+mBaseData.toString());
-						verification_water_option.setOption("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天====");
+						System.out.println("====verificationWater_包年天数值递减值异常===="+mBaseData.toString());
+						verification_water_option.setOption("====verificationWater_包年天数值递减值异常====");
 						mQuantityHandler.post(mQuantitykRunnable);
 					}
-					else
+					//正常减少数据，但是要看看是不是24小时的
+					else if(quantityDiff == 1)
 					{
-						System.out.println("====verificationWater_包年天数值不变的情况，不够24小时===="+mBaseData.toString());
-						verification_water_option.setOption("====verificationWater_包年天数值不变的情况，不够24小时====");
-						verificationFilterTime();
+						if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+						{
+							System.out.println("====verificationWater_包年天数正常减少数据，够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数正常减少数据，够24小时====");
+							//绑定时间加多一天
+							long times = verificationData.getBindDate() + 24*60*60;
+							verificationData.setBindDate(times);
+							verificationData.setTimeSurplus(mBaseData.timeSurplus);
+							verificationFilterTime();
+						}
+						else
+						{
+							System.out.println("====verificationWater_包年天数正常减少数据，但是不够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数正常减少数据，但是不够24小时====");
+							mQuantityHandler.post(mQuantitykRunnable);
+						}
+					}
+					//不变的情况，直接验证滤芯剩余寿命
+					else if(quantityDiff == 0)
+					{
+						if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+						{
+							//绑定时间加多一天
+							System.out.println("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天====");
+							mQuantityHandler.post(mQuantitykRunnable);
+						}
+						else
+						{
+							System.out.println("====verificationWater_包年天数值不变的情况，不够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数值不变的情况，不够24小时====");
+							verificationFilterTime();
+						}
 					}
 				}
 			}
@@ -464,6 +475,9 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 		try {
 			jObj.accumulate("pro_no", SharedPreferencesUtil.getStringData(mContext,"pro_no", ""));
 			jObj.accumulate("orderno", orderno);
+			
+//			jObj.accumulate("pro_no", "4498c060-59ac-44c2-9566-4a5374d17bdb");
+//			jObj.accumulate("orderno", "600180527223722");
 		} catch (Exception e) {
 		}
 		params.setBodyContent(DataProcessingUtils.encrypt(jObj.toString()));
@@ -510,6 +524,7 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 						//保存验证的数据
 						verificationData.setPay_proid(verificationDataInfo.getPay_proid());
 						verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+						verificationData.setMultiple(verificationDataInfo.getMultiple());
 						if(verificationDataInfo.getPay_proid() == 1)//包年
 						{
 							verificationData.setTimeSurplus((int)verificationDataInfo.getQuantity());
@@ -529,7 +544,7 @@ public class VerificationDataReceiver extends BroadcastReceiver{
 						verificationData.setThirdFilter(verificationDataInfo.getRo() > originalFilterLifeInfo.getRo() ? originalFilterLifeInfo.getRo() : verificationDataInfo.getRo());
 						verificationData.setFourthFilter(verificationDataInfo.getT33() > originalFilterLifeInfo.getT33() ? originalFilterLifeInfo.getT33() : verificationDataInfo.getT33());
 						verificationData.setFivethFilter(verificationDataInfo.getWfr() > originalFilterLifeInfo.getWfr() ? originalFilterLifeInfo.getWfr() : verificationDataInfo.getWfr());
-						
+
 						verificationData.play();
 						
 						verificationWater();

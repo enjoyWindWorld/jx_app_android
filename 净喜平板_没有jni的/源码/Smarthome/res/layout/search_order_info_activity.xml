@@ -55,6 +55,7 @@
                 android:hint="@string/device_code_edittext_hint"
                 android:singleLine="true"
                  />
+            <!-- android:text="600180527223722" -->
         </LinearLayout>
         
         <LinearLayout
@@ -84,6 +85,7 @@
                 android:hint="@string/device_pro_code_edittext_hint"
                 android:singleLine="true"
                  />
+            <!-- android:text="4498c060-59ac-44c2-9566-4a5374d17bdb" -->
         </LinearLayout>
 
         <Button

@@ -817,6 +817,7 @@ public class BindDeviceActivity extends BaseActivity implements
 					//保存验证的数据
 					verificationData.setPay_proid(userInfo.getPay_proid());
 					verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+					verificationData.setMultiple(userInfo.getMultiple());
 					if(userInfo.getPay_proid() == 1)//包年
 					{
 						verificationData.setTimeSurplus((int)userInfo.getQuantity());
@@ -1275,6 +1276,7 @@ public class BindDeviceActivity extends BaseActivity implements
 				//保存验证的数据
 				verificationData.setPay_proid(userInfo.getPay_proid());
 				verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+				verificationData.setMultiple(userInfo.getMultiple());
 				if(userInfo.getPay_proid() == 1)//包年
 				{
 					verificationData.setTimeSurplus((int)userInfo.getDay());

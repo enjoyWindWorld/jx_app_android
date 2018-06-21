@@ -253,10 +253,10 @@ public class SearchOrderInfoActivity extends BaseActivity implements OnClickList
 		
 		JSONObject jObj = new JSONObject();
 		try {
-			jObj.accumulate("code", SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", ""));
+			jObj.accumulate("code", SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", "广东省"));
 			get_filter_option.setId("2");
 			get_filter_option.setOption("SearchOrderInfoActivity：平板同步获取滤芯寿命");
-			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", ""));
+			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		MyLogger.getInstance().e(jObj.toString());
@@ -361,13 +361,13 @@ public class SearchOrderInfoActivity extends BaseActivity implements OnClickList
 		try {
 			jObj.accumulate("pro_no", proNoString);
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					SearchOrderInfoActivity.this, "province", ""));
+					SearchOrderInfoActivity.this, "province", "广东省"));
 			
 			get_filter_option.setId("2");
 			get_filter_option.setOption("BindDeviceActivity：绑定设备获取剩余的滤芯寿命");
 			get_filter_option.setParam(
 					"pro_no："+proNoString+"；"
-					+"code："+SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", ""));
+					+"code："+SharedPreferencesUtil.getStringData(SearchOrderInfoActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		RequestParams params = new RequestParams(
@@ -450,6 +450,7 @@ public class SearchOrderInfoActivity extends BaseActivity implements OnClickList
 							verificationData = new VerificationData(SearchOrderInfoActivity.this);
 							verificationData.setPay_proid(userInfo.getPay_proid());
 							verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+							verificationData.setMultiple(userInfo.getMultiple());
 							if(userInfo.getPay_proid() == 1)//包年
 							{
 								verificationData.setTimeSurplus((int)userInfo.getQuantity());

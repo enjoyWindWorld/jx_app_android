@@ -148,6 +148,7 @@ public class MachineSynchronizationActivity extends BaseActivity implements OnCl
 					verificationData = new VerificationData(MachineSynchronizationActivity.this);
 					verificationData.setPay_proid(userInfo.getPay_proid());
 					verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+					verificationData.setMultiple(userInfo.getMultiple());
 					if(userInfo.getPay_proid() == 1)//包年
 					{
 						verificationData.setTimeSurplus((int)userInfo.getQuantity());
@@ -353,10 +354,10 @@ public class MachineSynchronizationActivity extends BaseActivity implements OnCl
 		JSONObject jObj = new JSONObject();
 		try {
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					MachineSynchronizationActivity.this, "province", ""));
+					MachineSynchronizationActivity.this, "province", "广东省"));
 			get_filter_option.setId("2");
 			get_filter_option.setOption("MachineSynchronizationActivity：整机同步获取全新的滤芯寿命");
-			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(MachineSynchronizationActivity.this, "province", ""));
+			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(MachineSynchronizationActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		MyLogger.getInstance().e(jObj.toString());
@@ -445,13 +446,13 @@ public class MachineSynchronizationActivity extends BaseActivity implements OnCl
 		try {
 			jObj.accumulate("pro_no", proNoString);
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					MachineSynchronizationActivity.this, "province", ""));
+					MachineSynchronizationActivity.this, "province", "广东省"));
 			
 			get_filter_option.setId("2");
 			get_filter_option.setOption("MachineSynchronizationActivity：整机同步获取剩余的滤芯寿命");
 			get_filter_option.setParam(
 					"pro_no："+proNoString+"；"
-					+"code："+SharedPreferencesUtil.getStringData(MachineSynchronizationActivity.this, "province", ""));
+					+"code："+SharedPreferencesUtil.getStringData(MachineSynchronizationActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		MyLogger.getInstance().e(jObj.toString());

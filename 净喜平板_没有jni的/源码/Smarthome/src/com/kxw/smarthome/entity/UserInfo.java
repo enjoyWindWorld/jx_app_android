@@ -3,6 +3,8 @@ package com.kxw.smarthome.entity;
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
 
+import android.R.integer;
+
 @Table(name = "UserInfo")
 public class UserInfo {
 	
@@ -33,6 +35,8 @@ public class UserInfo {
 	@Column(name = "proname")
 	public String proname;
 	
+	private int multiple;
+	
 	public String getPro_no() {
 		return pro_no;
 	}
@@ -59,10 +63,18 @@ public class UserInfo {
 	}
 
 	public double getQuantity() {
+		if(pay_proid == 1 && multiple == 3)
+		{
+			return 1095;
+		}
 		return quantity;
 	}
 
 	public void setQuantity(double quantity) {
+		if(pay_proid == 1 && multiple == 3)
+		{
+			this.quantity = 1095;
+		}
 		this.quantity = quantity;
 	}
 	
@@ -88,6 +100,14 @@ public class UserInfo {
 
 	public void setNow(String now) {
 		this.now = now;
+	}
+
+	public int getMultiple() {
+		return multiple;
+	}
+
+	public void setMultiple(int multiple) {
+		this.multiple = multiple;
 	}
 
 	@Override

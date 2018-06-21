@@ -1,6 +1,7 @@
 package com.kxw.smarthome;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -21,7 +22,7 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 	
 	private TextView txt_regulating_Temperature_add, txt_regulating_Temperature_reduce, txt_flow_adjustment_add, txt_flow_adjustment_reduce;
 	private EditText edit_regulating_Temperature, edit_flow_adjustment, pwd_et;
-	private Button regulating_Temperature_bt, flow_adjustment_bt, login_bt;
+	private Button regulating_Temperature_bt, flow_adjustment_bt, login_bt, reset_bt;
 	private LinearLayout layout_regulating, layout_login;
 	
 	//修正温度句柄
@@ -59,6 +60,7 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 		
 		layout_regulating = (LinearLayout) findViewById(R.id.layout_regulating);
 		layout_login = (LinearLayout) findViewById(R.id.layout_login);
+		reset_bt = (Button) findViewById(R.id.reset_bt);
 		
 		txt_regulating_Temperature_add.setOnClickListener(this);
 		txt_regulating_Temperature_reduce.setOnClickListener(this);
@@ -67,6 +69,7 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 		regulating_Temperature_bt.setOnClickListener(this);
 		flow_adjustment_bt.setOnClickListener(this);
 		login_bt.setOnClickListener(this);
+		reset_bt.setOnClickListener(this);
 		
 	    mRegulatingTemperatureHandlerThread = new HandlerThread("RegulatingTemperatureActivity_RegulatingTemperature", 5);  
 	    mRegulatingTemperatureHandlerThread.start();  
@@ -179,6 +182,32 @@ public class RegulatingTemperatureActivity extends BaseActivity implements OnCli
 			case R.id.title_back_ll:
 				finish();
 				break;
+			case R.id.reset_bt:
+				showHintDialog(5);
+				break;
+		}
+	}
+	
+	/**
+	 * 显示操作提示框
+	 * @param type
+	 */
+	private void showHintDialog(int type)
+	{
+		Intent intent = new Intent(RegulatingTemperatureActivity.this, HintDialogActivity.class);
+//		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra("type", type);
+		startActivityForResult(intent, 100);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode == 105)
+		{
+			setResult(101);
+			finish();
 		}
 	}
 	

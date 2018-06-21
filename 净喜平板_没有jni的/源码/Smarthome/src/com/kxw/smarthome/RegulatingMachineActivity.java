@@ -14,7 +14,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android_serialport_api.SerialPortUtil;
 
 import com.kxw.smarthome.entity.BaseData;
@@ -26,7 +28,6 @@ import com.kxw.smarthome.utils.ConfigUtils;
 import com.kxw.smarthome.utils.DBUtils;
 import com.kxw.smarthome.utils.MyToast;
 import com.kxw.smarthome.utils.SharedPreferencesUtil;
-import com.kxw.smarthome.utils.ToastUtil;
 import com.kxw.smarthome.utils.Utils;
 
 public class RegulatingMachineActivity extends BaseActivity implements OnClickListener {
@@ -34,7 +35,8 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 	private TextView txt_regulating_pp_add, txt_regulating_pp_reduce, txt_cto_add, txt_cto_reduce, txt_ro_add, txt_ro_reduce, txt_t33_add, txt_t33_reduce;
 	private EditText edit_regulating_pp, edit_cto_adjustment, edit_ro_adjustment, edit_t33_adjustment, pwd_et;
 	private Button regulating_pp_bt, cto_adjustment_bt, ro_adjustment_bt, t33_adjustment_bt, login_bt, reset_bt;
-	private LinearLayout layout_regulating, layout_login;
+	private LinearLayout layout_login;
+	private ScrollView layout_regulating;
 	
 	//修正滤芯的句柄
 	private Handler mRegulatingTemperatureHandler;
@@ -43,7 +45,6 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 	private SerialPortUtil mSerialPortUtil;
 	private BaseData mBaseData;
 	private int pp, cto, ro, t33;
-	private boolean isSuccess;
 	private OptionDescriptions optionDescriptions = new OptionDescriptions();
 	private List<OptionDescriptionInfo> options = new ArrayList<OptionDescriptionInfo>();
 	private OptionDescriptionInfo optionDescriptionInfo = new OptionDescriptionInfo();
@@ -82,7 +83,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 		reset_bt = (Button) findViewById(R.id.reset_bt);
 		login_bt = (Button) findViewById(R.id.login_bt);
 		
-		layout_regulating = (LinearLayout) findViewById(R.id.layout_regulating);
+		layout_regulating = (ScrollView) findViewById(R.id.layout_regulating);
 		layout_login = (LinearLayout) findViewById(R.id.layout_login);
 		
 		txt_regulating_pp_add.setOnClickListener(this);
@@ -108,6 +109,18 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 		mBaseData=mSerialPortUtil.returnBaseData();
 		mDataFilterLifeInfo = DBUtils.getFirstData(FilterLifeInfo.class);
 		verificationData = new VerificationData(RegulatingMachineActivity.this);
+		
+		if(verificationData != null)
+		{
+			pp = verificationData.getFirstFilter();
+			cto = verificationData.getSecondFilter();
+			ro = verificationData.getThirdFilter();
+			t33 = verificationData.getFourthFilter();
+			edit_regulating_pp.setText(String.valueOf(pp));
+			edit_cto_adjustment.setText(String.valueOf(cto));
+			edit_ro_adjustment.setText(String.valueOf(ro));
+			edit_t33_adjustment.setText(String.valueOf(t33));
+		}
 	}
 
 	@Override
@@ -118,7 +131,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 		{
 			case R.id.txt_regulating_pp_add:
 				pp ++;
-				if(pp > mDataFilterLifeInfo.getPp())
+				if(mDataFilterLifeInfo != null && pp > mDataFilterLifeInfo.getPp())
 				{
 					pp = mDataFilterLifeInfo.getPp();
 				}
@@ -134,7 +147,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 				break;
 			case R.id.txt_cto_add:
 				cto ++;
-				if(cto > mDataFilterLifeInfo.getCto())
+				if(mDataFilterLifeInfo != null && cto > mDataFilterLifeInfo.getCto())
 				{
 					cto = mDataFilterLifeInfo.getCto();
 				}
@@ -150,7 +163,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 				break;
 			case R.id.txt_ro_add:
 				ro ++;
-				if(ro > mDataFilterLifeInfo.getRo())
+				if(mDataFilterLifeInfo != null && ro > mDataFilterLifeInfo.getRo())
 				{
 					ro = mDataFilterLifeInfo.getRo();
 				}
@@ -166,7 +179,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 				break;
 			case R.id.txt_t33_add:
 				t33 ++;
-				if(t33 > mDataFilterLifeInfo.getT33())
+				if(mDataFilterLifeInfo != null && t33 > mDataFilterLifeInfo.getT33())
 				{
 					t33 = mDataFilterLifeInfo.getT33();
 				}
@@ -191,7 +204,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 				{
 					MyToast.getManager(getApplicationContext()).show("请输入密码");
 				}
-				else if(!pwd_et.getText().toString().equals("jxsmart20160830"))
+				else if(!pwd_et.getText().toString().equals("pingban20160830"))
 				{
 					MyToast.getManager(getApplicationContext()).show("密码错误");
 				}
@@ -206,6 +219,7 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 				break;
 			case R.id.title_back_ll:
 				finish();
+				break;
 			case R.id.reset_bt:
 				showHintDialog(5);
 				break;
@@ -238,7 +252,6 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 	private void regulationMachine() {
 		if(mDataFilterLifeInfo != null  && mBaseData != null && verificationData != null)
 		{	
-			isSuccess = false;
 			mRegulatingTemperatureHandler.post(mFilterLifeRunnable);
 		}
 	}
@@ -256,7 +269,6 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 					while(try_times<2){
 						if(mSerialPortUtil.setFilterLife(life, life.length)>0 && mSerialPortUtil.getReturn()>=0){
 							try_times++;
-							isSuccess = true;
 						}else{
 							try_times++;
 						}
@@ -264,33 +276,26 @@ public class RegulatingMachineActivity extends BaseActivity implements OnClickLi
 					
 					Utils.inuse = false;
 					
-					if(isSuccess)
-					{		
-						//用新的数据来验证
-						verificationData.setFirstFilter(pp);
-						verificationData.setSecondFilter(cto);
-						verificationData.setThirdFilter(ro);
-						verificationData.setFourthFilter(t33);
-						verificationData.setFivethFilter(2000);
-						
-						ToastUtil.showLongToast("滤芯寿命调整成功");
-						optionDescriptionInfo.setId("1");
-						optionDescriptionInfo.setParam("code:"+SharedPreferencesUtil.getStringData(RegulatingMachineActivity.this, "province", ""));
-						optionDescriptionInfo.setOption("RegulatingMachineActivity:机器修正调整滤芯寿命操作");
-						optionDescriptionInfo.setLocalDate("原来的BaseData数据："+mBaseData.toString() +"; 验证的数据verificationData变更："+verificationData.toString());
-						optionDescriptionInfo.setNetDate(null);
-						options.clear();
-						options.add(optionDescriptionInfo);
-						optionDescriptions.setDates(options);
-						
-						Intent intent = new Intent(ConfigUtils.upload_option_description_action);
-						intent.putExtra("options", optionDescriptions);
-						sendBroadcast(intent);
-					}
-					else
-					{
-						ToastUtil.showLongToast("滤芯寿命调整失败");
-					}
+					//用新的数据来验证
+					verificationData.setFirstFilter(pp);
+					verificationData.setSecondFilter(cto);
+					verificationData.setThirdFilter(ro);
+					verificationData.setFourthFilter(t33);
+					verificationData.setFivethFilter(2000);
+					
+					Toast.makeText(RegulatingMachineActivity.this, "滤芯寿命调整成功", Toast.LENGTH_LONG).show();
+					optionDescriptionInfo.setId("1");
+					optionDescriptionInfo.setParam("code:"+SharedPreferencesUtil.getStringData(RegulatingMachineActivity.this, "province", ""));
+					optionDescriptionInfo.setOption("RegulatingMachineActivity:机器修正调整滤芯寿命操作");
+					optionDescriptionInfo.setLocalDate("原来的BaseData数据："+mBaseData.toString() +"; 验证的数据verificationData变更："+verificationData.toString());
+					optionDescriptionInfo.setNetDate(null);
+					options.clear();
+					options.add(optionDescriptionInfo);
+					optionDescriptions.setDates(options);
+					
+					Intent intent = new Intent(ConfigUtils.upload_option_description_action);
+					intent.putExtra("options", optionDescriptions);
+					sendBroadcast(intent);
 				}
 			}  
 		}; 

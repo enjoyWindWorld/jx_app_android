@@ -1,5 +1,7 @@
 package com.kxw.smarthome.entity;
 
+import android.R.integer;
+
 /**
  * 从服务器获取正确的数据
  * @author Administrator
@@ -14,6 +16,7 @@ public class VerificationDataInfo {
 	private int wfr;
 	private int pay_proid;
 	private int quantity;
+	private int multiple;
 	
 	public int getPp() {
 		return pp;
@@ -56,5 +59,11 @@ public class VerificationDataInfo {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	public int getMultiple() {
+		return multiple;
+	}
+	public void setMultiple(int multiple) {
+		this.multiple = multiple;
 	}
 }

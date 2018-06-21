@@ -155,6 +155,44 @@
 	            />
 		   	
 		</RelativeLayout>
+		
+		<RelativeLayout 
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@color/white"
+			    android:paddingTop="10dp"
+			    android:paddingBottom="10dp"
+			    android:layout_marginTop="20dp"
+			    android:layout_gravity="center_vertical"
+			    >
+			    <TextView 
+			        android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"
+			    	android:textSize="@dimen/setting_item_text_size" 
+			    	android:text="恢复出厂设置"
+			    	android:layout_marginLeft="20dp"
+			    	android:paddingLeft="20dp"
+			    	android:paddingRight="20dp"
+			    	android:layout_centerVertical="true"
+			        />
+			    
+			   	
+			   	<Button
+		            android:id="@+id/reset_bt"
+		            android:layout_width="100dp"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="@dimen/margin_20dp"
+		            android:layout_marginRight="@dimen/margin_20dp"
+		            android:background="@drawable/button_background_shape"
+		            android:text="@string/confirm"
+		            android:textColor="@drawable/button_text_select"
+		            android:textSize="@dimen/text_size_18sp" 
+		            android:layout_alignParentRight="true"
+		            android:padding="10dp"
+		           	android:layout_centerVertical="true"
+		            />
+			   	
+			</RelativeLayout>
 	
 	</LinearLayout>
 	

@@ -1261,15 +1261,29 @@ public class UpdateAgent {
                         public void clickRightButton(View view) {
                             mDialog.dismiss();
                             if (updateInfos != null && updateInfos.size() > 0) {
-                                File apkFile = mUpdateAgent.downloadedFile(updateInfos);
-
-                                //下载的apk文件存在，apk文件下载完成，
-                                //如果上一次下载的没有安装，finish.txt 文件就不会删除，但是apk文件已经删除(点击下载的时候已经生成，但是文件里的内容是空的)，这个时候已经满足安装条件，所以会报文件无法解析
-                                if (apkFile != null && apkFile.exists() && apkFile.getName().startsWith(updateInfos.get(UpdateInfo.VERSION) + "_") && AppDownloadCache.getFinish(mContext)) {
-                                    mUpdateAgent.startInstall(mContext, apkFile);
+                                String apkUrl = updateInfos.get(UpdateInfo.URL);
+                                if ("".equals(apkUrl)) {
+                                    ToastUtil.showToast("apk下载地址无效");
                                 } else {
-                                    mUpdateAgent.startDownload(mContext, updateInfos);
+                                    try {
+                                        Intent intent = new Intent();
+                                        intent.setAction("android.intent.action.VIEW");
+                                        intent.setData(Uri.parse(apkUrl));
+                                        activity.startActivity(intent);
+                                    } catch (Exception e) {
+                                        ToastUtil.showToast("apk下载地址无效");
+                                    }
                                 }
+
+//                                File apkFile = mUpdateAgent.downloadedFile(updateInfos);
+//
+//                                //下载的apk文件存在，apk文件下载完成，
+//                                //如果上一次下载的没有安装，finish.txt 文件就不会删除，但是apk文件已经删除(点击下载的时候已经生成，但是文件里的内容是空的)，这个时候已经满足安装条件，所以会报文件无法解析
+//                                if (apkFile != null && apkFile.exists() && apkFile.getName().startsWith(updateInfos.get(UpdateInfo.VERSION) + "_") && AppDownloadCache.getFinish(mContext)) {
+//                                    mUpdateAgent.startInstall(mContext, apkFile);
+//                                } else {
+//                                    mUpdateAgent.startDownload(mContext, updateInfos);
+//                                }
                             }
                         }
                     }).build();
@@ -1294,15 +1308,29 @@ public class UpdateAgent {
                         public void clickRightButton(View view) {
                             mDialog.dismiss();
                             if (updateInfos != null && updateInfos.size() > 0) {
-                                File apkFile = mUpdateAgent.downloadedFile(updateInfos);
-
-                                //下载的apk文件存在，apk文件下载完成，
-                                //如果上一次下载的没有安装，finish.txt 文件就不会删除，但是apk文件已经删除(点击下载的时候已经生成，但是文件里的内容是空的)，这个时候已经满足安装条件，所以会报文件无法解析
-                                if (apkFile != null && apkFile.exists() && apkFile.getName().startsWith(updateInfos.get(UpdateInfo.VERSION) + "_") && AppDownloadCache.getFinish(mContext)) {
-                                    mUpdateAgent.startInstall(mContext, apkFile);
+                                String apkUrl = updateInfos.get(UpdateInfo.URL);
+                                if ("".equals(apkUrl)) {
+                                    ToastUtil.showToast("apk下载地址无效");
                                 } else {
-                                    mUpdateAgent.startDownload(mContext, updateInfos);
+                                    try {
+                                        Intent intent = new Intent();
+                                        intent.setAction("android.intent.action.VIEW");
+                                        intent.setData(Uri.parse(apkUrl));
+                                        activity.startActivity(intent);
+                                    } catch (Exception e) {
+                                        ToastUtil.showToast("apk下载地址无效");
+                                    }
                                 }
+
+//                                File apkFile = mUpdateAgent.downloadedFile(updateInfos);
+//
+//                                //下载的apk文件存在，apk文件下载完成，
+//                                //如果上一次下载的没有安装，finish.txt 文件就不会删除，但是apk文件已经删除(点击下载的时候已经生成，但是文件里的内容是空的)，这个时候已经满足安装条件，所以会报文件无法解析
+//                                if (apkFile != null && apkFile.exists() && apkFile.getName().startsWith(updateInfos.get(UpdateInfo.VERSION) + "_") && AppDownloadCache.getFinish(mContext)) {
+//                                    mUpdateAgent.startInstall(mContext, apkFile);
+//                                } else {
+//                                    mUpdateAgent.startDownload(mContext, updateInfos);
+//                                }
                             }
                         }
                     }).build();

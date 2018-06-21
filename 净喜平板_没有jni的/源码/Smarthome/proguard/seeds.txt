@@ -1596,6 +1596,7 @@ com.kxw.smarthome.entity.UserInfo: int day
 com.kxw.smarthome.entity.UserInfo: int end
 com.kxw.smarthome.entity.UserInfo: java.lang.String now
 com.kxw.smarthome.entity.UserInfo: java.lang.String proname
+com.kxw.smarthome.entity.UserInfo: int multiple
 com.kxw.smarthome.entity.UserInfo: UserInfo()
 com.kxw.smarthome.entity.UserInfo: java.lang.String getPro_no()
 com.kxw.smarthome.entity.UserInfo: void setPro_no(java.lang.String)
@@ -1611,6 +1612,8 @@ com.kxw.smarthome.entity.UserInfo: int getEnd()
 com.kxw.smarthome.entity.UserInfo: void setEnd(int)
 com.kxw.smarthome.entity.UserInfo: java.lang.String getNow()
 com.kxw.smarthome.entity.UserInfo: void setNow(java.lang.String)
+com.kxw.smarthome.entity.UserInfo: int getMultiple()
+com.kxw.smarthome.entity.UserInfo: void setMultiple(int)
 com.kxw.smarthome.entity.UserInfo: java.lang.String toString()
 com.kxw.smarthome.entity.VerificationData
 com.kxw.smarthome.entity.VerificationData: android.content.Context mContext
@@ -1623,6 +1626,7 @@ com.kxw.smarthome.entity.VerificationData: int thirdFilter
 com.kxw.smarthome.entity.VerificationData: int fourthFilter
 com.kxw.smarthome.entity.VerificationData: int fivethFilter
 com.kxw.smarthome.entity.VerificationData: long bindDate
+com.kxw.smarthome.entity.VerificationData: int multiple
 com.kxw.smarthome.entity.VerificationData: VerificationData(android.content.Context)
 com.kxw.smarthome.entity.VerificationData: int getPay_proid()
 com.kxw.smarthome.entity.VerificationData: void setPay_proid(int)
@@ -1642,6 +1646,8 @@ com.kxw.smarthome.entity.VerificationData: int getFivethFilter()
 com.kxw.smarthome.entity.VerificationData: void setFivethFilter(int)
 com.kxw.smarthome.entity.VerificationData: long getBindDate()
 com.kxw.smarthome.entity.VerificationData: void setBindDate(long)
+com.kxw.smarthome.entity.VerificationData: int getMultiple()
+com.kxw.smarthome.entity.VerificationData: void setMultiple(int)
 com.kxw.smarthome.entity.VerificationData: void clearVerificationData()
 com.kxw.smarthome.entity.VerificationData: void play()
 com.kxw.smarthome.entity.VerificationData: java.lang.String toString()
@@ -1653,6 +1659,7 @@ com.kxw.smarthome.entity.VerificationDataInfo: int t33
 com.kxw.smarthome.entity.VerificationDataInfo: int wfr
 com.kxw.smarthome.entity.VerificationDataInfo: int pay_proid
 com.kxw.smarthome.entity.VerificationDataInfo: int quantity
+com.kxw.smarthome.entity.VerificationDataInfo: int multiple
 com.kxw.smarthome.entity.VerificationDataInfo: VerificationDataInfo()
 com.kxw.smarthome.entity.VerificationDataInfo: int getPp()
 com.kxw.smarthome.entity.VerificationDataInfo: void setPp(int)
@@ -1668,6 +1675,8 @@ com.kxw.smarthome.entity.VerificationDataInfo: int getPay_proid()
 com.kxw.smarthome.entity.VerificationDataInfo: void setPay_proid(int)
 com.kxw.smarthome.entity.VerificationDataInfo: int getQuantity()
 com.kxw.smarthome.entity.VerificationDataInfo: void setQuantity(int)
+com.kxw.smarthome.entity.VerificationDataInfo: int getMultiple()
+com.kxw.smarthome.entity.VerificationDataInfo: void setMultiple(int)
 com.kxw.smarthome.entity.VideoInfo
 com.kxw.smarthome.entity.VideoInfo: int id
 com.kxw.smarthome.entity.VideoInfo: java.lang.String video_url

@@ -173,9 +173,16 @@ public class FragmentMainActivity extends FragmentActivity implements OnClickLis
 				SharedPreferencesUtil.saveIntData(
 						FragmentMainActivity.this, "payment_type", 1);
 				use_mode.setText(getString(R.string.total_type_month));
-				value_surplus.setText(Html.fromHtml(String.format(
-						getString(R.string.title_total_day_surplus_value),
-						verificationData.getTimeSurplus())));
+				if(verificationData.getMultiple() == 3)
+				{
+					value_surplus.setText("（三年）");
+				}
+				else
+				{
+					value_surplus.setText(Html.fromHtml(String.format(
+							getString(R.string.title_total_day_surplus_value),
+							verificationData.getTimeSurplus())));
+				}
 			}
 			else
 			{

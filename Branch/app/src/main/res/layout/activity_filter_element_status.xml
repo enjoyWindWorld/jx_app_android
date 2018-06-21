@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="CTO活性炭滤芯"
+                        android:text="UDF颗粒活性炭滤芯"
                         android:textColor="@color/color_777777"
                         android:textSize="@dimen/sp_13" />
 
@@ -144,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="复合能量矿化滤芯"
+                        android:text="T33椰壳活性炭滤芯"
                         android:textColor="@color/color_777777"
                         android:textSize="@dimen/sp_13" />
 

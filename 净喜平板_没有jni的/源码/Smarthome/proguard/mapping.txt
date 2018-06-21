@@ -4193,21 +4193,20 @@ com.baidu.location.BDLocation -> com.baidu.location.BDLocation:
     java.lang.String getAddrStr() -> q
     java.lang.String getProvince() -> r
     java.lang.String getCity() -> s
-    java.lang.String getCityCode() -> t
-    java.lang.String getDistrict() -> u
-    java.lang.String getLocationDescribe() -> v
+    java.lang.String getDistrict() -> t
+    java.lang.String getLocationDescribe() -> u
     void setLocationDescribe(java.lang.String) -> e
-    java.lang.String getFloor() -> w
+    java.lang.String getFloor() -> v
     void setFloor(java.lang.String) -> f
-    java.lang.String getBuildingID() -> x
+    java.lang.String getBuildingID() -> w
     void setBuildingID(java.lang.String) -> g
-    java.lang.String getBuildingName() -> y
+    java.lang.String getBuildingName() -> x
     void setBuildingName(java.lang.String) -> h
-    int isParkAvailable() -> z
+    int isParkAvailable() -> y
     void setParkAvailable(int) -> c
     void setIndoorLocMode(boolean) -> a
     void setGpsAccuracyStatus(int) -> d
-    java.lang.String getNetworkLocationType() -> A
+    java.lang.String getNetworkLocationType() -> z
     void setNetworkLocationType(java.lang.String) -> i
     void setOperators(int) -> e
     int describeContents() -> describeContents
@@ -9484,8 +9483,8 @@ com.kxw.smarthome.RegulatingMachineActivity -> com.kxw.smarthome.RegulatingMachi
     android.widget.Button t33_adjustment_bt -> y
     android.widget.Button login_bt -> z
     android.widget.Button reset_bt -> A
-    android.widget.LinearLayout layout_regulating -> B
-    android.widget.LinearLayout layout_login -> C
+    android.widget.LinearLayout layout_login -> B
+    android.widget.ScrollView layout_regulating -> C
     android.os.Handler mRegulatingTemperatureHandler -> D
     android.os.HandlerThread mRegulatingTemperatureHandlerThread -> E
     android_serialport_api.SerialPortUtil mSerialPortUtil -> F
@@ -9494,13 +9493,12 @@ com.kxw.smarthome.RegulatingMachineActivity -> com.kxw.smarthome.RegulatingMachi
     int cto -> I
     int ro -> J
     int t33 -> K
-    boolean isSuccess -> L
-    com.kxw.smarthome.entity.OptionDescriptions optionDescriptions -> M
-    java.util.List options -> N
-    com.kxw.smarthome.entity.OptionDescriptionInfo optionDescriptionInfo -> O
-    com.kxw.smarthome.entity.FilterLifeInfo mDataFilterLifeInfo -> P
-    com.kxw.smarthome.entity.VerificationData verificationData -> Q
-    java.lang.Runnable mFilterLifeRunnable -> R
+    com.kxw.smarthome.entity.OptionDescriptions optionDescriptions -> L
+    java.util.List options -> M
+    com.kxw.smarthome.entity.OptionDescriptionInfo optionDescriptionInfo -> N
+    com.kxw.smarthome.entity.FilterLifeInfo mDataFilterLifeInfo -> O
+    com.kxw.smarthome.entity.VerificationData verificationData -> P
+    java.lang.Runnable mFilterLifeRunnable -> Q
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
@@ -9510,13 +9508,11 @@ com.kxw.smarthome.RegulatingMachineActivity -> com.kxw.smarthome.RegulatingMachi
     int access$2(com.kxw.smarthome.RegulatingMachineActivity) -> c
     int access$3(com.kxw.smarthome.RegulatingMachineActivity) -> d
     android_serialport_api.SerialPortUtil access$4(com.kxw.smarthome.RegulatingMachineActivity) -> e
-    void access$5$1527fb00(com.kxw.smarthome.RegulatingMachineActivity) -> f
-    boolean access$6(com.kxw.smarthome.RegulatingMachineActivity) -> g
-    com.kxw.smarthome.entity.VerificationData access$7(com.kxw.smarthome.RegulatingMachineActivity) -> h
-    com.kxw.smarthome.entity.OptionDescriptionInfo access$8(com.kxw.smarthome.RegulatingMachineActivity) -> i
-    com.kxw.smarthome.entity.BaseData access$9(com.kxw.smarthome.RegulatingMachineActivity) -> j
-    java.util.List access$10(com.kxw.smarthome.RegulatingMachineActivity) -> k
-    com.kxw.smarthome.entity.OptionDescriptions access$11(com.kxw.smarthome.RegulatingMachineActivity) -> l
+    com.kxw.smarthome.entity.VerificationData access$5(com.kxw.smarthome.RegulatingMachineActivity) -> f
+    com.kxw.smarthome.entity.OptionDescriptionInfo access$6(com.kxw.smarthome.RegulatingMachineActivity) -> g
+    com.kxw.smarthome.entity.BaseData access$7(com.kxw.smarthome.RegulatingMachineActivity) -> h
+    java.util.List access$8(com.kxw.smarthome.RegulatingMachineActivity) -> i
+    com.kxw.smarthome.entity.OptionDescriptions access$9(com.kxw.smarthome.RegulatingMachineActivity) -> j
 com.kxw.smarthome.RegulatingMachineActivity$1 -> com.kxw.smarthome.ay:
     com.kxw.smarthome.RegulatingMachineActivity this$0 -> a
     void run() -> run
@@ -9531,21 +9527,23 @@ com.kxw.smarthome.RegulatingTemperatureActivity -> com.kxw.smarthome.RegulatingT
     android.widget.Button regulating_Temperature_bt -> p
     android.widget.Button flow_adjustment_bt -> q
     android.widget.Button login_bt -> r
-    android.widget.LinearLayout layout_regulating -> s
-    android.widget.LinearLayout layout_login -> t
-    android.os.Handler mRegulatingTemperatureHandler -> u
-    android.os.HandlerThread mRegulatingTemperatureHandlerThread -> v
-    android.os.Handler mFlowAdjustmentHandler -> w
-    android.os.HandlerThread mFlowAdjustmentHandlerThread -> x
-    android_serialport_api.SerialPortUtil mSerialPortUtil -> y
-    int temperature -> z
-    int flow -> A
-    android.os.Handler handler -> B
-    android.os.Message msg -> C
-    java.lang.Runnable mRegulatingTemperatureRunnable -> D
-    java.lang.Runnable mFlowAdjustmentRunnable -> E
+    android.widget.Button reset_bt -> s
+    android.widget.LinearLayout layout_regulating -> t
+    android.widget.LinearLayout layout_login -> u
+    android.os.Handler mRegulatingTemperatureHandler -> v
+    android.os.HandlerThread mRegulatingTemperatureHandlerThread -> w
+    android.os.Handler mFlowAdjustmentHandler -> x
+    android.os.HandlerThread mFlowAdjustmentHandlerThread -> y
+    android_serialport_api.SerialPortUtil mSerialPortUtil -> z
+    int temperature -> A
+    int flow -> B
+    android.os.Handler handler -> C
+    android.os.Message msg -> D
+    java.lang.Runnable mRegulatingTemperatureRunnable -> E
+    java.lang.Runnable mFlowAdjustmentRunnable -> F
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void onDestroy() -> onDestroy
     int access$0(com.kxw.smarthome.RegulatingTemperatureActivity) -> a
     android_serialport_api.SerialPortUtil access$1(com.kxw.smarthome.RegulatingTemperatureActivity) -> b
@@ -10276,6 +10274,7 @@ com.kxw.smarthome.entity.UserInfo -> com.kxw.smarthome.entity.UserInfo:
     int end -> end
     java.lang.String now -> now
     java.lang.String proname -> proname
+    int multiple -> multiple
     java.lang.String getPro_no() -> getPro_no
     void setPro_no(java.lang.String) -> setPro_no
     java.lang.String getOrder_no() -> getOrder_no
@@ -10290,6 +10289,8 @@ com.kxw.smarthome.entity.UserInfo -> com.kxw.smarthome.entity.UserInfo:
     void setEnd(int) -> setEnd
     java.lang.String getNow() -> getNow
     void setNow(java.lang.String) -> setNow
+    int getMultiple() -> getMultiple
+    void setMultiple(int) -> setMultiple
     java.lang.String toString() -> toString
 com.kxw.smarthome.entity.VerificationData -> com.kxw.smarthome.entity.VerificationData:
     android.content.Context mContext -> mContext
@@ -10302,6 +10303,7 @@ com.kxw.smarthome.entity.VerificationData -> com.kxw.smarthome.entity.Verificati
     int fourthFilter -> fourthFilter
     int fivethFilter -> fivethFilter
     long bindDate -> bindDate
+    int multiple -> multiple
     int getPay_proid() -> getPay_proid
     void setPay_proid(int) -> setPay_proid
     int getWaterSurplus() -> getWaterSurplus
@@ -10320,6 +10322,8 @@ com.kxw.smarthome.entity.VerificationData -> com.kxw.smarthome.entity.Verificati
     void setFivethFilter(int) -> setFivethFilter
     long getBindDate() -> getBindDate
     void setBindDate(long) -> setBindDate
+    int getMultiple() -> getMultiple
+    void setMultiple(int) -> setMultiple
     void clearVerificationData() -> clearVerificationData
     void play() -> play
     java.lang.String toString() -> toString
@@ -10331,6 +10335,7 @@ com.kxw.smarthome.entity.VerificationDataInfo -> com.kxw.smarthome.entity.Verifi
     int wfr -> wfr
     int pay_proid -> pay_proid
     int quantity -> quantity
+    int multiple -> multiple
     int getPp() -> getPp
     void setPp(int) -> setPp
     int getCto() -> getCto
@@ -10345,6 +10350,8 @@ com.kxw.smarthome.entity.VerificationDataInfo -> com.kxw.smarthome.entity.Verifi
     void setPay_proid(int) -> setPay_proid
     int getQuantity() -> getQuantity
     void setQuantity(int) -> setQuantity
+    int getMultiple() -> getMultiple
+    void setMultiple(int) -> setMultiple
 com.kxw.smarthome.entity.VideoInfo -> com.kxw.smarthome.entity.VideoInfo:
     int id -> id
     java.lang.String video_url -> video_url

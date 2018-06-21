@@ -1,6 +1,8 @@
 package com.kxw.smarthome.entity;
 
+import android.R.integer;
 import android.content.Context;
+import android.text.TextUtils;
 
 import com.kxw.smarthome.utils.SharedPreferencesUtil;
 
@@ -22,6 +24,7 @@ public class VerificationData {
 	private int fourthFilter;
 	private int fivethFilter;
 	private long bindDate;
+	private int multiple;
 	
 	public VerificationData(Context context){
 		mContext = context;
@@ -43,10 +46,25 @@ public class VerificationData {
 		SharedPreferencesUtil.saveIntData(mContext, "waterSurplus", waterSurplus);
 	}
 	public int getTimeSurplus() {
-		return SharedPreferencesUtil.getIntData(mContext, "timeSurplus", -1);
+		if(getMultiple() == 3)
+		{
+			return 1095;
+		}
+		else
+		{
+			return SharedPreferencesUtil.getIntData(mContext, "timeSurplus", -1);
+		}
 	}
 	public void setTimeSurplus(int timeSurplus) {
-		SharedPreferencesUtil.saveIntData(mContext, "timeSurplus", timeSurplus);
+		if(getMultiple() == 3)
+		{
+			SharedPreferencesUtil.saveIntData(mContext, "timeSurplus", 1095);
+		}
+		else
+		{
+			SharedPreferencesUtil.saveIntData(mContext, "timeSurplus", timeSurplus);
+		}
+		
 	}
 	public int getFirstFilter() {
 		return SharedPreferencesUtil.getIntData(mContext, "firstFilter", -1);
@@ -87,6 +105,14 @@ public class VerificationData {
 		SharedPreferencesUtil.saveLongData(mContext, "bindDate", bindDate);
 	}
 	
+	public int getMultiple() {
+		return SharedPreferencesUtil.getIntData(mContext, "multiple", -1);
+	}
+
+	public void setMultiple(int multiple) {
+		SharedPreferencesUtil.saveIntData(mContext, "multiple", multiple);
+	}
+	
 	public void clearVerificationData()
 	{
 		setBindDate(-1);
@@ -98,13 +124,14 @@ public class VerificationData {
 		setPay_proid(-1);
 		setTimeSurplus(-1);
 		setWaterSurplus(-1);
+		setMultiple(-1);
 	}
 	
 	public void play()
 	{
 		System.out.println("pay_proid=="+getPay_proid()+"; waterSurplus=="+getWaterSurplus()+"; timeSurplus=="+getTimeSurplus()+"; firstFilter=="+getFirstFilter()
 				+"; secondFilter=="+getSecondFilter()+"; thirdFilter=="+getThirdFilter()+"; fourthFilter=="+getFourthFilter()+"; fivethFilter=="+getFivethFilter()
-				+"; bindDate=="+getBindDate());
+				+"; bindDate=="+getBindDate() + "; multiple=="+getMultiple());
 	}
 
 	@Override
@@ -112,7 +139,7 @@ public class VerificationData {
 		// TODO Auto-generated method stub
 		return "pay_proid=="+getPay_proid()+"; waterSurplus=="+getWaterSurplus()+"; timeSurplus=="+getTimeSurplus()+"; firstFilter=="+getFirstFilter()
 				+"; secondFilter=="+getSecondFilter()+"; thirdFilter=="+getThirdFilter()+"; fourthFilter=="+getFourthFilter()+"; fivethFilter=="+getFivethFilter()
-				+"; bindDate=="+getBindDate();
+				+"; bindDate=="+getBindDate() + "; multiple=="+getMultiple();
 	}
 	
 }
