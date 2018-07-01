@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="UDF颗粒活性炭滤芯"
+                        android:text="复合滤芯(颗粒炭+PP)"
                         android:textColor="@color/color_777777"
                         android:textSize="@dimen/sp_13" />
 

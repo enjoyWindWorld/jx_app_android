@@ -246,7 +246,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="cto块状活性炭滤芯"
+                android:text="复合滤芯(颗粒炭+PP)"
                 android:textColor="@color/color_000000"
                 android:layout_marginLeft="@dimen/dp_10"
                 />
@@ -295,7 +295,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="复合能量矿化滤芯"
+                android:text="T33椰壳活性炭滤芯"
                 android:textColor="@color/color_000000"
                 android:layout_marginLeft="@dimen/dp_10"
                 />

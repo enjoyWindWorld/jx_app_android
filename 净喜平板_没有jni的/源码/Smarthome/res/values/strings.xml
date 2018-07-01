@@ -72,7 +72,7 @@
     <string name="equipment_state">滤芯状态</string>
     <string name="equipment_surplus">预计剩余</string>
     <string name="equipment_ppf">PP</string>
-    <string name="equipment_cto">UDF颗粒活性炭</string>
+    <string name="equipment_cto">复合滤芯(颗粒炭+PP)</string>
     <string name="equipment_t33">T33椰壳活性炭</string>
     <string name="equipment_ro">RO膜</string>
     <string name="equipment_postposition">后置碳</string>

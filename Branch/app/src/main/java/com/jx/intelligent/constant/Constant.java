@@ -19,7 +19,7 @@ public class Constant {
     public static final String SPF_NAME = "";
 
 //    public static final String IP = "http://192.168.31.203:8080/";
-//    public static final String IP = "http://120.79.63.162:8080/";
+//    public static final String IP = "http://39.104.126.204/";
     public static final String IP = "http://www.szjxzn.tech:8080/";
 
     private static final String BASE_HEAD = IP + "jx_smart/smvc/";
