@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -73,7 +74,9 @@ public abstract class OkHttpDao<RESPONSE> extends HttpDao<RESPONSE> {
             if (instance == null) {
                 synchronized (HttpClient.class) {
                     if (instance == null) {
-                        OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+                        OkHttpClient.Builder builder = new OkHttpClient().newBuilder()
+                                .connectTimeout(5, TimeUnit.SECONDS)//单位是秒
+                                .readTimeout(600, TimeUnit.SECONDS);
                         instance = builder.build();
                     }
                 }

@@ -8,7 +8,7 @@ public class ConfigUtils {
 
 //	public static String base_url = "http://data.jx-inteligent.tech:15660/jx_smart/smvc";
 	public static String base_url ="http://www.szjxzn.tech:8080/jx_smart/smvc";
-//	public static String base_url ="http://192.168.1.46:8080/jx_smart/smvc";
+//	public static String base_url ="http://39.104.126.204:8080/smvc";
 
 	// 高清视频，空间大
 	static String downloadPath = "http://www.szjxzn.tech:8080/pic/jingxi1010.mp4";
@@ -60,6 +60,7 @@ public class ConfigUtils {
 	public static String update_value_surplus_action = "UPDATE_VALUE_SURPLUS_ACTION"; //修改剩余值
 	public static String verification_value_action = "VERIFICATION_VALUE_ACTION"; //验证本地存贮的值对不对
 	public static String update_value_city_action = "UPDATE_VALUE_CITY_ACTION"; //修改城市定位的值
+	public static String verification_no_data_action = "VERIFICATION_NO_DATA_ACTION"; //验证数据是否用完了
 	
 	//配置
 	public static int ad_type = -1; // -1 平板广告； 0 手机主页广告； 1  手机社区广告；其中0和1为手机APP端的广告

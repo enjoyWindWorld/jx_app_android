@@ -1,4 +1,4 @@
-# view AndroidManifest.xml #generated:250
+# view AndroidManifest.xml #generated:258
 -keep class com.baidu.location.f { <init>(...); }
 
 # view AndroidManifest.xml #generated:38
@@ -112,7 +112,10 @@
 # view AndroidManifest.xml #generated:242
 -keep class com.kxw.smarthome.receiver.VerificationDataReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:265
+# view AndroidManifest.xml #generated:250
+-keep class com.kxw.smarthome.receiver.VerificationNoDataReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:273
 -keep class com.kxw.smarthome.service.UpdateService { <init>(...); }
 
 # view res/layout/layout_custom_banner.xml #generated:6

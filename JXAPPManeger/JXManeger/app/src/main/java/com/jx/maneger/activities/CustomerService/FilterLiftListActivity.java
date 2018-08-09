@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jx.maneger.R;
 import com.jx.maneger.adapter.RecycleAdapter;
@@ -51,6 +52,7 @@ public class FilterLiftListActivity extends RHBaseActivity {
     private CustomerServiceDao dao;
     private EditText searchBox;
     private ImageView clearBtn;
+    private TextView txt_search;
 
     @Override
     protected void init() {
@@ -86,6 +88,9 @@ public class FilterLiftListActivity extends RHBaseActivity {
         clearBtn = (ImageView) contentView.findViewById(R.id.iv_search_clear);
         clearBtn.setOnClickListener(this);
 
+        txt_search = (TextView) findViewById(R.id.txt_search);
+        txt_search.setOnClickListener(this);
+
         searchBox = (EditText) contentView.findViewById(R.id.et_search);
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
@@ -97,10 +102,6 @@ public class FilterLiftListActivity extends RHBaseActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 String keyword = s.toString();
-                page = 1;
-                datas.clear();
-                moreDatas.clear();
-                searchData(keyword, page);
                 if (TextUtils.isEmpty(keyword)) {
                     clearBtn.setVisibility(View.GONE);
                 } else {
@@ -123,6 +124,15 @@ public class FilterLiftListActivity extends RHBaseActivity {
             case R.id.iv_search_clear:
                 searchBox.setText("");
                 clearBtn.setVisibility(View.GONE);
+                break;
+            case R.id.txt_search:
+                if(!TextUtils.isEmpty(searchBox.getText().toString()))
+                {
+                    page = 1;
+                    datas.clear();
+                    moreDatas.clear();
+                    searchData(searchBox.getText().toString(), page);
+                }
                 break;
         }
     }
@@ -147,10 +157,10 @@ public class FilterLiftListActivity extends RHBaseActivity {
                     @Override
                     public void onItemClick(int position) {
                         LogUtil.e("点击了条目");
-                        Intent intent = new Intent(FilterLiftListActivity.this, RepairRecordActivity.class);
-                        intent.putExtra("pro_no", data.getPro_no());
-                        intent.putExtra("ord_no", data.getOrd_no());
-                        startActivity(intent);
+//                        Intent intent = new Intent(FilterLiftListActivity.this, RepairRecordActivity.class);
+//                        intent.putExtra("pro_no", data.getPro_no());
+//                        intent.putExtra("ord_no", data.getOrd_no());
+//                        startActivity(intent);
                     }
                 });
             }

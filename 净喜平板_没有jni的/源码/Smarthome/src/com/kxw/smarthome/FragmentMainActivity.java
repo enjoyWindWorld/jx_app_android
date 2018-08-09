@@ -140,7 +140,7 @@ public class FragmentMainActivity extends FragmentActivity implements OnClickLis
 		}
 		if (weatherInfo != null) {
 			weather_state.setText(weatherInfo.getState());
-			weather_temperature.setText(weatherInfo.getTemperature() + "℃");
+			weather_temperature.setText(weatherInfo.getTemperature());
 		}
 	}
 

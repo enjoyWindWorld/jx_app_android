@@ -161,6 +161,10 @@ public class HintDialogActivity extends Activity implements OnClickListener, OnD
 				SharedPreferencesUtil.saveStringData(
 						HintDialogActivity.this, "alias", "");
 				
+				//清除机器机型
+				SharedPreferencesUtil.saveIntData(
+						HintDialogActivity.this, "model", -1);
+				
 				//清除验证的数据
 				VerificationData verificationData = new VerificationData(HintDialogActivity.this);
 				verificationData.clearVerificationData();

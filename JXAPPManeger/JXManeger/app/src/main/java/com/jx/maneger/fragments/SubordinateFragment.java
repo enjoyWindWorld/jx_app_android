@@ -96,7 +96,11 @@ public class SubordinateFragment extends RHBaseFragment {
             public void convert(RecycleCommonViewHolder holder, final SubordinateResult.Data.SubordinateData data) {
                 holder.setText(R.id.tv_code, "编号："+data.getId());
                 holder.setText(R.id.tv_name, "姓名："+data.getPar_name());
-                if("1".equals(data.getPar_level()))
+                if("0".equals(data.getPar_level()))
+                {
+                    holder.setText(R.id.tv_level, "级别：分公司");
+                }
+                else if("1".equals(data.getPar_level()))
                 {
                     holder.setText(R.id.tv_level, "级别：运营商");
                 }

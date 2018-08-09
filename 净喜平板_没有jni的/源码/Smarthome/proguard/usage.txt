@@ -4950,7 +4950,7 @@ com.hp.hpl.sparta.xpath.XPath:
     public static boolean isStringValue(java.lang.String)
 com.kxw.smarthome.AdvMainActivity:
     168:183:protected void replayMedia()
-    579:580:public void setIs_ShowADV(boolean)
+    585:586:public void setIs_ShowADV(boolean)
 com.kxw.smarthome.BuildConfig
 com.kxw.smarthome.FilterChangeListActivity:
     private android.widget.LinearLayout wfr_filter_ll

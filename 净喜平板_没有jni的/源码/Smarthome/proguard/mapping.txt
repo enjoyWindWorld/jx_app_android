@@ -11063,6 +11063,7 @@ com.kxw.smarthome.receiver.SyncFilterLifeReceiver$3 -> com.kxw.smarthome.receive
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
 com.kxw.smarthome.receiver.UpdateAdReceiver -> com.kxw.smarthome.receiver.UpdateAdReceiver:
+    android.content.Context mContext -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.kxw.smarthome.receiver.UpdateAdReceiver$1 -> com.kxw.smarthome.receiver.h:
     com.kxw.smarthome.receiver.UpdateAdReceiver this$0 -> a
@@ -11208,6 +11209,37 @@ com.kxw.smarthome.receiver.VerificationDataReceiver$3 -> com.kxw.smarthome.recei
     void onFinished() -> onFinished
     void onSuccess(java.lang.String) -> onSuccess
     void onSuccess(java.lang.Object) -> onSuccess
+com.kxw.smarthome.receiver.VerificationNoDataReceiver -> com.kxw.smarthome.receiver.VerificationNoDataReceiver:
+    android.content.Context mContext -> a
+    android_serialport_api.SerialPortUtil mSerialPortUtil -> b
+    com.kxw.smarthome.entity.VerificationData verificationData -> c
+    com.kxw.smarthome.entity.BaseData mBaseData -> d
+    com.kxw.smarthome.entity.UserInfo originalUserInfo -> e
+    android.os.Handler mQuantityHandler -> f
+    android.os.HandlerThread mQuantityHandlerThread -> g
+    com.kxw.smarthome.entity.OptionDescriptions optionDescriptions -> h
+    java.util.List options -> i
+    com.kxw.smarthome.entity.OptionDescriptionInfo optionDescriptionInfo -> j
+    java.lang.Runnable mQuantitykRunnable -> k
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void verificationWater() -> a
+    com.kxw.smarthome.entity.VerificationData access$0(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> a
+    android_serialport_api.SerialPortUtil access$1(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> b
+    com.kxw.smarthome.entity.BaseData access$2(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> c
+    java.util.List access$3(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> d
+    com.kxw.smarthome.entity.OptionDescriptionInfo access$4(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> e
+    com.kxw.smarthome.entity.OptionDescriptions access$5(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> f
+    android.content.Context access$6(com.kxw.smarthome.receiver.VerificationNoDataReceiver) -> g
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$1 -> com.kxw.smarthome.receiver.t:
+    com.kxw.smarthome.receiver.VerificationNoDataReceiver this$0 -> a
+    void run() -> run
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2 -> com.kxw.smarthome.receiver.u:
+    com.kxw.smarthome.receiver.VerificationNoDataReceiver this$0 -> a
+    void onCancelled(org.xutils.common.Callback$CancelledException) -> onCancelled
+    void onError(java.lang.Throwable,boolean) -> onError
+    void onFinished() -> onFinished
+    void onSuccess(java.lang.String) -> onSuccess
+    void onSuccess(java.lang.Object) -> onSuccess
 com.kxw.smarthome.service.UpdateService -> com.kxw.smarthome.service.UpdateService:
     java.lang.String TAG -> TAG
     android.content.Context mContext -> mContext
@@ -11282,11 +11314,12 @@ com.kxw.smarthome.utils.ConfigUtils -> com.kxw.smarthome.utils.c:
     java.lang.String update_value_surplus_action -> J
     java.lang.String verification_value_action -> K
     java.lang.String update_value_city_action -> L
-    int ad_type -> M
-    long ad_time -> N
-    int get_location_only -> O
-    int get_weather_and_location -> P
-    double hint_ratio -> Q
+    java.lang.String verification_no_data_action -> M
+    int ad_type -> N
+    long ad_time -> O
+    int get_location_only -> P
+    int get_weather_and_location -> Q
+    double hint_ratio -> R
 com.kxw.smarthome.utils.CountDownTimer -> com.kxw.smarthome.utils.d:
     long mMillisInFuture -> a
     long mCountdownInterval -> b

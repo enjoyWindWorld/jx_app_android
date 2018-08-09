@@ -1894,6 +1894,13 @@ com.kxw.smarthome.receiver.VerificationDataReceiver$3: void onError(java.lang.Th
 com.kxw.smarthome.receiver.VerificationDataReceiver$3: void onFinished()
 com.kxw.smarthome.receiver.VerificationDataReceiver$3: void onSuccess(java.lang.String)
 com.kxw.smarthome.receiver.VerificationDataReceiver$3: void onSuccess(java.lang.Object)
+com.kxw.smarthome.receiver.VerificationNoDataReceiver
+com.kxw.smarthome.receiver.VerificationNoDataReceiver: VerificationNoDataReceiver()
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2: void onCancelled(org.xutils.common.Callback$CancelledException)
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2: void onError(java.lang.Throwable,boolean)
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2: void onFinished()
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2: void onSuccess(java.lang.String)
+com.kxw.smarthome.receiver.VerificationNoDataReceiver$2: void onSuccess(java.lang.Object)
 com.kxw.smarthome.service.UpdateService
 com.kxw.smarthome.service.UpdateService: java.lang.String TAG
 com.kxw.smarthome.service.UpdateService: android.content.Context mContext

@@ -24,24 +24,29 @@ import com.kxw.smarthome.utils.DBUtils;
 import com.kxw.smarthome.utils.DataProcessingUtils;
 import com.kxw.smarthome.utils.JsonUtils;
 import com.kxw.smarthome.utils.MyLogger;
+import com.kxw.smarthome.utils.SharedPreferencesUtil;
 
 public class UpdateAdReceiver extends BroadcastReceiver {  
+	Context mContext;
 
 	@Override  
 	public void onReceive(Context context, Intent intent){  
 		if(intent.getAction().equals(ConfigUtils.update_ad_alarm)){
-			getAdvUrl();
+			mContext = context;
+			String address = SharedPreferencesUtil.getStringData(mContext, "province", "") 
+					+ SharedPreferencesUtil.getStringData(mContext, "city", "")
+					+ SharedPreferencesUtil.getStringData(mContext, "district", "");
+			getAdvUrl(address);
 		}
-
 	}
 
-	public void getAdvUrl(){
+	public void getAdvUrl(String address){
 		RequestParams params= new RequestParams(ConfigUtils.get_adv_url);
 		MyLogger.getInstance().e(DBUtils.getAdvId());
 		JSONObject jObj = new JSONObject();
 		try {
 			jObj.accumulate("type", ConfigUtils.ad_type);
-			//			jObj.accumulate("pro_no", userInfo.getPro_no());
+			jObj.accumulate("address", address);
 		} catch (Exception e) {
 		}
 		MyLogger.getInstance().e(jObj.toString());
@@ -66,11 +71,11 @@ public class UpdateAdReceiver extends BroadcastReceiver {
 			@Override
 			public void onSuccess(String response) {
 				// TODO Auto-generated method stub
-//				MyLogger.getInstance().e(response);
 				if(JsonUtils.result(response)==0){					
 					List<AdvInfo> list= new ArrayList<>();
 					try {
-						MyLogger.getInstance().e(DataProcessingUtils.decode(new JSONObject(response).getString("data")));
+						String jsonString = DataProcessingUtils.decode(new JSONObject(response).getString("data"));
+						System.out.println("==广告=="+jsonString);
 						list=JsonUtils.jsonToArrayList(DataProcessingUtils.decode(new JSONObject(response).getString("data")),AdvInfo.class);
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block

@@ -39,7 +39,9 @@
         android:layout_height="@dimen/dp_45"
         android:background="@color/white"
         android:layout_marginTop="@dimen/dp_1"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"

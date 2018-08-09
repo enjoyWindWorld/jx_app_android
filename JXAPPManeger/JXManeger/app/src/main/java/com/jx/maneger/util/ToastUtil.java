@@ -31,11 +31,11 @@ public class ToastUtil {
     private final static Context context = UIUtil.getContext();
 
     public static void showToast(String text) {
-        showToast(text, ToastType.NULL, ToastType.SHORT);
+        showToast(text, ToastType.NULL, ToastType.LONG);
     }
 
     public static void showToast(int textId) {
-        showToast(textId, ToastType.NULL, ToastType.SHORT);
+        showToast(textId, ToastType.NULL, ToastType.LONG);
     }
 
     public static void showToast(int textId, int LONG) {

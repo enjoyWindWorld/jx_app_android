@@ -18,8 +18,8 @@ public class Constant {
      */
     public static final String SPF_NAME = "";
 
-    private static final String IP = "http://39.104.126.204/";
-//    private static final String IP = "http://www.szjxzn.tech:7686/jx_partner/";
+//    private static final String IP = "http://39.104.126.204/";
+    private static final String IP = "http://www.szjxzn.tech:7686/jx_partner/";
 
     private static final String BASE_HEAD = IP + "smvc/partner/";
     private static final String LAUNDCH_URL = BASE_HEAD + "launch/test/";

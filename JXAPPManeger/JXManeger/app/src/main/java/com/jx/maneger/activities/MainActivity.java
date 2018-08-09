@@ -228,20 +228,20 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         indexOptionsBean.setResourceId(R.mipmap.icon_subordinate);
         mList.add(indexOptionsBean);
 
-//        indexOptionsBean = new IndexOptionsBean();
-//        indexOptionsBean.setId(3);
-//        indexOptionsBean.setTitle("售后管理");
-//        indexOptionsBean.setResourceId(R.mipmap.repair);
-//        mList.add(indexOptionsBean);
-
         indexOptionsBean = new IndexOptionsBean();
         indexOptionsBean.setId(3);
+        indexOptionsBean.setTitle("售后管理");
+        indexOptionsBean.setResourceId(R.mipmap.repair);
+        mList.add(indexOptionsBean);
+
+        indexOptionsBean = new IndexOptionsBean();
+        indexOptionsBean.setId(4);
         indexOptionsBean.setTitle("我的消息");
         indexOptionsBean.setResourceId(R.mipmap.icon_message);
         mList.add(indexOptionsBean);
 
         indexOptionsBean = new IndexOptionsBean();
-        indexOptionsBean.setId(4);
+        indexOptionsBean.setId(5);
         indexOptionsBean.setTitle("设置");
         indexOptionsBean.setResourceId(R.mipmap.icon_setting);
         mList.add(indexOptionsBean);
@@ -256,6 +256,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             tv_code.setText(data.getPartnerNumber());
             switch (data.getLevel())
             {
+                case "0":
+                    tv_level.setText("分公司");
+                    break;
                 case "1"://省
                     tv_level.setText("运营商");
                     break;
@@ -340,17 +343,17 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             Intent intent = new Intent(MainActivity.this, SubordinateManegeActivity.class);
                             startActivityForResult(intent, Constant.REQUEST_MY_SUBORDINATE);
                         }
-//                        else if(position == 3)
-//                        {
-//                            Intent msg_intent = new Intent(MainActivity.this, CustomerServiceManageActivity.class);
-//                            startActivityForResult(msg_intent, Constant.REQUEST_MESSAGE);
-//                        }
                         else if(position == 3)
+                        {
+                            Intent msg_intent = new Intent(MainActivity.this, CustomerServiceManageActivity.class);
+                            startActivityForResult(msg_intent, Constant.REQUEST_MESSAGE);
+                        }
+                        else if(position == 4)
                         {
                             Intent msg_intent = new Intent(MainActivity.this, MessageActivity.class);
                             startActivityForResult(msg_intent, Constant.REQUEST_MESSAGE);
                         }
-                        else if(position == 4)
+                        else if(position == 5)
                         {
                             Intent setting_intent = new Intent(MainActivity.this, SettingActivity.class);
                             startActivityForResult(setting_intent, Constant.REQUEST_MY_SETTING);
@@ -459,7 +462,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 MessageNoReadResult messageNoReadResult = (MessageNoReadResult) object;
                 if(messageNoReadResult != null && messageNoReadResult.getData().size() > 0)
                 {
-                    changeMsgAmount(messageNoReadResult.getData().get(0).getNumber()+"", 3);
+                    changeMsgAmount(messageNoReadResult.getData().get(0).getNumber() > 99 ? "99+": messageNoReadResult.getData().get(0).getNumber()+"", 4);
                 }
             }
 

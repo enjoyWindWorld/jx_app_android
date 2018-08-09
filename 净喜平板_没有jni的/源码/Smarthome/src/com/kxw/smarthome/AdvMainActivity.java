@@ -482,6 +482,12 @@ OnClickListener, Callback, OnCompletionListener, OnPreparedListener {
 		AlarmManager verification_data_am = (AlarmManager)getSystemService(ALARM_SERVICE); 
 		PendingIntent verification_data_pi = PendingIntent.getBroadcast(this, 0, verification_data_intent, 0);
 		verification_data_am.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 8*60*1000, 1*60*60*1000, verification_data_pi); 
+		
+		//验证存在服务器里的套餐数据是否用完了， 用完了就清了主板的，24小时验证一次
+		Intent verification_no_data_intent = new Intent(ConfigUtils.verification_no_data_action);
+		AlarmManager verification_no_data_am = (AlarmManager)getSystemService(ALARM_SERVICE); 
+		PendingIntent verification_no_data_pi = PendingIntent.getBroadcast(this, 0, verification_no_data_intent, 0);
+		verification_no_data_am.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 10*60*1000, 24*60*60*1000, verification_no_data_pi); 
 	}
 	
 	//开启净水器	

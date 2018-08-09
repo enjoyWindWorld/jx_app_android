@@ -200,6 +200,18 @@
                         android:background="@mipmap/product_detail_3"
                         />
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/product_detail_4"
+                        />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/product_detail_5"
+                        />
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

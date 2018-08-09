@@ -529,7 +529,7 @@ public class UseWaterFragment extends Fragment implements OnClickListener {
 			if (mWaterStateInfo.temperature == 1) {
 				setTemperature = 25;
 			} else if (mWaterStateInfo.temperature == 2) {
-				setTemperature = 50;
+				setTemperature = 60;
 			} else if (mWaterStateInfo.temperature == 3) {
 				setTemperature = 85;
 			} else if (mWaterStateInfo.temperature == 4) {
