@@ -364,13 +364,15 @@ public class ShowColorTypePopwindow extends PopupWindow implements View.OnClickL
 
             }
 
-            if (mProid.equals("1")){
-                mPop_type.setText(mPop_detailInfo.getName());
-            }else if (mProid.equals("2")){
-                mPop_type.setText(mPop_detailInfo.getName());
-            }else if (mProid.equals("3")){
-                mPop_type.setText(mPop_detailInfo.getName());
-            }
+            mPop_type.setText(mPop_detailInfo.getName());
+
+//            if (mProid.equals("1")){
+//                mPop_type.setText(mPop_detailInfo.getName());
+//            }else if (mProid.equals("2")){
+//                mPop_type.setText(mPop_detailInfo.getName());
+//            }else if (mProid.equals("3")){
+//                mPop_type.setText(mPop_detailInfo.getName());
+//            }
         }
     }
 

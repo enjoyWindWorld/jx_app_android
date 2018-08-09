@@ -22,7 +22,9 @@ public class Constant {
 //    public static final String IP = "http://39.104.126.204/";
     public static final String IP = "http://www.szjxzn.tech:8080/";
 
-    private static final String BASE_HEAD = IP + "jx_smart/smvc/";
+//    private static final String BASE_HEAD = "http://39.104.126.204/smvc/";
+    private static final String BASE_HEAD = "http://www.szjxzn.tech:8080/jx_smart/smvc/";
+
     private static final String USER_URL = BASE_HEAD + "user/test/";
     private static final String CS_URL = IP + "jx_smart/after/users/";
     private static final String LAUNDCH_URL = BASE_HEAD + "launch/test/";

@@ -105,12 +105,15 @@
 
                                 <TextView
                                     android:id="@+id/color_pop_type"
-                                    android:layout_width="@dimen/dp_90"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="@dimen/dp_30"
                                     android:layout_marginLeft="@dimen/dp_20"
+                                    android:layout_marginRight="20dp"
+                                    android:minWidth="@dimen/dp_90"
                                     android:background="@mipmap/type_kuang"
                                     android:gravity="center"
                                     android:padding="2dp"
+                                    android:singleLine="true"
                                     android:text="台式净水机"
                                     android:textColor="#030303"
                                     android:textSize="14sp" />

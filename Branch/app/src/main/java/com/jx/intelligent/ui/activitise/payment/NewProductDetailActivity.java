@@ -30,6 +30,7 @@ import com.jx.intelligent.result.ProductDetailResult;
 import com.jx.intelligent.ui.activitise.PopuwindowView.ShowColorTypePopwindow;
 import com.jx.intelligent.ui.activitise.PopuwindowView.ShowParamenterPopwindow;
 import com.jx.intelligent.util.MsgIntEvent;
+import com.jx.intelligent.util.NetUtil;
 import com.jx.intelligent.util.SesSharedReferences;
 import com.jx.intelligent.util.StringUtil;
 import com.jx.intelligent.util.ToastUtil;
@@ -376,55 +377,17 @@ public class NewProductDetailActivity extends RHBaseActivity implements SwipeRef
             ProductDetailResult.Data DetaiAllDatas = productDetailResultBean.getData().get(0);
             //colorInfoList是3种颜色的集合 里面有 中国红 ，土豪金，珍珠白，以及其对应的其他参数的集合
             List<ProductDetailResult.Data.ColorInfo> colorInfoList = DetaiAllDatas.getColor();
-            String id = DetaiAllDatas.getDetail().get(0).getId();
-            Log.e("111", "我拿到了ID" + id);
-            if (id.equals("1")) {
-                //3种颜色的URL，用StringBuilder拼接成一个新的字符串
-                String url0 = colorInfoList.get(0).getUrl();
-                String url1 = colorInfoList.get(1).getUrl();
-                String url2 = colorInfoList.get(2).getUrl();
-                //用StringBuilder拼接所有图片的url，然后去拆解成一个个的URL
-                StringBuilder bl = new StringBuilder();
-                String mAllUrl = String.valueOf(bl.append(url0).append(",").append(url1).append(",").append(url2));
-                //颜色
-                String pic_color = colorInfoList.get(0).getPic_color();
 
-                //去拼接URL集合
-                ArrayList<String> mUrlList = SelectedUrl(mAllUrl);
-                //初始化商品详情页面的 ViewPager
-                Log.e("111", "我到初始化initViewPager（）方法了");
-                initViewPager(mUrlList);
-            } else if (id.equals("2")) {
-                //3种颜色的URL，用StringBuilder拼接成一个新的字符串
-                String url0 = colorInfoList.get(0).getUrl();
-                String url1 = colorInfoList.get(1).getUrl();
-                //用StringBuilder拼接所有图片的url，然后去拆解成一个个的URL
-                StringBuilder bl = new StringBuilder();
-                String mAllUrl = String.valueOf(bl.append(url0).append(",").append(url1));
-                //颜色
-                String pic_color = colorInfoList.get(0).getPic_color();
-
-                //去拼接URL集合
-                ArrayList<String> mUrlList = SelectedUrl(mAllUrl);
+            if(colorInfoList != null && colorInfoList.size() > 0)
+            {
+                ArrayList<String> mUrlList = new ArrayList<>();
+                for (ProductDetailResult.Data.ColorInfo colorInfo : colorInfoList)
+                {
+                    mUrlList.add(colorInfo.getUrl());
+                }
                 //初始化商品详情页面的 ViewPager
                 initViewPager(mUrlList);
-            } else if (id.equals("3")) {
-                //3种颜色的URL，用StringBuilder拼接成一个新的字符串
-                String url0 = colorInfoList.get(0).getUrl();
-                String url1 = colorInfoList.get(1).getUrl();
-                //用StringBuilder拼接所有图片的url，然后去拆解成一个个的URL
-                StringBuilder bl = new StringBuilder();
-                String mAllUrl = String.valueOf(bl.append(url0).append(",").append(url1));
-                //颜色
-                String pic_color = colorInfoList.get(0).getPic_color();
-
-                //去拼接URL集合
-                ArrayList<String> mUrlList = SelectedUrl(mAllUrl);
-                //初始化商品详情页面的 ViewPager
-                initViewPager(mUrlList);
-
             }
-
 
             //TODO: 这里需要注意  get(0)是正常账号的价格，get(1)是测试账号的价格
             //这是价格部分的数据
