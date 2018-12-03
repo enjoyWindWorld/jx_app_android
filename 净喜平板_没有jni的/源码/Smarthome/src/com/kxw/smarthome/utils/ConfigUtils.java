@@ -8,7 +8,7 @@ public class ConfigUtils {
 
 //	public static String base_url = "http://data.jx-inteligent.tech:15660/jx_smart/smvc";
 	public static String base_url ="http://www.szjxzn.tech:8080/jx_smart/smvc";
-//	public static String base_url ="http://39.104.126.204:8080/smvc";
+//	public static String base_url ="http://39.104.126.204/smvc";
 
 	// 高清视频，空间大
 	static String downloadPath = "http://www.szjxzn.tech:8080/pic/jingxi1010.mp4";

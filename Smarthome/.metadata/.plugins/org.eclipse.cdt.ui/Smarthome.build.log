@@ -1,0 +1,8 @@
+
+**** Build of configuration Default for project Smarthome ****
+
+D:\android\sdk\android-ndk-r10c\ndk-build.cmd all 
+Android NDK: WARNING: APP_PLATFORM android-19 is larger than android:minSdkVersion 10 in ./AndroidManifest.xml    
+[armeabi] Install        : libjxsmart.so => libs/armeabi/libjxsmart.so
+
+**** Build Finished ****

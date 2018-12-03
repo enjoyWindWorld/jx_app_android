@@ -25,6 +25,7 @@ import com.kxw.smarthome.utils.DataProcessingUtils;
 import com.kxw.smarthome.utils.JsonUtils;
 import com.kxw.smarthome.utils.MyLogger;
 import com.kxw.smarthome.utils.SharedPreferencesUtil;
+import com.kxw.smarthome.utils.ToolsUtils;
 
 public class UpdateAdReceiver extends BroadcastReceiver {  
 	Context mContext;
@@ -33,9 +34,22 @@ public class UpdateAdReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent){  
 		if(intent.getAction().equals(ConfigUtils.update_ad_alarm)){
 			mContext = context;
-			String address = SharedPreferencesUtil.getStringData(mContext, "province", "") 
-					+ SharedPreferencesUtil.getStringData(mContext, "city", "")
-					+ SharedPreferencesUtil.getStringData(mContext, "district", "");
+			String address = "";
+			if(!ToolsUtils.isEmpty(SharedPreferencesUtil.getStringData(mContext, "province", "")))
+			{
+				address = SharedPreferencesUtil.getStringData(mContext, "province", "");
+			}
+			
+			if(!ToolsUtils.isEmpty(SharedPreferencesUtil.getStringData(mContext, "city", "")))
+			{
+				address += "-"+SharedPreferencesUtil.getStringData(mContext, "city", "");
+			}
+			
+			if(!ToolsUtils.isEmpty(SharedPreferencesUtil.getStringData(mContext, "district", "")))
+			{
+				address += "-"+SharedPreferencesUtil.getStringData(mContext, "district", "");
+			}
+			System.out.println("==address=="+address);
 			getAdvUrl(address);
 		}
 	}

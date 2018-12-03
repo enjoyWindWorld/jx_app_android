@@ -554,10 +554,10 @@ public class BindDeviceActivity extends BaseActivity implements
 		JSONObject jObj = new JSONObject();
 		try {
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					BindDeviceActivity.this, "province", ""));
+					BindDeviceActivity.this, "province", "广东省"));
 			get_filter_option.setId("2");
 			get_filter_option.setOption("BindDeviceActivity：设备绑定获取全新的滤芯寿命");
-			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(BindDeviceActivity.this, "province", ""));
+			get_filter_option.setParam("code："+SharedPreferencesUtil.getStringData(BindDeviceActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		RequestParams params = new RequestParams(
@@ -639,13 +639,13 @@ public class BindDeviceActivity extends BaseActivity implements
 		try {
 			jObj.accumulate("pro_no", pro_no);
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					BindDeviceActivity.this, "province", ""));
+					BindDeviceActivity.this, "province", "广东省"));
 			
 			get_filter_option.setId("2");
 			get_filter_option.setOption("BindDeviceActivity：绑定设备获取剩余的滤芯寿命");
 			get_filter_option.setParam(
 					"pro_no："+pro_no+"；"
-					+"code："+SharedPreferencesUtil.getStringData(BindDeviceActivity.this, "province", ""));
+					+"code："+SharedPreferencesUtil.getStringData(BindDeviceActivity.this, "province", "广东省"));
 		} catch (Exception e) {
 		}
 		RequestParams params = new RequestParams(
@@ -729,7 +729,7 @@ public class BindDeviceActivity extends BaseActivity implements
 		JSONObject jObj = new JSONObject();
 		try {
 			jObj.accumulate("code", SharedPreferencesUtil.getStringData(
-					BindDeviceActivity.this, "province", ""));
+					BindDeviceActivity.this, "province", "广东省"));
 			jObj.accumulate("prono", userInfo.getPro_no());
 			jObj.accumulate("orderno", userInfo.getOrder_no());
 			jObj.accumulate("status", 0);// 0表示绑定成功，1表示失败

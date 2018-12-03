@@ -117,6 +117,7 @@ public class BrightnessControlActivity extends BaseActivity implements
 		{
 			return;
 		}
+		setProgress = paramInt;
 		Window localWindow = getWindow();
 		WindowManager.LayoutParams localLayoutParams = localWindow
 				.getAttributes();
@@ -143,7 +144,6 @@ public class BrightnessControlActivity extends BaseActivity implements
 			boolean fromUser) {
 		// TODO Auto-generated method stub
 		setScreenMode(0);
-		setProgress = progress;
 		setScreenBrightness(progress);
 		MyLogger.getInstance().e(progress);
 	}

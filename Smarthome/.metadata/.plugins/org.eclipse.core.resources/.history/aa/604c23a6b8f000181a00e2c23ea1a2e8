@@ -1,0 +1,121 @@
+package android.serialport.api;
+
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import com.kxw.smarthome.entity.BaseData;
+import com.kxw.smarthome.entity.WaterStateInfo;
+
+//import android.util.Log;
+
+public class SerialPort {
+
+	private static final String TAG = "SerialPort";
+
+	/*
+	 * Do not remove or rename the field mFd: it is used by native method close();
+	 */
+
+	private FileDescriptor mFd;
+	private FileInputStream mFileInputStream;
+	private FileOutputStream mFileOutputStream;
+	BaseData mBaseData;
+	WaterStateInfo mWaterStateInfo;
+
+	public SerialPort(File device, int baudrate, int flags) throws SecurityException, IOException {		
+		/* Check access permission */
+		if (!device.canRead() || !device.canWrite()) {
+			try {
+				/* Missing read/write permission, trying to chmod the file */
+				Process su;
+				su = Runtime.getRuntime().exec("/system/bin/su");
+				String cmd = "chmod 666 " + device.getAbsolutePath() + "\n"
+						+ "exit\n";
+				su.getOutputStream().write(cmd.getBytes());
+				if ((su.waitFor() != 0) || !device.canRead()
+						|| !device.canWrite()) {
+					throw new SecurityException();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+//				throw new SecurityException();
+			}
+		}
+
+		if(open(device.getAbsolutePath(), baudrate, flags)>=0){
+			mFd = getFileDescriptor();
+		}
+		if (mFd == null) {
+//			Log.e(TAG, "native open returns null");
+			throw new IOException();
+		}
+		mFileInputStream = new FileInputStream(mFd);
+		mFileOutputStream = new FileOutputStream(mFd);
+		mBaseData = new BaseData();
+		mWaterStateInfo = new WaterStateInfo();
+		if (mBaseData == null || mWaterStateInfo == null) {
+//			Log.e(TAG, "native open returns null");
+			throw new IOException();
+		}
+		initBaseData(mBaseData);
+		initWaterState(mWaterStateInfo);
+	}
+
+	// Getters and setters
+	public InputStream getInputStream() {
+		return mFileInputStream;
+	}
+
+	public OutputStream getOutputStream() {
+		return mFileOutputStream;
+	}
+	
+/*	public int getBaseData(){		
+		return getBaseData(mBaseData);
+	}
+	
+	public int getWaterState(){		
+		return getWaterState(mWaterStateInfo);
+	}*/
+
+	// JNI
+	private native static int open(String path, int baudrate, int flags);  //串口开
+	public native void close(); //串口关
+	public native int setBaseData(BaseData mBaseData); //传递basedata的对象到so库中
+	public native int setPayType(int type);  // 设置付费方式
+	public native int setWaterVolume(int volume);  //总流量
+	public native int setDueTime(int day); //设置天数，包年为365天
+	public native int setWaterSwitch(boolean isUsing,int temperature); //用水开关
+	public native int setFilterLife(int[] life,int len);  //设置滤芯寿命
+	public native int setVerSwitch(boolean turnon); //设置版本开关（类似于强制升级）00开启净水器;01：关停净水器
+	public native int setCurrentTime(String currentTime);  //校准时间
+	public native FileDescriptor getFileDescriptor();  //获取文件描述符
+	public native int getBaseData(BaseData mBaseData);  //获取单片机基本信息
+	public native int initBaseData(BaseData mBaseData);  //初始化basedata 
+	public native int initWaterState(WaterStateInfo mWaterStateInfo); //初始化waterstateInfo
+	public native int getWaterState(WaterStateInfo mWaterStateInfo);  //获取当前用水状态
+	public native int setWaterState(WaterStateInfo mWaterStateInfo);  //将WaterStateInfo类传递到so库
+	public native int getReturn();  //获取返回值
+	public native int setUnbind();  //重置单片机
+	public native int setTemperatureCorrectionPlus(int temperature);  //温度修正(加)
+	public native int setTemperatureCorrectionReduce(int temperature);  //温度修正(减)
+	public native int setFlowCorrectionPlus(int flow);  //流量修正(加)
+	public native int setFlowCorrectionReduce(int flow);  //流量修正(减)
+	
+//	static {
+//		System.loadLibrary("jxsmart");
+//	}
+	
+	/*public class BaseData{
+		
+	}
+	
+	public class WaterStateInfo{
+		
+	}*/
+}

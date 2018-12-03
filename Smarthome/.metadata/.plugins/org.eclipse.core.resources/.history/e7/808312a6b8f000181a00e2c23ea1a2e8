@@ -1,0 +1,557 @@
+package com.kxw.smarthome.receiver;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.x;
+import org.xutils.common.Callback.CommonCallback;
+import org.xutils.http.RequestParams;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.serialport.api.SerialPortUtil;
+
+import com.kxw.smarthome.MyApplication;
+import com.kxw.smarthome.entity.BaseData;
+import com.kxw.smarthome.entity.FilterLifeInfo;
+import com.kxw.smarthome.entity.OptionDescriptionInfo;
+import com.kxw.smarthome.entity.OptionDescriptions;
+import com.kxw.smarthome.entity.UserInfo;
+import com.kxw.smarthome.entity.VerificationData;
+import com.kxw.smarthome.entity.VerificationDataInfo;
+import com.kxw.smarthome.utils.ConfigUtils;
+import com.kxw.smarthome.utils.DBUtils;
+import com.kxw.smarthome.utils.DataProcessingUtils;
+import com.kxw.smarthome.utils.DateUtil;
+import com.kxw.smarthome.utils.JsonUtils;
+import com.kxw.smarthome.utils.SharedPreferencesUtil;
+import com.kxw.smarthome.utils.Utils;
+
+public class VerificationDataReceiver extends BroadcastReceiver{
+
+	private Context mContext;
+	private SerialPortUtil mSerialPortUtil;
+	private VerificationData verificationData;
+	private BaseData mBaseData;
+	private FilterLifeInfo originalFilterLifeInfo;
+	private UserInfo originalUserInfo;
+
+	private Handler mFilterLifeHandler;  
+	private HandlerThread mFilterLifeHandlerThread;  
+	
+	private Handler mQuantityHandler;  
+	private HandlerThread mQuantityHandlerThread;  
+	int smallerDiff, quantityDiff;
+	
+	private OptionDescriptions optionDescriptions = new OptionDescriptions();
+	private List<OptionDescriptionInfo> options = new ArrayList<OptionDescriptionInfo>();
+	private OptionDescriptionInfo verification_water_option = new OptionDescriptionInfo();
+	private OptionDescriptionInfo verification_filter_option = new OptionDescriptionInfo();
+	
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		System.out.println("====数据验证====");
+		
+		if(intent.getAction().equals(ConfigUtils.verification_data_action)){
+			this.mContext = context;
+			originalUserInfo = DBUtils.getFirstData(UserInfo.class);
+			originalFilterLifeInfo = DBUtils.getFirstData(FilterLifeInfo.class);
+			verificationData = new VerificationData(mContext);
+			mSerialPortUtil = MyApplication.getSerialPortUtil();
+			
+			mFilterLifeHandlerThread = new HandlerThread("SyncFilterLifeReceiver_mFilterLifeHandlerThread", 5);  
+			mFilterLifeHandlerThread.start();  
+			mFilterLifeHandler = new Handler(mFilterLifeHandlerThread.getLooper()); 
+			
+			mQuantityHandlerThread = new HandlerThread("SyncFilterLifeReceiver_mQuantityHandlerThread", 5);  
+			mQuantityHandlerThread.start();  
+			mQuantityHandler = new Handler(mQuantityHandlerThread.getLooper()); 
+			
+			if(verificationData.getPay_proid() == -1 
+					|| verificationData.getTimeSurplus() == -1 
+					|| verificationData.getFirstFilter() == -1
+					|| verificationData.getSecondFilter() == -1
+					|| verificationData.getThirdFilter() == -1
+					|| verificationData.getFourthFilter() == -1
+					|| verificationData.getFirstFilter() == -1
+					|| verificationData.getMultiple() == -1
+					)
+			{
+				if(originalUserInfo != null && originalFilterLifeInfo != null)
+				{
+					System.out.println("=====无验证数据=====");
+					getVerificationData(originalUserInfo.getOrder_no());
+				}
+			}
+			else
+			{
+				System.out.println("=====有验证数据=====");
+				verificationWater();
+			}
+		}
+	}
+	
+	//设置滤芯使用寿命	
+	private Runnable mFilterLifeRunnable = new Runnable() {  
+	    @Override  
+	    public void run() {
+			if(!Utils.inuse){//串口没有使用
+				Utils.inuse = true;
+				int try_times=0;
+				int firstFilter = verificationData.getFirstFilter() - smallerDiff;
+				int secondFilter = verificationData.getSecondFilter() - smallerDiff;
+				int thirdFilter = verificationData.getThirdFilter() - smallerDiff;
+				int fourthFilter = verificationData.getFourthFilter() - smallerDiff;
+				int fivethFilter = verificationData.getFivethFilter() - smallerDiff;
+				
+				System.out.println("===验证滤芯剩余寿命====");
+				System.out.println("===smallerDiff===="+smallerDiff);
+				System.out.println("===firstFilter===="+firstFilter);
+				System.out.println("===secondFilter===="+secondFilter);
+				System.out.println("===thirdFilter===="+thirdFilter);
+				System.out.println("===fourthFilter===="+fourthFilter);
+				System.out.println("===fivethFilter===="+fivethFilter);
+				
+				int life[] = {firstFilter <= 0 ? 1 : firstFilter, secondFilter <= 0 ? 1 : secondFilter, thirdFilter <= 0 ? 1 : thirdFilter,
+						fourthFilter <= 0 ? 1 : fourthFilter, fivethFilter <= 0 ? 1 : fivethFilter};
+				
+				for (int i = 0; i < life.length; i++) {
+					System.out.println("===life["+i+"]==="+life[i]);
+				}
+				
+				while(try_times<2){
+					if(mSerialPortUtil.setFilterLife(life, life.length)>0 && mSerialPortUtil.getReturn()>=0)
+					{
+						try_times++;
+						verificationData.setFirstFilter(firstFilter <= 0 ? 1 : firstFilter);
+						verificationData.setSecondFilter(secondFilter <= 0 ? 1 : secondFilter);
+						verificationData.setThirdFilter(thirdFilter <= 0 ? 1 : thirdFilter);
+						verificationData.setFourthFilter(fourthFilter <= 0 ? 1 : fourthFilter);
+						verificationData.setFivethFilter(fivethFilter <= 0 ? 1 : fivethFilter);
+					}
+					else
+					{
+						try_times++;
+						verificationData.setFirstFilter(firstFilter <= 0 ? 1 : firstFilter);
+						verificationData.setSecondFilter(secondFilter <= 0 ? 1 : secondFilter);
+						verificationData.setThirdFilter(thirdFilter <= 0 ? 1 : thirdFilter);
+						verificationData.setFourthFilter(fourthFilter <= 0 ? 1 : fourthFilter);
+						verificationData.setFivethFilter(fivethFilter <= 0 ? 1 : fivethFilter);
+					}
+				}
+				
+				verification_filter_option.setLocalDate("verificationData="+verificationData.toString()+"; mBaseData="+mBaseData.toString());
+				options.add(verification_filter_option);
+				optionDescriptions.setDates(options);
+				Intent intent = new Intent(ConfigUtils.upload_option_description_action);
+				intent.putExtra("options", optionDescriptions);
+				mContext.sendBroadcast(intent);
+				
+				Utils.inuse = false;
+			}
+		}  
+	}; 
+	
+	//设置套餐类型及总量
+	private Runnable mQuantitykRunnable = new Runnable() {  
+	    @Override  
+	    public void run() {
+			if(!Utils.inuse){//串口没有使用
+				Utils.inuse = true;
+				if(verificationData != null)
+				{
+					mSerialPortUtil = MyApplication.getSerialPortUtil();
+					while ((mSerialPortUtil.setPayType(verificationData.getPay_proid()) > 0 && mSerialPortUtil
+							.getReturn() >= 0)) {
+						if (verificationData.getPay_proid() == 0) {
+							//原理是65535数据溢出，设置值
+							//流量的差值
+							int translate = verificationData.getWaterSurplus() + 65535 + 1 - mBaseData.waterSurplus - quantityDiff;//流量相差的差值
+							System.out.println("===验证剩余流量===");
+							System.out.println("===translate==="+translate);
+							while ((mSerialPortUtil.setWaterVolume(translate) > 0 && mSerialPortUtil.getReturn() >= 0)) {
+								
+								int waterSurplus = verificationData.getWaterSurplus() - quantityDiff;
+								System.out.println("===waterSurplus==="+waterSurplus);
+								verificationData.setWaterSurplus(waterSurplus);
+								
+								try {
+									Thread.sleep(10 * 1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								Utils.inuse = false;
+								verificationFilterTime();
+								return;
+							}
+						} 
+						else if (verificationData.getPay_proid() == 1)
+						{
+							//原理是65535数据溢出，设置值
+							//是否多减了一天
+							int days;
+							//数值变化的时间还没到，加回一天
+							System.out.println("===more time==="+DateUtil.nowCurrentTime(verificationData.getBindDate()));
+							if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+							{
+								//绑定时间加多一天
+								long times = verificationData.getBindDate() + 24*60*60;
+								verificationData.setBindDate(times);
+								days = 1;
+							}
+							else
+							{
+								days = 0;
+							}
+							//天数相差的差值
+							int translate = verificationData.getTimeSurplus() + 65535 + 1 - mBaseData.timeSurplus - days;//天数相差的差值
+							System.out.println("===验证剩余天数===");
+							System.out.println("===translate==="+translate);
+							System.out.println("===days==="+days);
+							while ((mSerialPortUtil.setDueTime(translate) > 0 && mSerialPortUtil.getReturn() >= 0)) {
+								int timeSurplus = verificationData.getTimeSurplus() - days;
+								System.out.println("===timeSurplus==="+timeSurplus);
+								verificationData.setTimeSurplus(timeSurplus);
+								
+								try {
+									Thread.sleep(10 * 1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								Utils.inuse = false;
+								verificationFilterTime();
+								return;
+							}
+						}
+					}
+				}
+			}
+		}  
+	}; 
+	
+	public void verificationFilterTime() {
+		
+		verification_water_option.setLocalDate("verificationData="+verificationData.toString()+"; mBaseData="+mBaseData.toString());
+		options.clear();
+		options.add(verification_water_option);
+		
+		mBaseData = mSerialPortUtil.returnBaseData();
+		if(mBaseData != null && verificationData != null && originalFilterLifeInfo != null)
+		{
+			verificationData.play();
+			verification_filter_option.setId("2");
+			verification_filter_option.setParam("无");
+			
+			int firstFilterDiff = verificationData.getFirstFilter() - mBaseData.firstFilter;
+			int secondFilterDiff = verificationData.getSecondFilter() - mBaseData.secondFilter;
+			int thirdFilterDiff = verificationData.getThirdFilter() - mBaseData.thirdFilter;
+			int fourthFilterDiff = verificationData.getFourthFilter() - mBaseData.fourthFilter;
+			smallerDiff = 0;
+			
+			System.out.println("===firstFilterDiff===="+firstFilterDiff);
+			System.out.println("===secondFilterDiff===="+secondFilterDiff);
+			System.out.println("===thirdFilterDiff===="+thirdFilterDiff);
+			System.out.println("===fourthFilterDiff===="+fourthFilterDiff);
+			
+			//不在设置范围里(里面有正常的，设置为正常的滤芯寿面剩余时间)
+			if(mBaseData.firstFilter < 0 || mBaseData.firstFilter > originalFilterLifeInfo.pp
+					|| mBaseData.secondFilter < 0 || mBaseData.secondFilter > originalFilterLifeInfo.cto
+					|| mBaseData.thirdFilter < 0 || mBaseData.thirdFilter > originalFilterLifeInfo.ro
+					|| mBaseData.fourthFilter < 0 || mBaseData.fourthFilter > originalFilterLifeInfo.t33)
+			{
+				System.out.println("====verificationFilterTime_滤芯寿命不在设置范围里(里面有正常的，设置为正常的滤芯寿面剩余时间)===="+mBaseData.toString());
+				verification_filter_option.setOption("====verificationFilterTime_滤芯寿命不在设置范围里(里面有正常的，设置为正常的滤芯寿面剩余时间)====");
+				
+				//拿到最小的递减值				
+				if(mBaseData.firstFilter >= 0 && mBaseData.firstFilter <= originalFilterLifeInfo.pp)
+				{
+					if(smallerDiff == 0 || smallerDiff > firstFilterDiff)
+					{
+						smallerDiff = firstFilterDiff;
+					}
+				}
+				
+				if(mBaseData.secondFilter >= 0 && mBaseData.secondFilter <= originalFilterLifeInfo.cto)
+				{
+					if(smallerDiff == 0 || smallerDiff > secondFilterDiff)
+					{
+						smallerDiff = secondFilterDiff;
+					}
+				}
+				
+				if(mBaseData.thirdFilter >= 0 && mBaseData.thirdFilter <= originalFilterLifeInfo.ro)
+				{
+					if(smallerDiff == 0 || smallerDiff > thirdFilterDiff)
+					{
+						smallerDiff = thirdFilterDiff;
+					}
+				}
+				
+				if(mBaseData.fourthFilter >= 0 && mBaseData.fourthFilter <= originalFilterLifeInfo.t33)
+				{
+					if(smallerDiff == 0 || smallerDiff > fourthFilterDiff)
+					{
+						smallerDiff = fourthFilterDiff;
+					}
+				}
+				
+				mFilterLifeHandler.post(mFilterLifeRunnable);
+			}
+			//值都在设置范围里，但是减少的值不相等
+			else if(!(firstFilterDiff == secondFilterDiff && firstFilterDiff== thirdFilterDiff && firstFilterDiff == fourthFilterDiff))
+			{
+				System.out.println("====verificationFilterTime_滤芯寿命值都在设置范围里，但是减少的值不相等===="+mBaseData.toString());
+				verification_filter_option.setOption("====verificationFilterTime_滤芯寿命值都在设置范围里，但是减少的值不相等====");
+				
+				//以平板的数据为准，把平板的数据同步到主板里
+				smallerDiff = 1;
+				
+//				if(smallerDiff > secondFilterDiff)
+//				{
+//					smallerDiff = secondFilterDiff;
+//				}
+//				
+//				if(smallerDiff > thirdFilterDiff)
+//				{
+//					smallerDiff = thirdFilterDiff;
+//				}
+//				
+//				if(smallerDiff > fourthFilterDiff)
+//				{
+//					smallerDiff = fourthFilterDiff;
+//				}
+				
+				mFilterLifeHandler.post(mFilterLifeRunnable);
+			}
+			else if(firstFilterDiff == secondFilterDiff 
+					&& firstFilterDiff== thirdFilterDiff 
+					&& firstFilterDiff == fourthFilterDiff)
+			{
+				System.out.println("====verificationFilterTime_滤芯寿命值有减，一个小时最多减少1小时，不减就不用管===="+mBaseData.toString());
+				verification_filter_option.setOption("====verificationFilterTime_滤芯寿命值有减，一个小时最多减少1小时，不减就不用管====");
+				if(firstFilterDiff != 0)
+				{
+					smallerDiff = 1;
+					mFilterLifeHandler.post(mFilterLifeRunnable);
+				}
+				else
+				{
+					verification_filter_option.setLocalDate("verificationData="+verificationData.toString()+"; mBaseData="+mBaseData.toString());
+					options.add(verification_filter_option);
+					optionDescriptions.setDates(options);
+					Intent intent = new Intent(ConfigUtils.upload_option_description_action);
+					intent.putExtra("options", optionDescriptions);
+					mContext.sendBroadcast(intent);
+				}
+			}
+		}
+	}
+	
+	public void verificationWater() {
+		verificationData.play();
+		mBaseData = mSerialPortUtil.returnBaseData();
+		System.out.println(mBaseData.toString());
+		
+		verification_water_option.setId("1");
+		verification_water_option.setParam("无");
+		
+		if(mBaseData != null && verificationData != null && originalUserInfo != null)
+		{
+			if(verificationData.getPay_proid() == 1)//包年
+			{
+				quantityDiff = verificationData.getTimeSurplus() - mBaseData.timeSurplus;
+				
+				if(verificationData.getMultiple() == 3)
+				{
+					System.out.println("====verificationWater_3年保持天数不变===="+mBaseData.toString());
+					verification_water_option.setOption("====verificationWater_3年保持天数不变====");
+					mQuantityHandler.post(mQuantitykRunnable);
+				}
+				else
+				{
+					//不在范围里
+					if(mBaseData.timeSurplus < 0 || mBaseData.timeSurplus > originalUserInfo.quantity)
+					{
+						System.out.println("====verificationWater_包年天数值不在范围里===="+mBaseData.toString());
+						verification_water_option.setOption("====verificationWater_包年天数值不在范围里====");
+						mQuantityHandler.post(mQuantitykRunnable);
+					}
+					//递减值异常
+					else if(quantityDiff < 0 || quantityDiff > 1)
+					{
+						System.out.println("====verificationWater_包年天数值递减值异常===="+mBaseData.toString());
+						verification_water_option.setOption("====verificationWater_包年天数值递减值异常====");
+						mQuantityHandler.post(mQuantitykRunnable);
+					}
+					//正常减少数据，但是要看看是不是24小时的
+					else if(quantityDiff == 1)
+					{
+						if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+						{
+							System.out.println("====verificationWater_包年天数正常减少数据，够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数正常减少数据，够24小时====");
+							//绑定时间加多一天
+							long times = verificationData.getBindDate() + 24*60*60;
+							verificationData.setBindDate(times);
+							verificationData.setTimeSurplus(mBaseData.timeSurplus);
+							verificationFilterTime();
+						}
+						else
+						{
+							System.out.println("====verificationWater_包年天数正常减少数据，但是不够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数正常减少数据，但是不够24小时====");
+							mQuantityHandler.post(mQuantitykRunnable);
+						}
+					}
+					//不变的情况，直接验证滤芯剩余寿命
+					else if(quantityDiff == 0)
+					{
+						if(DateUtil.nowCurrentTime(verificationData.getBindDate()) >= 24*60*60)
+						{
+							//绑定时间加多一天
+							System.out.println("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数值不变的情况，已经够24小时，平板帮减1天====");
+							mQuantityHandler.post(mQuantitykRunnable);
+						}
+						else
+						{
+							System.out.println("====verificationWater_包年天数值不变的情况，不够24小时===="+mBaseData.toString());
+							verification_water_option.setOption("====verificationWater_包年天数值不变的情况，不够24小时====");
+							verificationFilterTime();
+						}
+					}
+				}
+			}
+			else
+			{
+				quantityDiff =  verificationData.getWaterSurplus() - mBaseData.waterSurplus;
+				
+				//不在范围里
+				if(mBaseData.getWaterSurplus() < 0 || mBaseData.getWaterSurplus() > originalUserInfo.quantity)
+				{
+					quantityDiff = 0;
+					System.out.println("====verificationWater_包流量值不在范围里===="+mBaseData.toString());
+					verification_water_option.setOption("====verificationWater_包流量值不在范围里====");
+					mQuantityHandler.post(mQuantitykRunnable);
+				}
+//				//设置没成功（这个东西要是在很低的流量的情况下有误）
+//				else if(quantityDiff >= originalUserInfo.quantity)
+//				{
+//					quantityDiff = 0;
+//					System.out.println("====verificationWater_包年流量值设置没成功===="+mBaseData.toString());
+//					verification_water_option.setOption("====verificationWater_包年流量值设置没成功====");
+//					mQuantityHandler.post(mQuantitykRunnable);
+//				}
+				//递减值异常, 理论一个小时最多制水7.8L,实际上能达到12L
+				else if(quantityDiff >= 12)
+				{
+					quantityDiff = 12;
+					System.out.println("====verificationWater_包年流量递减值异常, 理论一个小时最多制水7.8L,实际上能达到12L===="+mBaseData.toString());
+					verification_water_option.setOption("====verificationWater_包年流量递减值异常, 理论一个小时最多制水7.8L,实际上能达到12L====");
+					mQuantityHandler.post(mQuantitykRunnable);
+				}
+				else
+				{
+					System.out.println("====verificationWater_包年流量递减值正常===="+mBaseData.toString());
+					verification_water_option.setOption("====verificationWater_包年流量递减值正常====");
+					verificationData.setWaterSurplus(mBaseData.waterSurplus);
+					verificationFilterTime();
+				}
+			}
+		}
+	}
+	
+	public void getVerificationData(String orderno){
+		RequestParams params= new RequestParams(ConfigUtils.get_verification_data);
+		JSONObject jObj = new JSONObject();
+		try {
+			jObj.accumulate("pro_no", SharedPreferencesUtil.getStringData(mContext,"pro_no", ""));
+			jObj.accumulate("orderno", orderno);
+			
+//			jObj.accumulate("pro_no", "4498c060-59ac-44c2-9566-4a5374d17bdb");
+//			jObj.accumulate("orderno", "600180527223722");
+		} catch (Exception e) {
+		}
+		params.setBodyContent(DataProcessingUtils.encrypt(jObj.toString()));
+		params.setConnectTimeout(10000);
+		x.http().post(params, new CommonCallback<String>() {
+
+			@Override
+			public void onCancelled(CancelledException arg0) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void onError(Throwable arg0, boolean arg1) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void onFinished() {
+				// TODO Auto-generated method stub
+			}
+			
+			@Override
+			public void onSuccess(String response) {
+				// TODO Auto-generated method stub
+				
+				System.out.println("===验证数据==="+response);
+				
+				if(JsonUtils.result(response)==0){	
+					
+					List<VerificationDataInfo> list= new ArrayList<>();
+					try {
+						list=JsonUtils.jsonToArrayList(DataProcessingUtils.decode(new JSONObject(response).getString("data")), VerificationDataInfo.class);
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+					if(list != null && list.size() > 0)
+					{
+						
+						System.out.println(originalFilterLifeInfo.toString());
+						
+						VerificationDataInfo verificationDataInfo = list.get(0);
+						
+						//保存验证的数据
+						verificationData.setPay_proid(verificationDataInfo.getPay_proid());
+						verificationData.setBindDate(System.currentTimeMillis() / (long) 1000);
+						verificationData.setMultiple(verificationDataInfo.getMultiple());
+						if(verificationDataInfo.getPay_proid() == 1)//包年
+						{
+							verificationData.setTimeSurplus((int)verificationDataInfo.getQuantity());
+							verificationData.setWaterSurplus(0);
+						}
+						else
+						{
+							verificationData.setTimeSurplus(0);
+							verificationData.setWaterSurplus((int)verificationDataInfo.getQuantity());
+						}
+						
+						/**
+						 * 这是过滤数据库里已经存在的错误的滤芯寿命
+						 */
+						verificationData.setFirstFilter(verificationDataInfo.getPp() > originalFilterLifeInfo.getPp() ? originalFilterLifeInfo.getPp() : verificationDataInfo.getPp());
+						verificationData.setSecondFilter(verificationDataInfo.getCto() > originalFilterLifeInfo.getCto() ? originalFilterLifeInfo.getCto() : verificationDataInfo.getCto());
+						verificationData.setThirdFilter(verificationDataInfo.getRo() > originalFilterLifeInfo.getRo() ? originalFilterLifeInfo.getRo() : verificationDataInfo.getRo());
+						verificationData.setFourthFilter(verificationDataInfo.getT33() > originalFilterLifeInfo.getT33() ? originalFilterLifeInfo.getT33() : verificationDataInfo.getT33());
+						verificationData.setFivethFilter(verificationDataInfo.getWfr() > originalFilterLifeInfo.getWfr() ? originalFilterLifeInfo.getWfr() : verificationDataInfo.getWfr());
+
+						verificationData.play();
+						
+						verificationWater();
+						
+					}
+				}
+			}
+		});
+	}
+}

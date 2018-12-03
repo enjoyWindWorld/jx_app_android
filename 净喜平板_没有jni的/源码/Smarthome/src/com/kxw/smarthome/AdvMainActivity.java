@@ -24,6 +24,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -77,6 +79,7 @@ OnClickListener, Callback, OnCompletionListener, OnPreparedListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		System.loadLibrary("jxsmart");	
 		setBaseContentView(R.layout.adv_activity);
 		context=this;
 		initView();
